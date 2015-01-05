@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2013 Google Inc.
  *
  * Use of this source code is governed by a BSD-style license that can be
@@ -552,7 +552,7 @@ void GrGLDisplacementMapEffect::emitCode(GrGLFPBuilder* builder,
     const char* dColor = "dColor";
     const char* cCoords = "cCoords";
     const char* outOfBounds = "outOfBounds";
-    const char* nearZero = "1e-6"; // Since 6.10352e−5 is the smallest half float, use
+    const char* nearZero = "1e-6"; // Since 6.10352e?5 is the smallest half float, use
                                    // a number smaller than that to approximate 0, but
                                    // leave room for 32-bit float GPU rounding errors.
 
