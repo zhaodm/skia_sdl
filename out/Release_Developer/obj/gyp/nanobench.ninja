@@ -1,0 +1,599 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+build obj\gyp\nanobench.actions_depends.stamp: stamp $
+    obj\gyp\flags_common.lib obj\gyp\jsoncpp.lib $
+    obj\gyp\skia_lib.actions_depends.stamp obj\gyp\crash_handler.lib $
+    obj\gyp\proc_stats.lib obj\gyp\timer.lib obj\gyp\libetc1.lib $
+    obj\gyp\resources.lib obj\gyp\sk_tool_utils.lib skia_skgputest.lib $
+    skia_core.lib skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libSkKTX.lib obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\libwebp_dec.lib obj\gyp\libwebp_demux.lib $
+    obj\gyp\libwebp_dsp.lib obj\gyp\libwebp_enc.lib $
+    obj\gyp\libwebp_utils.lib skia_utils.lib skia_opts.lib $
+    skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib skia_sfnt.lib $
+    skia_skgpu.lib obj\gyp\flags.lib
+
+pdbname_c = nanobench.pdb
+pdbname_cc = nanobench.pdb
+pchprefix = nanobench
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DSK_DEVELOPER=1 -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\src\core -I..\..\src\effects -I..\..\src\gpu $
+    -I..\..\src\utils -I..\..\tools -I..\..\gm -I..\..\src\utils\debugger $
+    -I..\..\src\images -I..\..\src\lazy -I..\..\tools\flags $
+    -I..\..\third_party\externals\jsoncpp\include -I..\..\include\c $
+    -I..\..\include\config -I..\..\include\core -I..\..\include\pathops $
+    -I..\..\include\pipe -I..\..\gyp\config\win -I..\..\include\effects $
+    -I..\..\include\images -I..\..\include\ports -I..\..\src\sfnt $
+    -I..\..\include\utils -I..\..\include\utils\win -I..\..\include\gpu $
+    -I..\..\tools\timer -I..\..\third_party\etc1
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\gm\nanobench.gm.obj: cxx ..\..\gm\gm.cpp
+build obj\bench\nanobench.GMBench.obj: cxx ..\..\bench\GMBench.cpp
+build obj\bench\nanobench.RecordingBench.obj: cxx $
+    ..\..\bench\RecordingBench.cpp
+build obj\bench\nanobench.SKPBench.obj: cxx ..\..\bench\SKPBench.cpp
+build obj\bench\nanobench.nanobench.obj: cxx ..\..\bench\nanobench.cpp
+build obj\bench\nanobench.Benchmark.obj: cxx ..\..\bench\Benchmark.cpp
+build obj\bench\nanobench.AAClipBench.obj: cxx ..\..\bench\AAClipBench.cpp
+build obj\bench\nanobench.AlternatingColorPatternBench.obj: cxx $
+    ..\..\bench\AlternatingColorPatternBench.cpp
+build obj\bench\nanobench.BezierBench.obj: cxx ..\..\bench\BezierBench.cpp
+build obj\bench\nanobench.BitmapBench.obj: cxx ..\..\bench\BitmapBench.cpp
+build obj\bench\nanobench.BitmapRectBench.obj: cxx $
+    ..\..\bench\BitmapRectBench.cpp
+build obj\bench\nanobench.BitmapScaleBench.obj: cxx $
+    ..\..\bench\BitmapScaleBench.cpp
+build obj\bench\nanobench.BlurBench.obj: cxx ..\..\bench\BlurBench.cpp
+build obj\bench\nanobench.BlurImageFilterBench.obj: cxx $
+    ..\..\bench\BlurImageFilterBench.cpp
+build obj\bench\nanobench.BlurRectBench.obj: cxx ..\..\bench\BlurRectBench.cpp
+build obj\bench\nanobench.BlurRectsBench.obj: cxx $
+    ..\..\bench\BlurRectsBench.cpp
+build obj\bench\nanobench.BlurRoundRectBench.obj: cxx $
+    ..\..\bench\BlurRoundRectBench.cpp
+build obj\bench\nanobench.ChartBench.obj: cxx ..\..\bench\ChartBench.cpp
+build obj\bench\nanobench.ChecksumBench.obj: cxx ..\..\bench\ChecksumBench.cpp
+build obj\bench\nanobench.ChromeBench.obj: cxx ..\..\bench\ChromeBench.cpp
+build obj\bench\nanobench.CmapBench.obj: cxx ..\..\bench\CmapBench.cpp
+build obj\bench\nanobench.ColorCubeBench.obj: cxx $
+    ..\..\bench\ColorCubeBench.cpp
+build obj\bench\nanobench.ColorFilterBench.obj: cxx $
+    ..\..\bench\ColorFilterBench.cpp
+build obj\bench\nanobench.ColorPrivBench.obj: cxx $
+    ..\..\bench\ColorPrivBench.cpp
+build obj\bench\nanobench.CoverageBench.obj: cxx ..\..\bench\CoverageBench.cpp
+build obj\bench\nanobench.DashBench.obj: cxx ..\..\bench\DashBench.cpp
+build obj\bench\nanobench.DecodeBench.obj: cxx ..\..\bench\DecodeBench.cpp
+build obj\bench\nanobench.DeferredSurfaceCopyBench.obj: cxx $
+    ..\..\bench\DeferredSurfaceCopyBench.cpp
+build obj\bench\nanobench.DisplacementBench.obj: cxx $
+    ..\..\bench\DisplacementBench.cpp
+build obj\bench\nanobench.ETCBitmapBench.obj: cxx $
+    ..\..\bench\ETCBitmapBench.cpp
+build obj\bench\nanobench.FSRectBench.obj: cxx ..\..\bench\FSRectBench.cpp
+build obj\bench\nanobench.FontCacheBench.obj: cxx $
+    ..\..\bench\FontCacheBench.cpp
+build obj\bench\nanobench.FontScalerBench.obj: cxx $
+    ..\..\bench\FontScalerBench.cpp
+build obj\bench\nanobench.GameBench.obj: cxx ..\..\bench\GameBench.cpp
+build obj\bench\nanobench.GeometryBench.obj: cxx ..\..\bench\GeometryBench.cpp
+build obj\bench\nanobench.GrMemoryPoolBench.obj: cxx $
+    ..\..\bench\GrMemoryPoolBench.cpp
+build obj\bench\nanobench.GrResourceCacheBench.obj: cxx $
+    ..\..\bench\GrResourceCacheBench.cpp
+build obj\bench\nanobench.GrOrderedSetBench.obj: cxx $
+    ..\..\bench\GrOrderedSetBench.cpp
+build obj\bench\nanobench.GradientBench.obj: cxx ..\..\bench\GradientBench.cpp
+build obj\bench\nanobench.HairlinePathBench.obj: cxx $
+    ..\..\bench\HairlinePathBench.cpp
+build obj\bench\nanobench.ImageCacheBench.obj: cxx $
+    ..\..\bench\ImageCacheBench.cpp
+build obj\bench\nanobench.ImageDecodeBench.obj: cxx $
+    ..\..\bench\ImageDecodeBench.cpp
+build obj\bench\nanobench.ImageFilterDAGBench.obj: cxx $
+    ..\..\bench\ImageFilterDAGBench.cpp
+build obj\bench\nanobench.InterpBench.obj: cxx ..\..\bench\InterpBench.cpp
+build obj\bench\nanobench.LightingBench.obj: cxx ..\..\bench\LightingBench.cpp
+build obj\bench\nanobench.LineBench.obj: cxx ..\..\bench\LineBench.cpp
+build obj\bench\nanobench.MagnifierBench.obj: cxx $
+    ..\..\bench\MagnifierBench.cpp
+build obj\bench\nanobench.MathBench.obj: cxx ..\..\bench\MathBench.cpp
+build obj\bench\nanobench.Matrix44Bench.obj: cxx ..\..\bench\Matrix44Bench.cpp
+build obj\bench\nanobench.MatrixBench.obj: cxx ..\..\bench\MatrixBench.cpp
+build obj\bench\nanobench.MatrixConvolutionBench.obj: cxx $
+    ..\..\bench\MatrixConvolutionBench.cpp
+build obj\bench\nanobench.MemcpyBench.obj: cxx ..\..\bench\MemcpyBench.cpp
+build obj\bench\nanobench.MemoryBench.obj: cxx ..\..\bench\MemoryBench.cpp
+build obj\bench\nanobench.MemsetBench.obj: cxx ..\..\bench\MemsetBench.cpp
+build obj\bench\nanobench.MergeBench.obj: cxx ..\..\bench\MergeBench.cpp
+build obj\bench\nanobench.MorphologyBench.obj: cxx $
+    ..\..\bench\MorphologyBench.cpp
+build obj\bench\nanobench.MutexBench.obj: cxx ..\..\bench\MutexBench.cpp
+build obj\bench\nanobench.PatchBench.obj: cxx ..\..\bench\PatchBench.cpp
+build obj\bench\nanobench.PatchGridBench.obj: cxx $
+    ..\..\bench\PatchGridBench.cpp
+build obj\bench\nanobench.PathBench.obj: cxx ..\..\bench\PathBench.cpp
+build obj\bench\nanobench.PathIterBench.obj: cxx ..\..\bench\PathIterBench.cpp
+build obj\bench\nanobench.PathUtilsBench.obj: cxx $
+    ..\..\bench\PathUtilsBench.cpp
+build obj\bench\nanobench.PerlinNoiseBench.obj: cxx $
+    ..\..\bench\PerlinNoiseBench.cpp
+build obj\bench\nanobench.PictureNestingBench.obj: cxx $
+    ..\..\bench\PictureNestingBench.cpp
+build obj\bench\nanobench.PicturePlaybackBench.obj: cxx $
+    ..\..\bench\PicturePlaybackBench.cpp
+build obj\bench\nanobench.PremulAndUnpremulAlphaOpsBench.obj: cxx $
+    ..\..\bench\PremulAndUnpremulAlphaOpsBench.cpp
+build obj\bench\nanobench.RTreeBench.obj: cxx ..\..\bench\RTreeBench.cpp
+build obj\bench\nanobench.ReadPixBench.obj: cxx ..\..\bench\ReadPixBench.cpp
+build obj\bench\nanobench.RectBench.obj: cxx ..\..\bench\RectBench.cpp
+build obj\bench\nanobench.RectanizerBench.obj: cxx $
+    ..\..\bench\RectanizerBench.cpp
+build obj\bench\nanobench.RectoriBench.obj: cxx ..\..\bench\RectoriBench.cpp
+build obj\bench\nanobench.RefCntBench.obj: cxx ..\..\bench\RefCntBench.cpp
+build obj\bench\nanobench.RegionBench.obj: cxx ..\..\bench\RegionBench.cpp
+build obj\bench\nanobench.RegionContainBench.obj: cxx $
+    ..\..\bench\RegionContainBench.cpp
+build obj\bench\nanobench.RepeatTileBench.obj: cxx $
+    ..\..\bench\RepeatTileBench.cpp
+build obj\bench\nanobench.RotatedRectBench.obj: cxx $
+    ..\..\bench\RotatedRectBench.cpp
+build obj\bench\nanobench.ScalarBench.obj: cxx ..\..\bench\ScalarBench.cpp
+build obj\bench\nanobench.ShaderMaskBench.obj: cxx $
+    ..\..\bench\ShaderMaskBench.cpp
+build obj\bench\nanobench.SkipZeroesBench.obj: cxx $
+    ..\..\bench\SkipZeroesBench.cpp
+build obj\bench\nanobench.SortBench.obj: cxx ..\..\bench\SortBench.cpp
+build obj\bench\nanobench.StrokeBench.obj: cxx ..\..\bench\StrokeBench.cpp
+build obj\bench\nanobench.TableBench.obj: cxx ..\..\bench\TableBench.cpp
+build obj\bench\nanobench.TextBench.obj: cxx ..\..\bench\TextBench.cpp
+build obj\bench\nanobench.TileBench.obj: cxx ..\..\bench\TileBench.cpp
+build obj\bench\nanobench.VertBench.obj: cxx ..\..\bench\VertBench.cpp
+build obj\bench\nanobench.WritePixelsBench.obj: cxx $
+    ..\..\bench\WritePixelsBench.cpp
+build obj\bench\nanobench.WriterBench.obj: cxx ..\..\bench\WriterBench.cpp
+build obj\bench\nanobench.XfermodeBench.obj: cxx ..\..\bench\XfermodeBench.cpp
+build obj\gm\nanobench.aaclip.obj: cxx ..\..\gm\aaclip.cpp
+build obj\gm\nanobench.aarectmodes.obj: cxx ..\..\gm\aarectmodes.cpp
+build obj\gm\nanobench.alphagradients.obj: cxx ..\..\gm\alphagradients.cpp
+build obj\gm\nanobench.arcofzorro.obj: cxx ..\..\gm\arcofzorro.cpp
+build obj\gm\nanobench.arithmode.obj: cxx ..\..\gm\arithmode.cpp
+build obj\gm\nanobench.astcbitmap.obj: cxx ..\..\gm\astcbitmap.cpp
+build obj\gm\nanobench.beziereffects.obj: cxx ..\..\gm\beziereffects.cpp
+build obj\gm\nanobench.beziers.obj: cxx ..\..\gm\beziers.cpp
+build obj\gm\nanobench.bigblurs.obj: cxx ..\..\gm\bigblurs.cpp
+build obj\gm\nanobench.bigmatrix.obj: cxx ..\..\gm\bigmatrix.cpp
+build obj\gm\nanobench.bigtext.obj: cxx ..\..\gm\bigtext.cpp
+build obj\gm\nanobench.bitmapcopy.obj: cxx ..\..\gm\bitmapcopy.cpp
+build obj\gm\nanobench.bitmapfilters.obj: cxx ..\..\gm\bitmapfilters.cpp
+build obj\gm\nanobench.bitmappremul.obj: cxx ..\..\gm\bitmappremul.cpp
+build obj\gm\nanobench.bitmaprect.obj: cxx ..\..\gm\bitmaprect.cpp
+build obj\gm\nanobench.bitmaprecttest.obj: cxx ..\..\gm\bitmaprecttest.cpp
+build obj\gm\nanobench.bitmapscroll.obj: cxx ..\..\gm\bitmapscroll.cpp
+build obj\gm\nanobench.bitmapshader.obj: cxx ..\..\gm\bitmapshader.cpp
+build obj\gm\nanobench.bitmapsource.obj: cxx ..\..\gm\bitmapsource.cpp
+build obj\gm\nanobench.bleed.obj: cxx ..\..\gm\bleed.cpp
+build obj\gm\nanobench.blurcircles.obj: cxx ..\..\gm\blurcircles.cpp
+build obj\gm\nanobench.blurs.obj: cxx ..\..\gm\blurs.cpp
+build obj\gm\nanobench.blurquickreject.obj: cxx ..\..\gm\blurquickreject.cpp
+build obj\gm\nanobench.blurrect.obj: cxx ..\..\gm\blurrect.cpp
+build obj\gm\nanobench.blurroundrect.obj: cxx ..\..\gm\blurroundrect.cpp
+build obj\gm\nanobench.circles.obj: cxx ..\..\gm\circles.cpp
+build obj\gm\nanobench.circularclips.obj: cxx ..\..\gm\circularclips.cpp
+build obj\gm\nanobench.clip_strokerect.obj: cxx ..\..\gm\clip_strokerect.cpp
+build obj\gm\nanobench.clippedbitmapshaders.obj: cxx $
+    ..\..\gm\clippedbitmapshaders.cpp
+build obj\gm\nanobench.cgms.obj: cxx ..\..\gm\cgms.cpp
+build obj\gm\nanobench.cgm.obj: cc ..\..\gm\cgm.c
+build obj\gm\nanobench.colorcube.obj: cxx ..\..\gm\colorcube.cpp
+build obj\gm\nanobench.coloremoji.obj: cxx ..\..\gm\coloremoji.cpp
+build obj\gm\nanobench.colorfilterimagefilter.obj: cxx $
+    ..\..\gm\colorfilterimagefilter.cpp
+build obj\gm\nanobench.colorfilters.obj: cxx ..\..\gm\colorfilters.cpp
+build obj\gm\nanobench.colormatrix.obj: cxx ..\..\gm\colormatrix.cpp
+build obj\gm\nanobench.colortype.obj: cxx ..\..\gm\colortype.cpp
+build obj\gm\nanobench.colortypexfermode.obj: cxx $
+    ..\..\gm\colortypexfermode.cpp
+build obj\gm\nanobench.colorwheel.obj: cxx ..\..\gm\colorwheel.cpp
+build obj\gm\nanobench.complexclip.obj: cxx ..\..\gm\complexclip.cpp
+build obj\gm\nanobench.complexclip2.obj: cxx ..\..\gm\complexclip2.cpp
+build obj\gm\nanobench.complexclip3.obj: cxx ..\..\gm\complexclip3.cpp
+build obj\gm\nanobench.composeshader.obj: cxx ..\..\gm\composeshader.cpp
+build obj\gm\nanobench.convexpaths.obj: cxx ..\..\gm\convexpaths.cpp
+build obj\gm\nanobench.convexpolyclip.obj: cxx ..\..\gm\convexpolyclip.cpp
+build obj\gm\nanobench.convexpolyeffect.obj: cxx ..\..\gm\convexpolyeffect.cpp
+build obj\gm\nanobench.copyTo4444.obj: cxx ..\..\gm\copyTo4444.cpp
+build obj\gm\nanobench.cubicpaths.obj: cxx ..\..\gm\cubicpaths.cpp
+build obj\gm\nanobench.cmykjpeg.obj: cxx ..\..\gm\cmykjpeg.cpp
+build obj\gm\nanobench.degeneratesegments.obj: cxx $
+    ..\..\gm\degeneratesegments.cpp
+build obj\gm\nanobench.dcshader.obj: cxx ..\..\gm\dcshader.cpp
+build obj\gm\nanobench.discard.obj: cxx ..\..\gm\discard.cpp
+build obj\gm\nanobench.dashcubics.obj: cxx ..\..\gm\dashcubics.cpp
+build obj\gm\nanobench.dashing.obj: cxx ..\..\gm\dashing.cpp
+build obj\gm\nanobench.distantclip.obj: cxx ..\..\gm\distantclip.cpp
+build obj\gm\nanobench.dftext.obj: cxx ..\..\gm\dftext.cpp
+build obj\gm\nanobench.displacement.obj: cxx ..\..\gm\displacement.cpp
+build obj\gm\nanobench.downsamplebitmap.obj: cxx ..\..\gm\downsamplebitmap.cpp
+build obj\gm\nanobench.drawbitmaprect.obj: cxx ..\..\gm\drawbitmaprect.cpp
+build obj\gm\nanobench.drawlooper.obj: cxx ..\..\gm\drawlooper.cpp
+build obj\gm\nanobench.dropshadowimagefilter.obj: cxx $
+    ..\..\gm\dropshadowimagefilter.cpp
+build obj\gm\nanobench.drrect.obj: cxx ..\..\gm\drrect.cpp
+build obj\gm\nanobench.etc1bitmap.obj: cxx ..\..\gm\etc1bitmap.cpp
+build obj\gm\nanobench.extractbitmap.obj: cxx ..\..\gm\extractbitmap.cpp
+build obj\gm\nanobench.emboss.obj: cxx ..\..\gm\emboss.cpp
+build obj\gm\nanobench.emptypath.obj: cxx ..\..\gm\emptypath.cpp
+build obj\gm\nanobench.fatpathfill.obj: cxx ..\..\gm\fatpathfill.cpp
+build obj\gm\nanobench.factory.obj: cxx ..\..\gm\factory.cpp
+build obj\gm\nanobench.filltypes.obj: cxx ..\..\gm\filltypes.cpp
+build obj\gm\nanobench.filltypespersp.obj: cxx ..\..\gm\filltypespersp.cpp
+build obj\gm\nanobench.filterbitmap.obj: cxx ..\..\gm\filterbitmap.cpp
+build obj\gm\nanobench.filterfastbounds.obj: cxx ..\..\gm\filterfastbounds.cpp
+build obj\gm\nanobench.filterindiabox.obj: cxx ..\..\gm\filterindiabox.cpp
+build obj\gm\nanobench.fontcache.obj: cxx ..\..\gm\fontcache.cpp
+build obj\gm\nanobench.fontmgr.obj: cxx ..\..\gm\fontmgr.cpp
+build obj\gm\nanobench.fontscaler.obj: cxx ..\..\gm\fontscaler.cpp
+build obj\gm\nanobench.gammatext.obj: cxx ..\..\gm\gammatext.cpp
+build obj\gm\nanobench.getpostextpath.obj: cxx ..\..\gm\getpostextpath.cpp
+build obj\gm\nanobench.giantbitmap.obj: cxx ..\..\gm\giantbitmap.cpp
+build obj\gm\nanobench.glyph_pos.obj: cxx ..\..\gm\glyph_pos.cpp
+build obj\gm\nanobench.glyph_pos_align.obj: cxx ..\..\gm\glyph_pos_align.cpp
+build obj\gm\nanobench.gradients.obj: cxx ..\..\gm\gradients.cpp
+build obj\gm\nanobench.gradients_2pt_conical.obj: cxx $
+    ..\..\gm\gradients_2pt_conical.cpp
+build obj\gm\nanobench.gradients_no_texture.obj: cxx $
+    ..\..\gm\gradients_no_texture.cpp
+build obj\gm\nanobench.gradientDirtyLaundry.obj: cxx $
+    ..\..\gm\gradientDirtyLaundry.cpp
+build obj\gm\nanobench.gradient_matrix.obj: cxx ..\..\gm\gradient_matrix.cpp
+build obj\gm\nanobench.gradtext.obj: cxx ..\..\gm\gradtext.cpp
+build obj\gm\nanobench.grayscalejpg.obj: cxx ..\..\gm\grayscalejpg.cpp
+build obj\gm\nanobench.hairlines.obj: cxx ..\..\gm\hairlines.cpp
+build obj\gm\nanobench.hairmodes.obj: cxx ..\..\gm\hairmodes.cpp
+build obj\gm\nanobench.hittestpath.obj: cxx ..\..\gm\hittestpath.cpp
+build obj\gm\nanobench.imagealphathreshold.obj: cxx $
+    ..\..\gm\imagealphathreshold.cpp
+build obj\gm\nanobench.imageblur.obj: cxx ..\..\gm\imageblur.cpp
+build obj\gm\nanobench.imageblur2.obj: cxx ..\..\gm\imageblur2.cpp
+build obj\gm\nanobench.imageblurtiled.obj: cxx ..\..\gm\imageblurtiled.cpp
+build obj\gm\nanobench.imagemagnifier.obj: cxx ..\..\gm\imagemagnifier.cpp
+build obj\gm\nanobench.imageresizetiled.obj: cxx ..\..\gm\imageresizetiled.cpp
+build obj\gm\nanobench.inversepaths.obj: cxx ..\..\gm\inversepaths.cpp
+build obj\gm\nanobench.lerpmode.obj: cxx ..\..\gm\lerpmode.cpp
+build obj\gm\nanobench.lighting.obj: cxx ..\..\gm\lighting.cpp
+build obj\gm\nanobench.lumafilter.obj: cxx ..\..\gm\lumafilter.cpp
+build obj\gm\nanobench.image.obj: cxx ..\..\gm\image.cpp
+build obj\gm\nanobench.imagefiltersbase.obj: cxx ..\..\gm\imagefiltersbase.cpp
+build obj\gm\nanobench.imagefiltersclipped.obj: cxx $
+    ..\..\gm\imagefiltersclipped.cpp
+build obj\gm\nanobench.imagefilterscropped.obj: cxx $
+    ..\..\gm\imagefilterscropped.cpp
+build obj\gm\nanobench.imagefilterscropexpand.obj: cxx $
+    ..\..\gm\imagefilterscropexpand.cpp
+build obj\gm\nanobench.imagefiltersgraph.obj: cxx $
+    ..\..\gm\imagefiltersgraph.cpp
+build obj\gm\nanobench.imagefiltersscaled.obj: cxx $
+    ..\..\gm\imagefiltersscaled.cpp
+build obj\gm\nanobench.internal_links.obj: cxx ..\..\gm\internal_links.cpp
+build obj\gm\nanobench.lcdtext.obj: cxx ..\..\gm\lcdtext.cpp
+build obj\gm\nanobench.linepaths.obj: cxx ..\..\gm\linepaths.cpp
+build obj\gm\nanobench.matrixconvolution.obj: cxx $
+    ..\..\gm\matrixconvolution.cpp
+build obj\gm\nanobench.matriximagefilter.obj: cxx $
+    ..\..\gm\matriximagefilter.cpp
+build obj\gm\nanobench.megalooper.obj: cxx ..\..\gm\megalooper.cpp
+build obj\gm\nanobench.mixedxfermodes.obj: cxx ..\..\gm\mixedxfermodes.cpp
+build obj\gm\nanobench.modecolorfilters.obj: cxx ..\..\gm\modecolorfilters.cpp
+build obj\gm\nanobench.morphology.obj: cxx ..\..\gm\morphology.cpp
+build obj\gm\nanobench.multipicturedraw.obj: cxx ..\..\gm\multipicturedraw.cpp
+build obj\gm\nanobench.nested.obj: cxx ..\..\gm\nested.cpp
+build obj\gm\nanobench.ninepatchstretch.obj: cxx ..\..\gm\ninepatchstretch.cpp
+build obj\gm\nanobench.nonclosedpaths.obj: cxx ..\..\gm\nonclosedpaths.cpp
+build obj\gm\nanobench.offsetimagefilter.obj: cxx $
+    ..\..\gm\offsetimagefilter.cpp
+build obj\gm\nanobench.ovals.obj: cxx ..\..\gm\ovals.cpp
+build obj\gm\nanobench.patch.obj: cxx ..\..\gm\patch.cpp
+build obj\gm\nanobench.patchgrid.obj: cxx ..\..\gm\patchgrid.cpp
+build obj\gm\nanobench.patheffects.obj: cxx ..\..\gm\patheffects.cpp
+build obj\gm\nanobench.pathfill.obj: cxx ..\..\gm\pathfill.cpp
+build obj\gm\nanobench.pathinterior.obj: cxx ..\..\gm\pathinterior.cpp
+build obj\gm\nanobench.pathopsinverse.obj: cxx ..\..\gm\pathopsinverse.cpp
+build obj\gm\nanobench.pathopsskpclip.obj: cxx ..\..\gm\pathopsskpclip.cpp
+build obj\gm\nanobench.pathreverse.obj: cxx ..\..\gm\pathreverse.cpp
+build obj\gm\nanobench.peekpixels.obj: cxx ..\..\gm\peekpixels.cpp
+build obj\gm\nanobench.perlinnoise.obj: cxx ..\..\gm\perlinnoise.cpp
+build obj\gm\nanobench.picture.obj: cxx ..\..\gm\picture.cpp
+build obj\gm\nanobench.pictureimagefilter.obj: cxx $
+    ..\..\gm\pictureimagefilter.cpp
+build obj\gm\nanobench.pictureshader.obj: cxx ..\..\gm\pictureshader.cpp
+build obj\gm\nanobench.pictureshadertile.obj: cxx $
+    ..\..\gm\pictureshadertile.cpp
+build obj\gm\nanobench.points.obj: cxx ..\..\gm\points.cpp
+build obj\gm\nanobench.poly2poly.obj: cxx ..\..\gm\poly2poly.cpp
+build obj\gm\nanobench.polygons.obj: cxx ..\..\gm\polygons.cpp
+build obj\gm\nanobench.quadpaths.obj: cxx ..\..\gm\quadpaths.cpp
+build obj\gm\nanobench.rects.obj: cxx ..\..\gm\rects.cpp
+build obj\gm\nanobench.resizeimagefilter.obj: cxx $
+    ..\..\gm\resizeimagefilter.cpp
+build obj\gm\nanobench.rrect.obj: cxx ..\..\gm\rrect.cpp
+build obj\gm\nanobench.rrects.obj: cxx ..\..\gm\rrects.cpp
+build obj\gm\nanobench.roundrects.obj: cxx ..\..\gm\roundrects.cpp
+build obj\gm\nanobench.samplerstress.obj: cxx ..\..\gm\samplerstress.cpp
+build obj\gm\nanobench.shaderbounds.obj: cxx ..\..\gm\shaderbounds.cpp
+build obj\gm\nanobench.selftest.obj: cxx ..\..\gm\selftest.cpp
+build obj\gm\nanobench.shadertext.obj: cxx ..\..\gm\shadertext.cpp
+build obj\gm\nanobench.shadertext2.obj: cxx ..\..\gm\shadertext2.cpp
+build obj\gm\nanobench.shadertext3.obj: cxx ..\..\gm\shadertext3.cpp
+build obj\gm\nanobench.shadows.obj: cxx ..\..\gm\shadows.cpp
+build obj\gm\nanobench.shallowgradient.obj: cxx ..\..\gm\shallowgradient.cpp
+build obj\gm\nanobench.simpleaaclip.obj: cxx ..\..\gm\simpleaaclip.cpp
+build obj\gm\nanobench.skbug1719.obj: cxx ..\..\gm\skbug1719.cpp
+build obj\gm\nanobench.smallarc.obj: cxx ..\..\gm\smallarc.cpp
+build obj\gm\nanobench.smallimage.obj: cxx ..\..\gm\smallimage.cpp
+build obj\gm\nanobench.stringart.obj: cxx ..\..\gm\stringart.cpp
+build obj\gm\nanobench.spritebitmap.obj: cxx ..\..\gm\spritebitmap.cpp
+build obj\gm\nanobench.srcmode.obj: cxx ..\..\gm\srcmode.cpp
+build obj\gm\nanobench.strokefill.obj: cxx ..\..\gm\strokefill.cpp
+build obj\gm\nanobench.strokerect.obj: cxx ..\..\gm\strokerect.cpp
+build obj\gm\nanobench.strokerects.obj: cxx ..\..\gm\strokerects.cpp
+build obj\gm\nanobench.strokes.obj: cxx ..\..\gm\strokes.cpp
+build obj\gm\nanobench.stroketext.obj: cxx ..\..\gm\stroketext.cpp
+build obj\gm\nanobench.surface.obj: cxx ..\..\gm\surface.cpp
+build obj\gm\nanobench.tablecolorfilter.obj: cxx ..\..\gm\tablecolorfilter.cpp
+build obj\gm\nanobench.texteffects.obj: cxx ..\..\gm\texteffects.cpp
+build obj\gm\nanobench.testimagefilters.obj: cxx ..\..\gm\testimagefilters.cpp
+build obj\gm\nanobench.texdata.obj: cxx ..\..\gm\texdata.cpp
+build obj\gm\nanobench.variedtext.obj: cxx ..\..\gm\variedtext.cpp
+build obj\gm\nanobench.tallstretchedbitmaps.obj: cxx $
+    ..\..\gm\tallstretchedbitmaps.cpp
+build obj\gm\nanobench.textblob.obj: cxx ..\..\gm\textblob.cpp
+build obj\gm\nanobench.textblobshader.obj: cxx ..\..\gm\textblobshader.cpp
+build obj\gm\nanobench.texturedomaineffect.obj: cxx $
+    ..\..\gm\texturedomaineffect.cpp
+build obj\gm\nanobench.thinrects.obj: cxx ..\..\gm\thinrects.cpp
+build obj\gm\nanobench.thinstrokedrects.obj: cxx ..\..\gm\thinstrokedrects.cpp
+build obj\gm\nanobench.tiledscaledbitmap.obj: cxx $
+    ..\..\gm\tiledscaledbitmap.cpp
+build obj\gm\nanobench.tileimagefilter.obj: cxx ..\..\gm\tileimagefilter.cpp
+build obj\gm\nanobench.tilemodes.obj: cxx ..\..\gm\tilemodes.cpp
+build obj\gm\nanobench.tilemodes_scaled.obj: cxx ..\..\gm\tilemodes_scaled.cpp
+build obj\gm\nanobench.tinybitmap.obj: cxx ..\..\gm\tinybitmap.cpp
+build obj\gm\nanobench.twopointradial.obj: cxx ..\..\gm\twopointradial.cpp
+build obj\gm\nanobench.typeface.obj: cxx ..\..\gm\typeface.cpp
+build obj\gm\nanobench.vertices.obj: cxx ..\..\gm\vertices.cpp
+build obj\gm\nanobench.verttext.obj: cxx ..\..\gm\verttext.cpp
+build obj\gm\nanobench.verttext2.obj: cxx ..\..\gm\verttext2.cpp
+build obj\gm\nanobench.verylargebitmap.obj: cxx ..\..\gm\verylargebitmap.cpp
+build obj\gm\nanobench.xfermodeimagefilter.obj: cxx $
+    ..\..\gm\xfermodeimagefilter.cpp
+build obj\gm\nanobench.xfermodes.obj: cxx ..\..\gm\xfermodes.cpp
+build obj\gm\nanobench.xfermodes2.obj: cxx ..\..\gm\xfermodes2.cpp
+build obj\gm\nanobench.xfermodes3.obj: cxx ..\..\gm\xfermodes3.cpp
+build obj\gm\nanobench.yuvtorgbeffect.obj: cxx ..\..\gm\yuvtorgbeffect.cpp
+build obj\src\utils\debugger\nanobench.SkDrawCommand.obj: cxx $
+    ..\..\src\utils\debugger\SkDrawCommand.cpp
+build obj\src\utils\debugger\nanobench.SkDebugCanvas.obj: cxx $
+    ..\..\src\utils\debugger\SkDebugCanvas.cpp
+build obj\src\utils\debugger\nanobench.SkObjectParser.obj: cxx $
+    ..\..\src\utils\debugger\SkObjectParser.cpp
+
+manifests = obj\gyp\nanobench.nanobench.exe.generated.manifest
+intermediatemanifest = obj\gyp\nanobench.nanobench.exe.intermediate.manifest
+ldflags = /DEBUG /PDB:nanobench.exe.pdb /SUBSYSTEM:CONSOLE /LTCG $
+    /ENTRY:mainCRTStartup /LARGEADDRESSAWARE OpenGL32.lib usp10.lib $
+    kernel32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib $
+    shell32.lib ole32.lib oleaut32.lib user32.lib uuid.lib odbc32.lib $
+    odbccp32.lib DelayImp.lib Dbghelp.lib /DYNAMICBASE /NXCOMPAT /MANIFEST $
+    /ManifestFile:obj\gyp\nanobench.nanobench.exe.intermediate.manifest $
+    /MANIFESTUAC:NO /ALLOWISOLATION
+libs = windowscodecs.lib
+build nanobench.exe nanobench.exe.pdb: link_embed obj\gm\nanobench.gm.obj $
+    obj\bench\nanobench.GMBench.obj obj\bench\nanobench.RecordingBench.obj $
+    obj\bench\nanobench.SKPBench.obj obj\bench\nanobench.nanobench.obj $
+    obj\bench\nanobench.Benchmark.obj obj\bench\nanobench.AAClipBench.obj $
+    obj\bench\nanobench.AlternatingColorPatternBench.obj $
+    obj\bench\nanobench.BezierBench.obj obj\bench\nanobench.BitmapBench.obj $
+    obj\bench\nanobench.BitmapRectBench.obj $
+    obj\bench\nanobench.BitmapScaleBench.obj $
+    obj\bench\nanobench.BlurBench.obj $
+    obj\bench\nanobench.BlurImageFilterBench.obj $
+    obj\bench\nanobench.BlurRectBench.obj $
+    obj\bench\nanobench.BlurRectsBench.obj $
+    obj\bench\nanobench.BlurRoundRectBench.obj $
+    obj\bench\nanobench.ChartBench.obj $
+    obj\bench\nanobench.ChecksumBench.obj $
+    obj\bench\nanobench.ChromeBench.obj obj\bench\nanobench.CmapBench.obj $
+    obj\bench\nanobench.ColorCubeBench.obj $
+    obj\bench\nanobench.ColorFilterBench.obj $
+    obj\bench\nanobench.ColorPrivBench.obj $
+    obj\bench\nanobench.CoverageBench.obj obj\bench\nanobench.DashBench.obj $
+    obj\bench\nanobench.DecodeBench.obj $
+    obj\bench\nanobench.DeferredSurfaceCopyBench.obj $
+    obj\bench\nanobench.DisplacementBench.obj $
+    obj\bench\nanobench.ETCBitmapBench.obj $
+    obj\bench\nanobench.FSRectBench.obj $
+    obj\bench\nanobench.FontCacheBench.obj $
+    obj\bench\nanobench.FontScalerBench.obj $
+    obj\bench\nanobench.GameBench.obj obj\bench\nanobench.GeometryBench.obj $
+    obj\bench\nanobench.GrMemoryPoolBench.obj $
+    obj\bench\nanobench.GrResourceCacheBench.obj $
+    obj\bench\nanobench.GrOrderedSetBench.obj $
+    obj\bench\nanobench.GradientBench.obj $
+    obj\bench\nanobench.HairlinePathBench.obj $
+    obj\bench\nanobench.ImageCacheBench.obj $
+    obj\bench\nanobench.ImageDecodeBench.obj $
+    obj\bench\nanobench.ImageFilterDAGBench.obj $
+    obj\bench\nanobench.InterpBench.obj $
+    obj\bench\nanobench.LightingBench.obj obj\bench\nanobench.LineBench.obj $
+    obj\bench\nanobench.MagnifierBench.obj $
+    obj\bench\nanobench.MathBench.obj obj\bench\nanobench.Matrix44Bench.obj $
+    obj\bench\nanobench.MatrixBench.obj $
+    obj\bench\nanobench.MatrixConvolutionBench.obj $
+    obj\bench\nanobench.MemcpyBench.obj obj\bench\nanobench.MemoryBench.obj $
+    obj\bench\nanobench.MemsetBench.obj obj\bench\nanobench.MergeBench.obj $
+    obj\bench\nanobench.MorphologyBench.obj $
+    obj\bench\nanobench.MutexBench.obj obj\bench\nanobench.PatchBench.obj $
+    obj\bench\nanobench.PatchGridBench.obj $
+    obj\bench\nanobench.PathBench.obj obj\bench\nanobench.PathIterBench.obj $
+    obj\bench\nanobench.PathUtilsBench.obj $
+    obj\bench\nanobench.PerlinNoiseBench.obj $
+    obj\bench\nanobench.PictureNestingBench.obj $
+    obj\bench\nanobench.PicturePlaybackBench.obj $
+    obj\bench\nanobench.PremulAndUnpremulAlphaOpsBench.obj $
+    obj\bench\nanobench.RTreeBench.obj obj\bench\nanobench.ReadPixBench.obj $
+    obj\bench\nanobench.RectBench.obj $
+    obj\bench\nanobench.RectanizerBench.obj $
+    obj\bench\nanobench.RectoriBench.obj $
+    obj\bench\nanobench.RefCntBench.obj obj\bench\nanobench.RegionBench.obj $
+    obj\bench\nanobench.RegionContainBench.obj $
+    obj\bench\nanobench.RepeatTileBench.obj $
+    obj\bench\nanobench.RotatedRectBench.obj $
+    obj\bench\nanobench.ScalarBench.obj $
+    obj\bench\nanobench.ShaderMaskBench.obj $
+    obj\bench\nanobench.SkipZeroesBench.obj $
+    obj\bench\nanobench.SortBench.obj obj\bench\nanobench.StrokeBench.obj $
+    obj\bench\nanobench.TableBench.obj obj\bench\nanobench.TextBench.obj $
+    obj\bench\nanobench.TileBench.obj obj\bench\nanobench.VertBench.obj $
+    obj\bench\nanobench.WritePixelsBench.obj $
+    obj\bench\nanobench.WriterBench.obj $
+    obj\bench\nanobench.XfermodeBench.obj obj\gm\nanobench.aaclip.obj $
+    obj\gm\nanobench.aarectmodes.obj obj\gm\nanobench.alphagradients.obj $
+    obj\gm\nanobench.arcofzorro.obj obj\gm\nanobench.arithmode.obj $
+    obj\gm\nanobench.astcbitmap.obj obj\gm\nanobench.beziereffects.obj $
+    obj\gm\nanobench.beziers.obj obj\gm\nanobench.bigblurs.obj $
+    obj\gm\nanobench.bigmatrix.obj obj\gm\nanobench.bigtext.obj $
+    obj\gm\nanobench.bitmapcopy.obj obj\gm\nanobench.bitmapfilters.obj $
+    obj\gm\nanobench.bitmappremul.obj obj\gm\nanobench.bitmaprect.obj $
+    obj\gm\nanobench.bitmaprecttest.obj obj\gm\nanobench.bitmapscroll.obj $
+    obj\gm\nanobench.bitmapshader.obj obj\gm\nanobench.bitmapsource.obj $
+    obj\gm\nanobench.bleed.obj obj\gm\nanobench.blurcircles.obj $
+    obj\gm\nanobench.blurs.obj obj\gm\nanobench.blurquickreject.obj $
+    obj\gm\nanobench.blurrect.obj obj\gm\nanobench.blurroundrect.obj $
+    obj\gm\nanobench.circles.obj obj\gm\nanobench.circularclips.obj $
+    obj\gm\nanobench.clip_strokerect.obj $
+    obj\gm\nanobench.clippedbitmapshaders.obj obj\gm\nanobench.cgms.obj $
+    obj\gm\nanobench.cgm.obj obj\gm\nanobench.colorcube.obj $
+    obj\gm\nanobench.coloremoji.obj $
+    obj\gm\nanobench.colorfilterimagefilter.obj $
+    obj\gm\nanobench.colorfilters.obj obj\gm\nanobench.colormatrix.obj $
+    obj\gm\nanobench.colortype.obj obj\gm\nanobench.colortypexfermode.obj $
+    obj\gm\nanobench.colorwheel.obj obj\gm\nanobench.complexclip.obj $
+    obj\gm\nanobench.complexclip2.obj obj\gm\nanobench.complexclip3.obj $
+    obj\gm\nanobench.composeshader.obj obj\gm\nanobench.convexpaths.obj $
+    obj\gm\nanobench.convexpolyclip.obj $
+    obj\gm\nanobench.convexpolyeffect.obj obj\gm\nanobench.copyTo4444.obj $
+    obj\gm\nanobench.cubicpaths.obj obj\gm\nanobench.cmykjpeg.obj $
+    obj\gm\nanobench.degeneratesegments.obj obj\gm\nanobench.dcshader.obj $
+    obj\gm\nanobench.discard.obj obj\gm\nanobench.dashcubics.obj $
+    obj\gm\nanobench.dashing.obj obj\gm\nanobench.distantclip.obj $
+    obj\gm\nanobench.dftext.obj obj\gm\nanobench.displacement.obj $
+    obj\gm\nanobench.downsamplebitmap.obj $
+    obj\gm\nanobench.drawbitmaprect.obj obj\gm\nanobench.drawlooper.obj $
+    obj\gm\nanobench.dropshadowimagefilter.obj obj\gm\nanobench.drrect.obj $
+    obj\gm\nanobench.etc1bitmap.obj obj\gm\nanobench.extractbitmap.obj $
+    obj\gm\nanobench.emboss.obj obj\gm\nanobench.emptypath.obj $
+    obj\gm\nanobench.fatpathfill.obj obj\gm\nanobench.factory.obj $
+    obj\gm\nanobench.filltypes.obj obj\gm\nanobench.filltypespersp.obj $
+    obj\gm\nanobench.filterbitmap.obj obj\gm\nanobench.filterfastbounds.obj $
+    obj\gm\nanobench.filterindiabox.obj obj\gm\nanobench.fontcache.obj $
+    obj\gm\nanobench.fontmgr.obj obj\gm\nanobench.fontscaler.obj $
+    obj\gm\nanobench.gammatext.obj obj\gm\nanobench.getpostextpath.obj $
+    obj\gm\nanobench.giantbitmap.obj obj\gm\nanobench.glyph_pos.obj $
+    obj\gm\nanobench.glyph_pos_align.obj obj\gm\nanobench.gradients.obj $
+    obj\gm\nanobench.gradients_2pt_conical.obj $
+    obj\gm\nanobench.gradients_no_texture.obj $
+    obj\gm\nanobench.gradientDirtyLaundry.obj $
+    obj\gm\nanobench.gradient_matrix.obj obj\gm\nanobench.gradtext.obj $
+    obj\gm\nanobench.grayscalejpg.obj obj\gm\nanobench.hairlines.obj $
+    obj\gm\nanobench.hairmodes.obj obj\gm\nanobench.hittestpath.obj $
+    obj\gm\nanobench.imagealphathreshold.obj obj\gm\nanobench.imageblur.obj $
+    obj\gm\nanobench.imageblur2.obj obj\gm\nanobench.imageblurtiled.obj $
+    obj\gm\nanobench.imagemagnifier.obj $
+    obj\gm\nanobench.imageresizetiled.obj obj\gm\nanobench.inversepaths.obj $
+    obj\gm\nanobench.lerpmode.obj obj\gm\nanobench.lighting.obj $
+    obj\gm\nanobench.lumafilter.obj obj\gm\nanobench.image.obj $
+    obj\gm\nanobench.imagefiltersbase.obj $
+    obj\gm\nanobench.imagefiltersclipped.obj $
+    obj\gm\nanobench.imagefilterscropped.obj $
+    obj\gm\nanobench.imagefilterscropexpand.obj $
+    obj\gm\nanobench.imagefiltersgraph.obj $
+    obj\gm\nanobench.imagefiltersscaled.obj $
+    obj\gm\nanobench.internal_links.obj obj\gm\nanobench.lcdtext.obj $
+    obj\gm\nanobench.linepaths.obj obj\gm\nanobench.matrixconvolution.obj $
+    obj\gm\nanobench.matriximagefilter.obj obj\gm\nanobench.megalooper.obj $
+    obj\gm\nanobench.mixedxfermodes.obj $
+    obj\gm\nanobench.modecolorfilters.obj obj\gm\nanobench.morphology.obj $
+    obj\gm\nanobench.multipicturedraw.obj obj\gm\nanobench.nested.obj $
+    obj\gm\nanobench.ninepatchstretch.obj $
+    obj\gm\nanobench.nonclosedpaths.obj $
+    obj\gm\nanobench.offsetimagefilter.obj obj\gm\nanobench.ovals.obj $
+    obj\gm\nanobench.patch.obj obj\gm\nanobench.patchgrid.obj $
+    obj\gm\nanobench.patheffects.obj obj\gm\nanobench.pathfill.obj $
+    obj\gm\nanobench.pathinterior.obj obj\gm\nanobench.pathopsinverse.obj $
+    obj\gm\nanobench.pathopsskpclip.obj obj\gm\nanobench.pathreverse.obj $
+    obj\gm\nanobench.peekpixels.obj obj\gm\nanobench.perlinnoise.obj $
+    obj\gm\nanobench.picture.obj obj\gm\nanobench.pictureimagefilter.obj $
+    obj\gm\nanobench.pictureshader.obj $
+    obj\gm\nanobench.pictureshadertile.obj obj\gm\nanobench.points.obj $
+    obj\gm\nanobench.poly2poly.obj obj\gm\nanobench.polygons.obj $
+    obj\gm\nanobench.quadpaths.obj obj\gm\nanobench.rects.obj $
+    obj\gm\nanobench.resizeimagefilter.obj obj\gm\nanobench.rrect.obj $
+    obj\gm\nanobench.rrects.obj obj\gm\nanobench.roundrects.obj $
+    obj\gm\nanobench.samplerstress.obj obj\gm\nanobench.shaderbounds.obj $
+    obj\gm\nanobench.selftest.obj obj\gm\nanobench.shadertext.obj $
+    obj\gm\nanobench.shadertext2.obj obj\gm\nanobench.shadertext3.obj $
+    obj\gm\nanobench.shadows.obj obj\gm\nanobench.shallowgradient.obj $
+    obj\gm\nanobench.simpleaaclip.obj obj\gm\nanobench.skbug1719.obj $
+    obj\gm\nanobench.smallarc.obj obj\gm\nanobench.smallimage.obj $
+    obj\gm\nanobench.stringart.obj obj\gm\nanobench.spritebitmap.obj $
+    obj\gm\nanobench.srcmode.obj obj\gm\nanobench.strokefill.obj $
+    obj\gm\nanobench.strokerect.obj obj\gm\nanobench.strokerects.obj $
+    obj\gm\nanobench.strokes.obj obj\gm\nanobench.stroketext.obj $
+    obj\gm\nanobench.surface.obj obj\gm\nanobench.tablecolorfilter.obj $
+    obj\gm\nanobench.texteffects.obj obj\gm\nanobench.testimagefilters.obj $
+    obj\gm\nanobench.texdata.obj obj\gm\nanobench.variedtext.obj $
+    obj\gm\nanobench.tallstretchedbitmaps.obj obj\gm\nanobench.textblob.obj $
+    obj\gm\nanobench.textblobshader.obj $
+    obj\gm\nanobench.texturedomaineffect.obj obj\gm\nanobench.thinrects.obj $
+    obj\gm\nanobench.thinstrokedrects.obj $
+    obj\gm\nanobench.tiledscaledbitmap.obj $
+    obj\gm\nanobench.tileimagefilter.obj obj\gm\nanobench.tilemodes.obj $
+    obj\gm\nanobench.tilemodes_scaled.obj obj\gm\nanobench.tinybitmap.obj $
+    obj\gm\nanobench.twopointradial.obj obj\gm\nanobench.typeface.obj $
+    obj\gm\nanobench.vertices.obj obj\gm\nanobench.verttext.obj $
+    obj\gm\nanobench.verttext2.obj obj\gm\nanobench.verylargebitmap.obj $
+    obj\gm\nanobench.xfermodeimagefilter.obj obj\gm\nanobench.xfermodes.obj $
+    obj\gm\nanobench.xfermodes2.obj obj\gm\nanobench.xfermodes3.obj $
+    obj\gm\nanobench.yuvtorgbeffect.obj $
+    obj\src\utils\debugger\nanobench.SkDrawCommand.obj $
+    obj\src\utils\debugger\nanobench.SkDebugCanvas.obj $
+    obj\src\utils\debugger\nanobench.SkObjectParser.obj $
+    obj\gyp\flags_common.lib obj\gyp\jsoncpp.lib obj\gyp\crash_handler.lib $
+    obj\gyp\proc_stats.lib obj\gyp\timer.lib obj\gyp\libetc1.lib $
+    obj\gyp\resources.lib obj\gyp\sk_tool_utils.lib skia_skgputest.lib $
+    skia_core.lib skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libSkKTX.lib obj\gyp\libwebp_dec.lib obj\gyp\libwebp_demux.lib $
+    obj\gyp\libwebp_dsp.lib obj\gyp\libwebp_enc.lib $
+    obj\gyp\libwebp_utils.lib skia_utils.lib skia_opts.lib $
+    skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib skia_sfnt.lib $
+    skia_skgpu.lib obj\gyp\flags.lib | $
+    obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\skia_lib.actions_depends.stamp $
+    obj\gyp\nanobench.nanobench.exe.generated.manifest
+  binary = nanobench.exe

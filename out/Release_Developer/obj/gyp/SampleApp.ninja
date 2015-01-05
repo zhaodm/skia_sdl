@@ -1,0 +1,668 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+build obj\gyp\SampleApp.actions_depends.stamp: stamp skia_animator.lib $
+    obj\gyp\libetc1.lib obj\gyp\experimental.lib obj\gyp\flags.lib $
+    obj\gyp\lua.lib skia_pdf.lib obj\gyp\skia_lib.actions_depends.stamp $
+    obj\gyp\resources.lib obj\gyp\sk_tool_utils.lib skia_views.lib $
+    obj\gyp\views_animated.lib skia_xml.lib skia_skgputest.lib $
+    skia_core.lib skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libSkKTX.lib obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\libwebp_dec.lib obj\gyp\libwebp_demux.lib $
+    obj\gyp\libwebp_dsp.lib obj\gyp\libwebp_enc.lib $
+    obj\gyp\libwebp_utils.lib skia_utils.lib skia_opts.lib $
+    skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib skia_sfnt.lib $
+    skia_skgpu.lib obj\gyp\skflate.lib
+
+pdbname_c = SampleApp.pdb
+pdbname_cc = SampleApp.pdb
+pchprefix = SampleApp
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DSK_SUPPORT_PDF -DNDEBUG $
+    -DSK_DEVELOPER=1 -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\src\core -I..\..\src\effects -I..\..\src\gpu $
+    -I..\..\src\images -I..\..\src\lazy -I..\..\gm -I..\..\samplecode $
+    -I..\..\src\pipe\utils -I..\..\src\utils\debugger $
+    -I..\..\third_party\lua\src -I..\..\include\animator $
+    -I..\..\third_party\etc1 -I..\..\experimental -I..\..\tools\flags $
+    -I..\..\include\pdf -I..\..\include\c -I..\..\include\config $
+    -I..\..\include\core -I..\..\include\pathops -I..\..\include\pipe $
+    -I..\..\gyp\config\win -I..\..\include\effects -I..\..\include\images $
+    -I..\..\include\ports -I..\..\src\sfnt -I..\..\include\utils $
+    -I..\..\src\utils -I..\..\include\utils\win -I..\..\include\gpu $
+    -I..\..\tools -I..\..\include\views -I..\..\include\views\animated $
+    -I..\..\include\xml
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\gm\SampleApp.gm.obj: cxx ..\..\gm\gm.cpp
+build obj\samplecode\SampleApp.ClockFaceView.obj: cxx $
+    ..\..\samplecode\ClockFaceView.cpp
+build obj\samplecode\SampleApp.OverView.obj: cxx ..\..\samplecode\OverView.cpp
+build obj\samplecode\SampleApp.Sample2PtRadial.obj: cxx $
+    ..\..\samplecode\Sample2PtRadial.cpp
+build obj\samplecode\SampleApp.SampleAAClip.obj: cxx $
+    ..\..\samplecode\SampleAAClip.cpp
+build obj\samplecode\SampleApp.SampleAARects.obj: cxx $
+    ..\..\samplecode\SampleAARects.cpp
+build obj\samplecode\SampleApp.SampleAARectModes.obj: cxx $
+    ..\..\samplecode\SampleAARectModes.cpp
+build obj\samplecode\SampleApp.SampleAll.obj: cxx $
+    ..\..\samplecode\SampleAll.cpp
+build obj\samplecode\SampleApp.SampleAnimator.obj: cxx $
+    ..\..\samplecode\SampleAnimator.cpp
+build obj\samplecode\SampleApp.SampleAnimBlur.obj: cxx $
+    ..\..\samplecode\SampleAnimBlur.cpp
+build obj\samplecode\SampleApp.SampleApp.obj: cxx $
+    ..\..\samplecode\SampleApp.cpp
+build obj\samplecode\SampleApp.SampleArc.obj: cxx $
+    ..\..\samplecode\SampleArc.cpp
+build obj\samplecode\SampleApp.SampleAvoid.obj: cxx $
+    ..\..\samplecode\SampleAvoid.cpp
+build obj\samplecode\SampleApp.SampleBigBlur.obj: cxx $
+    ..\..\samplecode\SampleBigBlur.cpp
+build obj\samplecode\SampleApp.SampleBigGradient.obj: cxx $
+    ..\..\samplecode\SampleBigGradient.cpp
+build obj\samplecode\SampleApp.SampleBitmapRect.obj: cxx $
+    ..\..\samplecode\SampleBitmapRect.cpp
+build obj\samplecode\SampleApp.SampleBlur.obj: cxx $
+    ..\..\samplecode\SampleBlur.cpp
+build obj\samplecode\SampleApp.SampleCamera.obj: cxx $
+    ..\..\samplecode\SampleCamera.cpp
+build obj\samplecode\SampleApp.SampleChart.obj: cxx $
+    ..\..\samplecode\SampleChart.cpp
+build obj\samplecode\SampleApp.SampleCircle.obj: cxx $
+    ..\..\samplecode\SampleCircle.cpp
+build obj\samplecode\SampleApp.SampleClock.obj: cxx $
+    ..\..\samplecode\SampleClock.cpp
+build obj\samplecode\SampleApp.SampleClip.obj: cxx $
+    ..\..\samplecode\SampleClip.cpp
+build obj\samplecode\SampleApp.SampleColorFilter.obj: cxx $
+    ..\..\samplecode\SampleColorFilter.cpp
+build obj\samplecode\SampleApp.SampleComplexClip.obj: cxx $
+    ..\..\samplecode\SampleComplexClip.cpp
+build obj\samplecode\SampleApp.SampleConcavePaths.obj: cxx $
+    ..\..\samplecode\SampleConcavePaths.cpp
+build obj\samplecode\SampleApp.SampleCull.obj: cxx $
+    ..\..\samplecode\SampleCull.cpp
+build obj\samplecode\SampleApp.SampleDegenerateTwoPtRadials.obj: cxx $
+    ..\..\samplecode\SampleDegenerateTwoPtRadials.cpp
+build obj\samplecode\SampleApp.SampleDither.obj: cxx $
+    ..\..\samplecode\SampleDither.cpp
+build obj\samplecode\SampleApp.SampleDitherBitmap.obj: cxx $
+    ..\..\samplecode\SampleDitherBitmap.cpp
+build obj\samplecode\SampleApp.SampleEffects.obj: cxx $
+    ..\..\samplecode\SampleEffects.cpp
+build obj\samplecode\SampleApp.SampleEmboss.obj: cxx $
+    ..\..\samplecode\SampleEmboss.cpp
+build obj\samplecode\SampleApp.SampleEmptyPath.obj: cxx $
+    ..\..\samplecode\SampleEmptyPath.cpp
+build obj\samplecode\SampleApp.SampleFatBits.obj: cxx $
+    ..\..\samplecode\SampleFatBits.cpp
+build obj\samplecode\SampleApp.SampleFillType.obj: cxx $
+    ..\..\samplecode\SampleFillType.cpp
+build obj\samplecode\SampleApp.SampleFilter.obj: cxx $
+    ..\..\samplecode\SampleFilter.cpp
+build obj\samplecode\SampleApp.SampleFilter2.obj: cxx $
+    ..\..\samplecode\SampleFilter2.cpp
+build obj\samplecode\SampleApp.SampleFilterFuzz.obj: cxx $
+    ..\..\samplecode\SampleFilterFuzz.cpp
+build obj\samplecode\SampleApp.SampleFontScalerTest.obj: cxx $
+    ..\..\samplecode\SampleFontScalerTest.cpp
+build obj\samplecode\SampleApp.SampleFuzz.obj: cxx $
+    ..\..\samplecode\SampleFuzz.cpp
+build obj\samplecode\SampleApp.SampleGradients.obj: cxx $
+    ..\..\samplecode\SampleGradients.cpp
+build obj\samplecode\SampleApp.SampleHairCurves.obj: cxx $
+    ..\..\samplecode\SampleHairCurves.cpp
+build obj\samplecode\SampleApp.SampleHairline.obj: cxx $
+    ..\..\samplecode\SampleHairline.cpp
+build obj\samplecode\SampleApp.SampleHairModes.obj: cxx $
+    ..\..\samplecode\SampleHairModes.cpp
+build obj\samplecode\SampleApp.SampleHT.obj: cxx ..\..\samplecode\SampleHT.cpp
+build obj\samplecode\SampleApp.SampleIdentityScale.obj: cxx $
+    ..\..\samplecode\SampleIdentityScale.cpp
+build obj\samplecode\SampleApp.SampleLayerMask.obj: cxx $
+    ..\..\samplecode\SampleLayerMask.cpp
+build obj\samplecode\SampleApp.SampleLayers.obj: cxx $
+    ..\..\samplecode\SampleLayers.cpp
+build obj\samplecode\SampleApp.SampleLCD.obj: cxx $
+    ..\..\samplecode\SampleLCD.cpp
+build obj\samplecode\SampleApp.SampleLines.obj: cxx $
+    ..\..\samplecode\SampleLines.cpp
+build obj\samplecode\SampleApp.SampleLua.obj: cxx $
+    ..\..\samplecode\SampleLua.cpp
+build obj\samplecode\SampleApp.SampleManyRects.obj: cxx $
+    ..\..\samplecode\SampleManyRects.cpp
+build obj\samplecode\SampleApp.SampleMeasure.obj: cxx $
+    ..\..\samplecode\SampleMeasure.cpp
+build obj\samplecode\SampleApp.SampleMipMap.obj: cxx $
+    ..\..\samplecode\SampleMipMap.cpp
+build obj\samplecode\SampleApp.SampleMovie.obj: cxx $
+    ..\..\samplecode\SampleMovie.cpp
+build obj\samplecode\SampleApp.SampleOvalTest.obj: cxx $
+    ..\..\samplecode\SampleOvalTest.cpp
+build obj\samplecode\SampleApp.SamplePatch.obj: cxx $
+    ..\..\samplecode\SamplePatch.cpp
+build obj\samplecode\SampleApp.SamplePath.obj: cxx $
+    ..\..\samplecode\SamplePath.cpp
+build obj\samplecode\SampleApp.SamplePathClip.obj: cxx $
+    ..\..\samplecode\SamplePathClip.cpp
+build obj\samplecode\SampleApp.SamplePathUtils.obj: cxx $
+    ..\..\samplecode\SamplePathUtils.cpp
+build obj\samplecode\SampleApp.SamplePathEffects.obj: cxx $
+    ..\..\samplecode\SamplePathEffects.cpp
+build obj\samplecode\SampleApp.SamplePicture.obj: cxx $
+    ..\..\samplecode\SamplePicture.cpp
+build obj\samplecode\SampleApp.SamplePictFile.obj: cxx $
+    ..\..\samplecode\SamplePictFile.cpp
+build obj\samplecode\SampleApp.SamplePoints.obj: cxx $
+    ..\..\samplecode\SamplePoints.cpp
+build obj\samplecode\SampleApp.SamplePolyToPoly.obj: cxx $
+    ..\..\samplecode\SamplePolyToPoly.cpp
+build obj\samplecode\SampleApp.SampleRectanizer.obj: cxx $
+    ..\..\samplecode\SampleRectanizer.cpp
+build obj\samplecode\SampleApp.SampleRegion.obj: cxx $
+    ..\..\samplecode\SampleRegion.cpp
+build obj\samplecode\SampleApp.SampleRepeatTile.obj: cxx $
+    ..\..\samplecode\SampleRepeatTile.cpp
+build obj\samplecode\SampleApp.SampleRotateCircles.obj: cxx $
+    ..\..\samplecode\SampleRotateCircles.cpp
+build obj\samplecode\SampleApp.SampleShaders.obj: cxx $
+    ..\..\samplecode\SampleShaders.cpp
+build obj\samplecode\SampleApp.SampleShaderText.obj: cxx $
+    ..\..\samplecode\SampleShaderText.cpp
+build obj\samplecode\SampleApp.SampleSlides.obj: cxx $
+    ..\..\samplecode\SampleSlides.cpp
+build obj\samplecode\SampleApp.SampleStringArt.obj: cxx $
+    ..\..\samplecode\SampleStringArt.cpp
+build obj\samplecode\SampleApp.SampleStrokePath.obj: cxx $
+    ..\..\samplecode\SampleStrokePath.cpp
+build obj\samplecode\SampleApp.SampleSubpixelTranslate.obj: cxx $
+    ..\..\samplecode\SampleSubpixelTranslate.cpp
+build obj\samplecode\SampleApp.SampleText.obj: cxx $
+    ..\..\samplecode\SampleText.cpp
+build obj\samplecode\SampleApp.SampleTextAlpha.obj: cxx $
+    ..\..\samplecode\SampleTextAlpha.cpp
+build obj\samplecode\SampleApp.SampleTextBox.obj: cxx $
+    ..\..\samplecode\SampleTextBox.cpp
+build obj\samplecode\SampleApp.SampleTextOnPath.obj: cxx $
+    ..\..\samplecode\SampleTextOnPath.cpp
+build obj\samplecode\SampleApp.SampleTextureDomain.obj: cxx $
+    ..\..\samplecode\SampleTextureDomain.cpp
+build obj\samplecode\SampleApp.SampleTiling.obj: cxx $
+    ..\..\samplecode\SampleTiling.cpp
+build obj\samplecode\SampleApp.SampleTinyBitmap.obj: cxx $
+    ..\..\samplecode\SampleTinyBitmap.cpp
+build obj\samplecode\SampleApp.SampleUnpremul.obj: cxx $
+    ..\..\samplecode\SampleUnpremul.cpp
+build obj\samplecode\SampleApp.SampleVertices.obj: cxx $
+    ..\..\samplecode\SampleVertices.cpp
+build obj\samplecode\SampleApp.SampleXfermodesBlur.obj: cxx $
+    ..\..\samplecode\SampleXfermodesBlur.cpp
+build obj\samplecode\SampleApp.TransitionView.obj: cxx $
+    ..\..\samplecode\TransitionView.cpp
+build obj\src\pipe\utils\SampleApp.SamplePipeControllers.obj: cxx $
+    ..\..\src\pipe\utils\SamplePipeControllers.cpp
+build obj\src\utils\SampleApp.SkLuaCanvas.obj: cxx $
+    ..\..\src\utils\SkLuaCanvas.cpp
+build obj\src\utils\SampleApp.SkLua.obj: cxx ..\..\src\utils\SkLua.cpp
+build obj\gm\SampleApp.aaclip.obj: cxx ..\..\gm\aaclip.cpp
+build obj\gm\SampleApp.aarectmodes.obj: cxx ..\..\gm\aarectmodes.cpp
+build obj\gm\SampleApp.alphagradients.obj: cxx ..\..\gm\alphagradients.cpp
+build obj\gm\SampleApp.arcofzorro.obj: cxx ..\..\gm\arcofzorro.cpp
+build obj\gm\SampleApp.arithmode.obj: cxx ..\..\gm\arithmode.cpp
+build obj\gm\SampleApp.astcbitmap.obj: cxx ..\..\gm\astcbitmap.cpp
+build obj\gm\SampleApp.beziereffects.obj: cxx ..\..\gm\beziereffects.cpp
+build obj\gm\SampleApp.beziers.obj: cxx ..\..\gm\beziers.cpp
+build obj\gm\SampleApp.bigblurs.obj: cxx ..\..\gm\bigblurs.cpp
+build obj\gm\SampleApp.bigmatrix.obj: cxx ..\..\gm\bigmatrix.cpp
+build obj\gm\SampleApp.bigtext.obj: cxx ..\..\gm\bigtext.cpp
+build obj\gm\SampleApp.bitmapcopy.obj: cxx ..\..\gm\bitmapcopy.cpp
+build obj\gm\SampleApp.bitmapfilters.obj: cxx ..\..\gm\bitmapfilters.cpp
+build obj\gm\SampleApp.bitmappremul.obj: cxx ..\..\gm\bitmappremul.cpp
+build obj\gm\SampleApp.bitmaprect.obj: cxx ..\..\gm\bitmaprect.cpp
+build obj\gm\SampleApp.bitmaprecttest.obj: cxx ..\..\gm\bitmaprecttest.cpp
+build obj\gm\SampleApp.bitmapscroll.obj: cxx ..\..\gm\bitmapscroll.cpp
+build obj\gm\SampleApp.bitmapshader.obj: cxx ..\..\gm\bitmapshader.cpp
+build obj\gm\SampleApp.bitmapsource.obj: cxx ..\..\gm\bitmapsource.cpp
+build obj\gm\SampleApp.bleed.obj: cxx ..\..\gm\bleed.cpp
+build obj\gm\SampleApp.blurcircles.obj: cxx ..\..\gm\blurcircles.cpp
+build obj\gm\SampleApp.blurs.obj: cxx ..\..\gm\blurs.cpp
+build obj\gm\SampleApp.blurquickreject.obj: cxx ..\..\gm\blurquickreject.cpp
+build obj\gm\SampleApp.blurrect.obj: cxx ..\..\gm\blurrect.cpp
+build obj\gm\SampleApp.blurroundrect.obj: cxx ..\..\gm\blurroundrect.cpp
+build obj\gm\SampleApp.circles.obj: cxx ..\..\gm\circles.cpp
+build obj\gm\SampleApp.circularclips.obj: cxx ..\..\gm\circularclips.cpp
+build obj\gm\SampleApp.clip_strokerect.obj: cxx ..\..\gm\clip_strokerect.cpp
+build obj\gm\SampleApp.clippedbitmapshaders.obj: cxx $
+    ..\..\gm\clippedbitmapshaders.cpp
+build obj\gm\SampleApp.cgms.obj: cxx ..\..\gm\cgms.cpp
+build obj\gm\SampleApp.cgm.obj: cc ..\..\gm\cgm.c
+build obj\gm\SampleApp.colorcube.obj: cxx ..\..\gm\colorcube.cpp
+build obj\gm\SampleApp.coloremoji.obj: cxx ..\..\gm\coloremoji.cpp
+build obj\gm\SampleApp.colorfilterimagefilter.obj: cxx $
+    ..\..\gm\colorfilterimagefilter.cpp
+build obj\gm\SampleApp.colorfilters.obj: cxx ..\..\gm\colorfilters.cpp
+build obj\gm\SampleApp.colormatrix.obj: cxx ..\..\gm\colormatrix.cpp
+build obj\gm\SampleApp.colortype.obj: cxx ..\..\gm\colortype.cpp
+build obj\gm\SampleApp.colortypexfermode.obj: cxx $
+    ..\..\gm\colortypexfermode.cpp
+build obj\gm\SampleApp.colorwheel.obj: cxx ..\..\gm\colorwheel.cpp
+build obj\gm\SampleApp.complexclip.obj: cxx ..\..\gm\complexclip.cpp
+build obj\gm\SampleApp.complexclip2.obj: cxx ..\..\gm\complexclip2.cpp
+build obj\gm\SampleApp.complexclip3.obj: cxx ..\..\gm\complexclip3.cpp
+build obj\gm\SampleApp.composeshader.obj: cxx ..\..\gm\composeshader.cpp
+build obj\gm\SampleApp.convexpaths.obj: cxx ..\..\gm\convexpaths.cpp
+build obj\gm\SampleApp.convexpolyclip.obj: cxx ..\..\gm\convexpolyclip.cpp
+build obj\gm\SampleApp.convexpolyeffect.obj: cxx ..\..\gm\convexpolyeffect.cpp
+build obj\gm\SampleApp.copyTo4444.obj: cxx ..\..\gm\copyTo4444.cpp
+build obj\gm\SampleApp.cubicpaths.obj: cxx ..\..\gm\cubicpaths.cpp
+build obj\gm\SampleApp.cmykjpeg.obj: cxx ..\..\gm\cmykjpeg.cpp
+build obj\gm\SampleApp.degeneratesegments.obj: cxx $
+    ..\..\gm\degeneratesegments.cpp
+build obj\gm\SampleApp.dcshader.obj: cxx ..\..\gm\dcshader.cpp
+build obj\gm\SampleApp.discard.obj: cxx ..\..\gm\discard.cpp
+build obj\gm\SampleApp.dashcubics.obj: cxx ..\..\gm\dashcubics.cpp
+build obj\gm\SampleApp.dashing.obj: cxx ..\..\gm\dashing.cpp
+build obj\gm\SampleApp.distantclip.obj: cxx ..\..\gm\distantclip.cpp
+build obj\gm\SampleApp.dftext.obj: cxx ..\..\gm\dftext.cpp
+build obj\gm\SampleApp.displacement.obj: cxx ..\..\gm\displacement.cpp
+build obj\gm\SampleApp.downsamplebitmap.obj: cxx ..\..\gm\downsamplebitmap.cpp
+build obj\gm\SampleApp.drawbitmaprect.obj: cxx ..\..\gm\drawbitmaprect.cpp
+build obj\gm\SampleApp.drawlooper.obj: cxx ..\..\gm\drawlooper.cpp
+build obj\gm\SampleApp.dropshadowimagefilter.obj: cxx $
+    ..\..\gm\dropshadowimagefilter.cpp
+build obj\gm\SampleApp.drrect.obj: cxx ..\..\gm\drrect.cpp
+build obj\gm\SampleApp.etc1bitmap.obj: cxx ..\..\gm\etc1bitmap.cpp
+build obj\gm\SampleApp.extractbitmap.obj: cxx ..\..\gm\extractbitmap.cpp
+build obj\gm\SampleApp.emboss.obj: cxx ..\..\gm\emboss.cpp
+build obj\gm\SampleApp.emptypath.obj: cxx ..\..\gm\emptypath.cpp
+build obj\gm\SampleApp.fatpathfill.obj: cxx ..\..\gm\fatpathfill.cpp
+build obj\gm\SampleApp.factory.obj: cxx ..\..\gm\factory.cpp
+build obj\gm\SampleApp.filltypes.obj: cxx ..\..\gm\filltypes.cpp
+build obj\gm\SampleApp.filltypespersp.obj: cxx ..\..\gm\filltypespersp.cpp
+build obj\gm\SampleApp.filterbitmap.obj: cxx ..\..\gm\filterbitmap.cpp
+build obj\gm\SampleApp.filterfastbounds.obj: cxx ..\..\gm\filterfastbounds.cpp
+build obj\gm\SampleApp.filterindiabox.obj: cxx ..\..\gm\filterindiabox.cpp
+build obj\gm\SampleApp.fontcache.obj: cxx ..\..\gm\fontcache.cpp
+build obj\gm\SampleApp.fontmgr.obj: cxx ..\..\gm\fontmgr.cpp
+build obj\gm\SampleApp.fontscaler.obj: cxx ..\..\gm\fontscaler.cpp
+build obj\gm\SampleApp.gammatext.obj: cxx ..\..\gm\gammatext.cpp
+build obj\gm\SampleApp.getpostextpath.obj: cxx ..\..\gm\getpostextpath.cpp
+build obj\gm\SampleApp.giantbitmap.obj: cxx ..\..\gm\giantbitmap.cpp
+build obj\gm\SampleApp.glyph_pos.obj: cxx ..\..\gm\glyph_pos.cpp
+build obj\gm\SampleApp.glyph_pos_align.obj: cxx ..\..\gm\glyph_pos_align.cpp
+build obj\gm\SampleApp.gradients.obj: cxx ..\..\gm\gradients.cpp
+build obj\gm\SampleApp.gradients_2pt_conical.obj: cxx $
+    ..\..\gm\gradients_2pt_conical.cpp
+build obj\gm\SampleApp.gradients_no_texture.obj: cxx $
+    ..\..\gm\gradients_no_texture.cpp
+build obj\gm\SampleApp.gradientDirtyLaundry.obj: cxx $
+    ..\..\gm\gradientDirtyLaundry.cpp
+build obj\gm\SampleApp.gradient_matrix.obj: cxx ..\..\gm\gradient_matrix.cpp
+build obj\gm\SampleApp.gradtext.obj: cxx ..\..\gm\gradtext.cpp
+build obj\gm\SampleApp.grayscalejpg.obj: cxx ..\..\gm\grayscalejpg.cpp
+build obj\gm\SampleApp.hairlines.obj: cxx ..\..\gm\hairlines.cpp
+build obj\gm\SampleApp.hairmodes.obj: cxx ..\..\gm\hairmodes.cpp
+build obj\gm\SampleApp.hittestpath.obj: cxx ..\..\gm\hittestpath.cpp
+build obj\gm\SampleApp.imagealphathreshold.obj: cxx $
+    ..\..\gm\imagealphathreshold.cpp
+build obj\gm\SampleApp.imageblur.obj: cxx ..\..\gm\imageblur.cpp
+build obj\gm\SampleApp.imageblur2.obj: cxx ..\..\gm\imageblur2.cpp
+build obj\gm\SampleApp.imageblurtiled.obj: cxx ..\..\gm\imageblurtiled.cpp
+build obj\gm\SampleApp.imagemagnifier.obj: cxx ..\..\gm\imagemagnifier.cpp
+build obj\gm\SampleApp.imageresizetiled.obj: cxx ..\..\gm\imageresizetiled.cpp
+build obj\gm\SampleApp.inversepaths.obj: cxx ..\..\gm\inversepaths.cpp
+build obj\gm\SampleApp.lerpmode.obj: cxx ..\..\gm\lerpmode.cpp
+build obj\gm\SampleApp.lighting.obj: cxx ..\..\gm\lighting.cpp
+build obj\gm\SampleApp.lumafilter.obj: cxx ..\..\gm\lumafilter.cpp
+build obj\gm\SampleApp.image.obj: cxx ..\..\gm\image.cpp
+build obj\gm\SampleApp.imagefiltersbase.obj: cxx ..\..\gm\imagefiltersbase.cpp
+build obj\gm\SampleApp.imagefiltersclipped.obj: cxx $
+    ..\..\gm\imagefiltersclipped.cpp
+build obj\gm\SampleApp.imagefilterscropped.obj: cxx $
+    ..\..\gm\imagefilterscropped.cpp
+build obj\gm\SampleApp.imagefilterscropexpand.obj: cxx $
+    ..\..\gm\imagefilterscropexpand.cpp
+build obj\gm\SampleApp.imagefiltersgraph.obj: cxx $
+    ..\..\gm\imagefiltersgraph.cpp
+build obj\gm\SampleApp.imagefiltersscaled.obj: cxx $
+    ..\..\gm\imagefiltersscaled.cpp
+build obj\gm\SampleApp.internal_links.obj: cxx ..\..\gm\internal_links.cpp
+build obj\gm\SampleApp.lcdtext.obj: cxx ..\..\gm\lcdtext.cpp
+build obj\gm\SampleApp.linepaths.obj: cxx ..\..\gm\linepaths.cpp
+build obj\gm\SampleApp.matrixconvolution.obj: cxx $
+    ..\..\gm\matrixconvolution.cpp
+build obj\gm\SampleApp.matriximagefilter.obj: cxx $
+    ..\..\gm\matriximagefilter.cpp
+build obj\gm\SampleApp.megalooper.obj: cxx ..\..\gm\megalooper.cpp
+build obj\gm\SampleApp.mixedxfermodes.obj: cxx ..\..\gm\mixedxfermodes.cpp
+build obj\gm\SampleApp.modecolorfilters.obj: cxx ..\..\gm\modecolorfilters.cpp
+build obj\gm\SampleApp.morphology.obj: cxx ..\..\gm\morphology.cpp
+build obj\gm\SampleApp.multipicturedraw.obj: cxx ..\..\gm\multipicturedraw.cpp
+build obj\gm\SampleApp.nested.obj: cxx ..\..\gm\nested.cpp
+build obj\gm\SampleApp.ninepatchstretch.obj: cxx ..\..\gm\ninepatchstretch.cpp
+build obj\gm\SampleApp.nonclosedpaths.obj: cxx ..\..\gm\nonclosedpaths.cpp
+build obj\gm\SampleApp.offsetimagefilter.obj: cxx $
+    ..\..\gm\offsetimagefilter.cpp
+build obj\gm\SampleApp.ovals.obj: cxx ..\..\gm\ovals.cpp
+build obj\gm\SampleApp.patch.obj: cxx ..\..\gm\patch.cpp
+build obj\gm\SampleApp.patchgrid.obj: cxx ..\..\gm\patchgrid.cpp
+build obj\gm\SampleApp.patheffects.obj: cxx ..\..\gm\patheffects.cpp
+build obj\gm\SampleApp.pathfill.obj: cxx ..\..\gm\pathfill.cpp
+build obj\gm\SampleApp.pathinterior.obj: cxx ..\..\gm\pathinterior.cpp
+build obj\gm\SampleApp.pathopsinverse.obj: cxx ..\..\gm\pathopsinverse.cpp
+build obj\gm\SampleApp.pathopsskpclip.obj: cxx ..\..\gm\pathopsskpclip.cpp
+build obj\gm\SampleApp.pathreverse.obj: cxx ..\..\gm\pathreverse.cpp
+build obj\gm\SampleApp.peekpixels.obj: cxx ..\..\gm\peekpixels.cpp
+build obj\gm\SampleApp.perlinnoise.obj: cxx ..\..\gm\perlinnoise.cpp
+build obj\gm\SampleApp.picture.obj: cxx ..\..\gm\picture.cpp
+build obj\gm\SampleApp.pictureimagefilter.obj: cxx $
+    ..\..\gm\pictureimagefilter.cpp
+build obj\gm\SampleApp.pictureshader.obj: cxx ..\..\gm\pictureshader.cpp
+build obj\gm\SampleApp.pictureshadertile.obj: cxx $
+    ..\..\gm\pictureshadertile.cpp
+build obj\gm\SampleApp.points.obj: cxx ..\..\gm\points.cpp
+build obj\gm\SampleApp.poly2poly.obj: cxx ..\..\gm\poly2poly.cpp
+build obj\gm\SampleApp.polygons.obj: cxx ..\..\gm\polygons.cpp
+build obj\gm\SampleApp.quadpaths.obj: cxx ..\..\gm\quadpaths.cpp
+build obj\gm\SampleApp.rects.obj: cxx ..\..\gm\rects.cpp
+build obj\gm\SampleApp.resizeimagefilter.obj: cxx $
+    ..\..\gm\resizeimagefilter.cpp
+build obj\gm\SampleApp.rrect.obj: cxx ..\..\gm\rrect.cpp
+build obj\gm\SampleApp.rrects.obj: cxx ..\..\gm\rrects.cpp
+build obj\gm\SampleApp.roundrects.obj: cxx ..\..\gm\roundrects.cpp
+build obj\gm\SampleApp.samplerstress.obj: cxx ..\..\gm\samplerstress.cpp
+build obj\gm\SampleApp.shaderbounds.obj: cxx ..\..\gm\shaderbounds.cpp
+build obj\gm\SampleApp.selftest.obj: cxx ..\..\gm\selftest.cpp
+build obj\gm\SampleApp.shadertext.obj: cxx ..\..\gm\shadertext.cpp
+build obj\gm\SampleApp.shadertext2.obj: cxx ..\..\gm\shadertext2.cpp
+build obj\gm\SampleApp.shadertext3.obj: cxx ..\..\gm\shadertext3.cpp
+build obj\gm\SampleApp.shadows.obj: cxx ..\..\gm\shadows.cpp
+build obj\gm\SampleApp.shallowgradient.obj: cxx ..\..\gm\shallowgradient.cpp
+build obj\gm\SampleApp.simpleaaclip.obj: cxx ..\..\gm\simpleaaclip.cpp
+build obj\gm\SampleApp.skbug1719.obj: cxx ..\..\gm\skbug1719.cpp
+build obj\gm\SampleApp.smallarc.obj: cxx ..\..\gm\smallarc.cpp
+build obj\gm\SampleApp.smallimage.obj: cxx ..\..\gm\smallimage.cpp
+build obj\gm\SampleApp.stringart.obj: cxx ..\..\gm\stringart.cpp
+build obj\gm\SampleApp.spritebitmap.obj: cxx ..\..\gm\spritebitmap.cpp
+build obj\gm\SampleApp.srcmode.obj: cxx ..\..\gm\srcmode.cpp
+build obj\gm\SampleApp.strokefill.obj: cxx ..\..\gm\strokefill.cpp
+build obj\gm\SampleApp.strokerect.obj: cxx ..\..\gm\strokerect.cpp
+build obj\gm\SampleApp.strokerects.obj: cxx ..\..\gm\strokerects.cpp
+build obj\gm\SampleApp.strokes.obj: cxx ..\..\gm\strokes.cpp
+build obj\gm\SampleApp.stroketext.obj: cxx ..\..\gm\stroketext.cpp
+build obj\gm\SampleApp.surface.obj: cxx ..\..\gm\surface.cpp
+build obj\gm\SampleApp.tablecolorfilter.obj: cxx ..\..\gm\tablecolorfilter.cpp
+build obj\gm\SampleApp.texteffects.obj: cxx ..\..\gm\texteffects.cpp
+build obj\gm\SampleApp.testimagefilters.obj: cxx ..\..\gm\testimagefilters.cpp
+build obj\gm\SampleApp.texdata.obj: cxx ..\..\gm\texdata.cpp
+build obj\gm\SampleApp.variedtext.obj: cxx ..\..\gm\variedtext.cpp
+build obj\gm\SampleApp.tallstretchedbitmaps.obj: cxx $
+    ..\..\gm\tallstretchedbitmaps.cpp
+build obj\gm\SampleApp.textblob.obj: cxx ..\..\gm\textblob.cpp
+build obj\gm\SampleApp.textblobshader.obj: cxx ..\..\gm\textblobshader.cpp
+build obj\gm\SampleApp.texturedomaineffect.obj: cxx $
+    ..\..\gm\texturedomaineffect.cpp
+build obj\gm\SampleApp.thinrects.obj: cxx ..\..\gm\thinrects.cpp
+build obj\gm\SampleApp.thinstrokedrects.obj: cxx ..\..\gm\thinstrokedrects.cpp
+build obj\gm\SampleApp.tiledscaledbitmap.obj: cxx $
+    ..\..\gm\tiledscaledbitmap.cpp
+build obj\gm\SampleApp.tileimagefilter.obj: cxx ..\..\gm\tileimagefilter.cpp
+build obj\gm\SampleApp.tilemodes.obj: cxx ..\..\gm\tilemodes.cpp
+build obj\gm\SampleApp.tilemodes_scaled.obj: cxx ..\..\gm\tilemodes_scaled.cpp
+build obj\gm\SampleApp.tinybitmap.obj: cxx ..\..\gm\tinybitmap.cpp
+build obj\gm\SampleApp.twopointradial.obj: cxx ..\..\gm\twopointradial.cpp
+build obj\gm\SampleApp.typeface.obj: cxx ..\..\gm\typeface.cpp
+build obj\gm\SampleApp.vertices.obj: cxx ..\..\gm\vertices.cpp
+build obj\gm\SampleApp.verttext.obj: cxx ..\..\gm\verttext.cpp
+build obj\gm\SampleApp.verttext2.obj: cxx ..\..\gm\verttext2.cpp
+build obj\gm\SampleApp.verylargebitmap.obj: cxx ..\..\gm\verylargebitmap.cpp
+build obj\gm\SampleApp.xfermodeimagefilter.obj: cxx $
+    ..\..\gm\xfermodeimagefilter.cpp
+build obj\gm\SampleApp.xfermodes.obj: cxx ..\..\gm\xfermodes.cpp
+build obj\gm\SampleApp.xfermodes2.obj: cxx ..\..\gm\xfermodes2.cpp
+build obj\gm\SampleApp.xfermodes3.obj: cxx ..\..\gm\xfermodes3.cpp
+build obj\gm\SampleApp.yuvtorgbeffect.obj: cxx ..\..\gm\yuvtorgbeffect.cpp
+build obj\src\utils\debugger\SampleApp.SkDrawCommand.obj: cxx $
+    ..\..\src\utils\debugger\SkDrawCommand.cpp
+build obj\src\utils\debugger\SampleApp.SkDebugCanvas.obj: cxx $
+    ..\..\src\utils\debugger\SkDebugCanvas.cpp
+build obj\src\utils\debugger\SampleApp.SkObjectParser.obj: cxx $
+    ..\..\src\utils\debugger\SkObjectParser.cpp
+
+manifests = obj\gyp\SampleApp.SampleApp.exe.generated.manifest
+intermediatemanifest = obj\gyp\SampleApp.SampleApp.exe.intermediate.manifest
+ldflags = /DEBUG /PDB:SampleApp.exe.pdb /SUBSYSTEM:WINDOWS /LTCG $
+    /LARGEADDRESSAWARE OpenGL32.lib usp10.lib kernel32.lib gdi32.lib $
+    winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib $
+    oleaut32.lib user32.lib uuid.lib odbc32.lib odbccp32.lib DelayImp.lib $
+    /DYNAMICBASE /NXCOMPAT /MANIFEST $
+    /ManifestFile:obj\gyp\SampleApp.SampleApp.exe.intermediate.manifest $
+    /MANIFESTUAC:NO /ALLOWISOLATION
+libs = windowscodecs.lib
+build SampleApp.exe SampleApp.exe.pdb: link_embed obj\gm\SampleApp.gm.obj $
+    obj\samplecode\SampleApp.ClockFaceView.obj $
+    obj\samplecode\SampleApp.OverView.obj $
+    obj\samplecode\SampleApp.Sample2PtRadial.obj $
+    obj\samplecode\SampleApp.SampleAAClip.obj $
+    obj\samplecode\SampleApp.SampleAARects.obj $
+    obj\samplecode\SampleApp.SampleAARectModes.obj $
+    obj\samplecode\SampleApp.SampleAll.obj $
+    obj\samplecode\SampleApp.SampleAnimator.obj $
+    obj\samplecode\SampleApp.SampleAnimBlur.obj $
+    obj\samplecode\SampleApp.SampleApp.obj $
+    obj\samplecode\SampleApp.SampleArc.obj $
+    obj\samplecode\SampleApp.SampleAvoid.obj $
+    obj\samplecode\SampleApp.SampleBigBlur.obj $
+    obj\samplecode\SampleApp.SampleBigGradient.obj $
+    obj\samplecode\SampleApp.SampleBitmapRect.obj $
+    obj\samplecode\SampleApp.SampleBlur.obj $
+    obj\samplecode\SampleApp.SampleCamera.obj $
+    obj\samplecode\SampleApp.SampleChart.obj $
+    obj\samplecode\SampleApp.SampleCircle.obj $
+    obj\samplecode\SampleApp.SampleClock.obj $
+    obj\samplecode\SampleApp.SampleClip.obj $
+    obj\samplecode\SampleApp.SampleColorFilter.obj $
+    obj\samplecode\SampleApp.SampleComplexClip.obj $
+    obj\samplecode\SampleApp.SampleConcavePaths.obj $
+    obj\samplecode\SampleApp.SampleCull.obj $
+    obj\samplecode\SampleApp.SampleDegenerateTwoPtRadials.obj $
+    obj\samplecode\SampleApp.SampleDither.obj $
+    obj\samplecode\SampleApp.SampleDitherBitmap.obj $
+    obj\samplecode\SampleApp.SampleEffects.obj $
+    obj\samplecode\SampleApp.SampleEmboss.obj $
+    obj\samplecode\SampleApp.SampleEmptyPath.obj $
+    obj\samplecode\SampleApp.SampleFatBits.obj $
+    obj\samplecode\SampleApp.SampleFillType.obj $
+    obj\samplecode\SampleApp.SampleFilter.obj $
+    obj\samplecode\SampleApp.SampleFilter2.obj $
+    obj\samplecode\SampleApp.SampleFilterFuzz.obj $
+    obj\samplecode\SampleApp.SampleFontScalerTest.obj $
+    obj\samplecode\SampleApp.SampleFuzz.obj $
+    obj\samplecode\SampleApp.SampleGradients.obj $
+    obj\samplecode\SampleApp.SampleHairCurves.obj $
+    obj\samplecode\SampleApp.SampleHairline.obj $
+    obj\samplecode\SampleApp.SampleHairModes.obj $
+    obj\samplecode\SampleApp.SampleHT.obj $
+    obj\samplecode\SampleApp.SampleIdentityScale.obj $
+    obj\samplecode\SampleApp.SampleLayerMask.obj $
+    obj\samplecode\SampleApp.SampleLayers.obj $
+    obj\samplecode\SampleApp.SampleLCD.obj $
+    obj\samplecode\SampleApp.SampleLines.obj $
+    obj\samplecode\SampleApp.SampleLua.obj $
+    obj\samplecode\SampleApp.SampleManyRects.obj $
+    obj\samplecode\SampleApp.SampleMeasure.obj $
+    obj\samplecode\SampleApp.SampleMipMap.obj $
+    obj\samplecode\SampleApp.SampleMovie.obj $
+    obj\samplecode\SampleApp.SampleOvalTest.obj $
+    obj\samplecode\SampleApp.SamplePatch.obj $
+    obj\samplecode\SampleApp.SamplePath.obj $
+    obj\samplecode\SampleApp.SamplePathClip.obj $
+    obj\samplecode\SampleApp.SamplePathUtils.obj $
+    obj\samplecode\SampleApp.SamplePathEffects.obj $
+    obj\samplecode\SampleApp.SamplePicture.obj $
+    obj\samplecode\SampleApp.SamplePictFile.obj $
+    obj\samplecode\SampleApp.SamplePoints.obj $
+    obj\samplecode\SampleApp.SamplePolyToPoly.obj $
+    obj\samplecode\SampleApp.SampleRectanizer.obj $
+    obj\samplecode\SampleApp.SampleRegion.obj $
+    obj\samplecode\SampleApp.SampleRepeatTile.obj $
+    obj\samplecode\SampleApp.SampleRotateCircles.obj $
+    obj\samplecode\SampleApp.SampleShaders.obj $
+    obj\samplecode\SampleApp.SampleShaderText.obj $
+    obj\samplecode\SampleApp.SampleSlides.obj $
+    obj\samplecode\SampleApp.SampleStringArt.obj $
+    obj\samplecode\SampleApp.SampleStrokePath.obj $
+    obj\samplecode\SampleApp.SampleSubpixelTranslate.obj $
+    obj\samplecode\SampleApp.SampleText.obj $
+    obj\samplecode\SampleApp.SampleTextAlpha.obj $
+    obj\samplecode\SampleApp.SampleTextBox.obj $
+    obj\samplecode\SampleApp.SampleTextOnPath.obj $
+    obj\samplecode\SampleApp.SampleTextureDomain.obj $
+    obj\samplecode\SampleApp.SampleTiling.obj $
+    obj\samplecode\SampleApp.SampleTinyBitmap.obj $
+    obj\samplecode\SampleApp.SampleUnpremul.obj $
+    obj\samplecode\SampleApp.SampleVertices.obj $
+    obj\samplecode\SampleApp.SampleXfermodesBlur.obj $
+    obj\samplecode\SampleApp.TransitionView.obj $
+    obj\src\pipe\utils\SampleApp.SamplePipeControllers.obj $
+    obj\src\utils\SampleApp.SkLuaCanvas.obj $
+    obj\src\utils\SampleApp.SkLua.obj obj\gm\SampleApp.aaclip.obj $
+    obj\gm\SampleApp.aarectmodes.obj obj\gm\SampleApp.alphagradients.obj $
+    obj\gm\SampleApp.arcofzorro.obj obj\gm\SampleApp.arithmode.obj $
+    obj\gm\SampleApp.astcbitmap.obj obj\gm\SampleApp.beziereffects.obj $
+    obj\gm\SampleApp.beziers.obj obj\gm\SampleApp.bigblurs.obj $
+    obj\gm\SampleApp.bigmatrix.obj obj\gm\SampleApp.bigtext.obj $
+    obj\gm\SampleApp.bitmapcopy.obj obj\gm\SampleApp.bitmapfilters.obj $
+    obj\gm\SampleApp.bitmappremul.obj obj\gm\SampleApp.bitmaprect.obj $
+    obj\gm\SampleApp.bitmaprecttest.obj obj\gm\SampleApp.bitmapscroll.obj $
+    obj\gm\SampleApp.bitmapshader.obj obj\gm\SampleApp.bitmapsource.obj $
+    obj\gm\SampleApp.bleed.obj obj\gm\SampleApp.blurcircles.obj $
+    obj\gm\SampleApp.blurs.obj obj\gm\SampleApp.blurquickreject.obj $
+    obj\gm\SampleApp.blurrect.obj obj\gm\SampleApp.blurroundrect.obj $
+    obj\gm\SampleApp.circles.obj obj\gm\SampleApp.circularclips.obj $
+    obj\gm\SampleApp.clip_strokerect.obj $
+    obj\gm\SampleApp.clippedbitmapshaders.obj obj\gm\SampleApp.cgms.obj $
+    obj\gm\SampleApp.cgm.obj obj\gm\SampleApp.colorcube.obj $
+    obj\gm\SampleApp.coloremoji.obj $
+    obj\gm\SampleApp.colorfilterimagefilter.obj $
+    obj\gm\SampleApp.colorfilters.obj obj\gm\SampleApp.colormatrix.obj $
+    obj\gm\SampleApp.colortype.obj obj\gm\SampleApp.colortypexfermode.obj $
+    obj\gm\SampleApp.colorwheel.obj obj\gm\SampleApp.complexclip.obj $
+    obj\gm\SampleApp.complexclip2.obj obj\gm\SampleApp.complexclip3.obj $
+    obj\gm\SampleApp.composeshader.obj obj\gm\SampleApp.convexpaths.obj $
+    obj\gm\SampleApp.convexpolyclip.obj $
+    obj\gm\SampleApp.convexpolyeffect.obj obj\gm\SampleApp.copyTo4444.obj $
+    obj\gm\SampleApp.cubicpaths.obj obj\gm\SampleApp.cmykjpeg.obj $
+    obj\gm\SampleApp.degeneratesegments.obj obj\gm\SampleApp.dcshader.obj $
+    obj\gm\SampleApp.discard.obj obj\gm\SampleApp.dashcubics.obj $
+    obj\gm\SampleApp.dashing.obj obj\gm\SampleApp.distantclip.obj $
+    obj\gm\SampleApp.dftext.obj obj\gm\SampleApp.displacement.obj $
+    obj\gm\SampleApp.downsamplebitmap.obj $
+    obj\gm\SampleApp.drawbitmaprect.obj obj\gm\SampleApp.drawlooper.obj $
+    obj\gm\SampleApp.dropshadowimagefilter.obj obj\gm\SampleApp.drrect.obj $
+    obj\gm\SampleApp.etc1bitmap.obj obj\gm\SampleApp.extractbitmap.obj $
+    obj\gm\SampleApp.emboss.obj obj\gm\SampleApp.emptypath.obj $
+    obj\gm\SampleApp.fatpathfill.obj obj\gm\SampleApp.factory.obj $
+    obj\gm\SampleApp.filltypes.obj obj\gm\SampleApp.filltypespersp.obj $
+    obj\gm\SampleApp.filterbitmap.obj obj\gm\SampleApp.filterfastbounds.obj $
+    obj\gm\SampleApp.filterindiabox.obj obj\gm\SampleApp.fontcache.obj $
+    obj\gm\SampleApp.fontmgr.obj obj\gm\SampleApp.fontscaler.obj $
+    obj\gm\SampleApp.gammatext.obj obj\gm\SampleApp.getpostextpath.obj $
+    obj\gm\SampleApp.giantbitmap.obj obj\gm\SampleApp.glyph_pos.obj $
+    obj\gm\SampleApp.glyph_pos_align.obj obj\gm\SampleApp.gradients.obj $
+    obj\gm\SampleApp.gradients_2pt_conical.obj $
+    obj\gm\SampleApp.gradients_no_texture.obj $
+    obj\gm\SampleApp.gradientDirtyLaundry.obj $
+    obj\gm\SampleApp.gradient_matrix.obj obj\gm\SampleApp.gradtext.obj $
+    obj\gm\SampleApp.grayscalejpg.obj obj\gm\SampleApp.hairlines.obj $
+    obj\gm\SampleApp.hairmodes.obj obj\gm\SampleApp.hittestpath.obj $
+    obj\gm\SampleApp.imagealphathreshold.obj obj\gm\SampleApp.imageblur.obj $
+    obj\gm\SampleApp.imageblur2.obj obj\gm\SampleApp.imageblurtiled.obj $
+    obj\gm\SampleApp.imagemagnifier.obj $
+    obj\gm\SampleApp.imageresizetiled.obj obj\gm\SampleApp.inversepaths.obj $
+    obj\gm\SampleApp.lerpmode.obj obj\gm\SampleApp.lighting.obj $
+    obj\gm\SampleApp.lumafilter.obj obj\gm\SampleApp.image.obj $
+    obj\gm\SampleApp.imagefiltersbase.obj $
+    obj\gm\SampleApp.imagefiltersclipped.obj $
+    obj\gm\SampleApp.imagefilterscropped.obj $
+    obj\gm\SampleApp.imagefilterscropexpand.obj $
+    obj\gm\SampleApp.imagefiltersgraph.obj $
+    obj\gm\SampleApp.imagefiltersscaled.obj $
+    obj\gm\SampleApp.internal_links.obj obj\gm\SampleApp.lcdtext.obj $
+    obj\gm\SampleApp.linepaths.obj obj\gm\SampleApp.matrixconvolution.obj $
+    obj\gm\SampleApp.matriximagefilter.obj obj\gm\SampleApp.megalooper.obj $
+    obj\gm\SampleApp.mixedxfermodes.obj $
+    obj\gm\SampleApp.modecolorfilters.obj obj\gm\SampleApp.morphology.obj $
+    obj\gm\SampleApp.multipicturedraw.obj obj\gm\SampleApp.nested.obj $
+    obj\gm\SampleApp.ninepatchstretch.obj $
+    obj\gm\SampleApp.nonclosedpaths.obj $
+    obj\gm\SampleApp.offsetimagefilter.obj obj\gm\SampleApp.ovals.obj $
+    obj\gm\SampleApp.patch.obj obj\gm\SampleApp.patchgrid.obj $
+    obj\gm\SampleApp.patheffects.obj obj\gm\SampleApp.pathfill.obj $
+    obj\gm\SampleApp.pathinterior.obj obj\gm\SampleApp.pathopsinverse.obj $
+    obj\gm\SampleApp.pathopsskpclip.obj obj\gm\SampleApp.pathreverse.obj $
+    obj\gm\SampleApp.peekpixels.obj obj\gm\SampleApp.perlinnoise.obj $
+    obj\gm\SampleApp.picture.obj obj\gm\SampleApp.pictureimagefilter.obj $
+    obj\gm\SampleApp.pictureshader.obj $
+    obj\gm\SampleApp.pictureshadertile.obj obj\gm\SampleApp.points.obj $
+    obj\gm\SampleApp.poly2poly.obj obj\gm\SampleApp.polygons.obj $
+    obj\gm\SampleApp.quadpaths.obj obj\gm\SampleApp.rects.obj $
+    obj\gm\SampleApp.resizeimagefilter.obj obj\gm\SampleApp.rrect.obj $
+    obj\gm\SampleApp.rrects.obj obj\gm\SampleApp.roundrects.obj $
+    obj\gm\SampleApp.samplerstress.obj obj\gm\SampleApp.shaderbounds.obj $
+    obj\gm\SampleApp.selftest.obj obj\gm\SampleApp.shadertext.obj $
+    obj\gm\SampleApp.shadertext2.obj obj\gm\SampleApp.shadertext3.obj $
+    obj\gm\SampleApp.shadows.obj obj\gm\SampleApp.shallowgradient.obj $
+    obj\gm\SampleApp.simpleaaclip.obj obj\gm\SampleApp.skbug1719.obj $
+    obj\gm\SampleApp.smallarc.obj obj\gm\SampleApp.smallimage.obj $
+    obj\gm\SampleApp.stringart.obj obj\gm\SampleApp.spritebitmap.obj $
+    obj\gm\SampleApp.srcmode.obj obj\gm\SampleApp.strokefill.obj $
+    obj\gm\SampleApp.strokerect.obj obj\gm\SampleApp.strokerects.obj $
+    obj\gm\SampleApp.strokes.obj obj\gm\SampleApp.stroketext.obj $
+    obj\gm\SampleApp.surface.obj obj\gm\SampleApp.tablecolorfilter.obj $
+    obj\gm\SampleApp.texteffects.obj obj\gm\SampleApp.testimagefilters.obj $
+    obj\gm\SampleApp.texdata.obj obj\gm\SampleApp.variedtext.obj $
+    obj\gm\SampleApp.tallstretchedbitmaps.obj obj\gm\SampleApp.textblob.obj $
+    obj\gm\SampleApp.textblobshader.obj $
+    obj\gm\SampleApp.texturedomaineffect.obj obj\gm\SampleApp.thinrects.obj $
+    obj\gm\SampleApp.thinstrokedrects.obj $
+    obj\gm\SampleApp.tiledscaledbitmap.obj $
+    obj\gm\SampleApp.tileimagefilter.obj obj\gm\SampleApp.tilemodes.obj $
+    obj\gm\SampleApp.tilemodes_scaled.obj obj\gm\SampleApp.tinybitmap.obj $
+    obj\gm\SampleApp.twopointradial.obj obj\gm\SampleApp.typeface.obj $
+    obj\gm\SampleApp.vertices.obj obj\gm\SampleApp.verttext.obj $
+    obj\gm\SampleApp.verttext2.obj obj\gm\SampleApp.verylargebitmap.obj $
+    obj\gm\SampleApp.xfermodeimagefilter.obj obj\gm\SampleApp.xfermodes.obj $
+    obj\gm\SampleApp.xfermodes2.obj obj\gm\SampleApp.xfermodes3.obj $
+    obj\gm\SampleApp.yuvtorgbeffect.obj $
+    obj\src\utils\debugger\SampleApp.SkDrawCommand.obj $
+    obj\src\utils\debugger\SampleApp.SkDebugCanvas.obj $
+    obj\src\utils\debugger\SampleApp.SkObjectParser.obj skia_animator.lib $
+    obj\gyp\libetc1.lib obj\gyp\experimental.lib obj\gyp\flags.lib $
+    obj\gyp\lua.lib skia_pdf.lib obj\gyp\resources.lib $
+    obj\gyp\sk_tool_utils.lib skia_views.lib obj\gyp\views_animated.lib $
+    skia_xml.lib skia_skgputest.lib skia_core.lib skia_effects.lib $
+    skia_images.lib obj\gyp\libjpeg.lib obj\gyp\libSkKTX.lib $
+    obj\gyp\libwebp_dec.lib obj\gyp\libwebp_demux.lib $
+    obj\gyp\libwebp_dsp.lib obj\gyp\libwebp_enc.lib $
+    obj\gyp\libwebp_utils.lib skia_utils.lib skia_opts.lib $
+    skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib skia_sfnt.lib $
+    skia_skgpu.lib obj\gyp\skflate.lib | $
+    obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\skia_lib.actions_depends.stamp $
+    obj\gyp\SampleApp.SampleApp.exe.generated.manifest
+  binary = SampleApp.exe

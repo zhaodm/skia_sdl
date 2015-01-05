@@ -1,0 +1,833 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+build obj\gyp\dm.actions_depends.stamp: stamp obj\gyp\libetc1.lib $
+    obj\gyp\flags.lib obj\gyp\jsoncpp.lib $
+    obj\gyp\skia_lib.actions_depends.stamp obj\gyp\crash_handler.lib $
+    obj\gyp\proc_stats.lib obj\gyp\sk_tool_utils.lib obj\gyp\resources.lib $
+    obj\gyp\experimental.lib obj\gyp\flags_common.lib skia_pdf.lib $
+    obj\gyp\picture_utils.lib skia_skgputest.lib skia_core.lib $
+    skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libSkKTX.lib obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\libwebp_dec.lib obj\gyp\libwebp_demux.lib $
+    obj\gyp\libwebp_dsp.lib obj\gyp\libwebp_enc.lib $
+    obj\gyp\libwebp_utils.lib skia_utils.lib skia_opts.lib $
+    skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib skia_sfnt.lib $
+    skia_skgpu.lib obj\gyp\skflate.lib
+
+pdbname_c = dm.pdb
+pdbname_cc = dm.pdb
+pchprefix = dm
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DSK_SUPPORT_PDF -DNDEBUG -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\dm -I..\..\gm -I..\..\tests -I..\..\src\images $
+    -I..\..\src\lazy -I..\..\src\core -I..\..\src\effects $
+    -I..\..\src\pipe\utils -I..\..\src\utils -I..\..\src\utils\debugger $
+    -I..\..\tools -I..\..\src\pathops -I..\..\src\pipe\utils $
+    -I..\..\src\image -I..\..\src\pdf -I..\..\experimental\PdfViewer $
+    -I..\..\experimental\PdfViewer\src -I..\..\third_party\etc1 $
+    -I..\..\tools\flags -I..\..\third_party\externals\jsoncpp\include $
+    -I..\..\include\c -I..\..\include\config -I..\..\include\core $
+    -I..\..\include\pathops -I..\..\include\pipe -I..\..\gyp\config\win $
+    -I..\..\include\effects -I..\..\include\images -I..\..\include\ports $
+    -I..\..\src\sfnt -I..\..\include\utils -I..\..\include\utils\win $
+    -I..\..\include\gpu -I..\..\experimental -I..\..\include\pdf $
+    -I..\..\tools -I..\..\src\gpu
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\dm\dm.DM.obj: cxx ..\..\dm\DM.cpp
+build obj\dm\dm.DMCpuGMTask.obj: cxx ..\..\dm\DMCpuGMTask.cpp
+build obj\dm\dm.DMGpuGMTask.obj: cxx ..\..\dm\DMGpuGMTask.cpp
+build obj\dm\dm.DMPDFRasterizeTask.obj: cxx ..\..\dm\DMPDFRasterizeTask.cpp
+build obj\dm\dm.DMImageTask.obj: cxx ..\..\dm\DMImageTask.cpp
+build obj\dm\dm.DMJsonWriter.obj: cxx ..\..\dm\DMJsonWriter.cpp
+build obj\dm\dm.DMPDFTask.obj: cxx ..\..\dm\DMPDFTask.cpp
+build obj\dm\dm.DMPipeTask.obj: cxx ..\..\dm\DMPipeTask.cpp
+build obj\dm\dm.DMQuiltTask.obj: cxx ..\..\dm\DMQuiltTask.cpp
+build obj\dm\dm.DMReporter.obj: cxx ..\..\dm\DMReporter.cpp
+build obj\dm\dm.DMSKPTask.obj: cxx ..\..\dm\DMSKPTask.cpp
+build obj\dm\dm.DMSerializeTask.obj: cxx ..\..\dm\DMSerializeTask.cpp
+build obj\dm\dm.DMTask.obj: cxx ..\..\dm\DMTask.cpp
+build obj\dm\dm.DMTaskRunner.obj: cxx ..\..\dm\DMTaskRunner.cpp
+build obj\dm\dm.DMTestTask.obj: cxx ..\..\dm\DMTestTask.cpp
+build obj\dm\dm.DMUtil.obj: cxx ..\..\dm\DMUtil.cpp
+build obj\dm\dm.DMWriteTask.obj: cxx ..\..\dm\DMWriteTask.cpp
+build obj\gm\dm.gm.obj: cxx ..\..\gm\gm.cpp
+build obj\src\pipe\utils\dm.SamplePipeControllers.obj: cxx $
+    ..\..\src\pipe\utils\SamplePipeControllers.cpp
+build obj\src\utils\debugger\dm.SkDebugCanvas.obj: cxx $
+    ..\..\src\utils\debugger\SkDebugCanvas.cpp
+build obj\src\utils\debugger\dm.SkDrawCommand.obj: cxx $
+    ..\..\src\utils\debugger\SkDrawCommand.cpp
+build obj\src\utils\debugger\dm.SkObjectParser.obj: cxx $
+    ..\..\src\utils\debugger\SkObjectParser.cpp
+build obj\tools\dm.LazyDecodeBitmap.obj: cxx ..\..\tools\LazyDecodeBitmap.cpp
+build obj\tests\dm.Test.obj: cxx ..\..\tests\Test.cpp
+build obj\tests\dm.PathOpsAngleTest.obj: cxx ..\..\tests\PathOpsAngleTest.cpp
+build obj\tests\dm.PathOpsBoundsTest.obj: cxx $
+    ..\..\tests\PathOpsBoundsTest.cpp
+build obj\tests\dm.PathOpsCubicIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsCubicIntersectionTest.cpp
+build obj\tests\dm.PathOpsCubicIntersectionTestData.obj: cxx $
+    ..\..\tests\PathOpsCubicIntersectionTestData.cpp
+build obj\tests\dm.PathOpsCubicLineIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsCubicLineIntersectionTest.cpp
+build obj\tests\dm.PathOpsCubicQuadIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsCubicQuadIntersectionTest.cpp
+build obj\tests\dm.PathOpsCubicReduceOrderTest.obj: cxx $
+    ..\..\tests\PathOpsCubicReduceOrderTest.cpp
+build obj\tests\dm.PathOpsCubicToQuadsTest.obj: cxx $
+    ..\..\tests\PathOpsCubicToQuadsTest.cpp
+build obj\tests\dm.PathOpsDCubicTest.obj: cxx $
+    ..\..\tests\PathOpsDCubicTest.cpp
+build obj\tests\dm.PathOpsDLineTest.obj: cxx ..\..\tests\PathOpsDLineTest.cpp
+build obj\tests\dm.PathOpsDPointTest.obj: cxx $
+    ..\..\tests\PathOpsDPointTest.cpp
+build obj\tests\dm.PathOpsDQuadTest.obj: cxx ..\..\tests\PathOpsDQuadTest.cpp
+build obj\tests\dm.PathOpsDRectTest.obj: cxx ..\..\tests\PathOpsDRectTest.cpp
+build obj\tests\dm.PathOpsDTriangleTest.obj: cxx $
+    ..\..\tests\PathOpsDTriangleTest.cpp
+build obj\tests\dm.PathOpsDVectorTest.obj: cxx $
+    ..\..\tests\PathOpsDVectorTest.cpp
+build obj\tests\dm.PathOpsExtendedTest.obj: cxx $
+    ..\..\tests\PathOpsExtendedTest.cpp
+build obj\tests\dm.PathOpsFuzz763Test.obj: cxx $
+    ..\..\tests\PathOpsFuzz763Test.cpp
+build obj\tests\dm.PathOpsInverseTest.obj: cxx $
+    ..\..\tests\PathOpsInverseTest.cpp
+build obj\tests\dm.PathOpsLineIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsLineIntersectionTest.cpp
+build obj\tests\dm.PathOpsLineParametetersTest.obj: cxx $
+    ..\..\tests\PathOpsLineParametetersTest.cpp
+build obj\tests\dm.PathOpsOpCubicThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsOpCubicThreadedTest.cpp
+build obj\tests\dm.PathOpsOpRectThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsOpRectThreadedTest.cpp
+build obj\tests\dm.PathOpsOpTest.obj: cxx ..\..\tests\PathOpsOpTest.cpp
+build obj\tests\dm.PathOpsQuadIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsQuadIntersectionTest.cpp
+build obj\tests\dm.PathOpsQuadIntersectionTestData.obj: cxx $
+    ..\..\tests\PathOpsQuadIntersectionTestData.cpp
+build obj\tests\dm.PathOpsQuadLineIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsQuadLineIntersectionTest.cpp
+build obj\tests\dm.PathOpsQuadLineIntersectionThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsQuadLineIntersectionThreadedTest.cpp
+build obj\tests\dm.PathOpsQuadParameterizationTest.obj: cxx $
+    ..\..\tests\PathOpsQuadParameterizationTest.cpp
+build obj\tests\dm.PathOpsQuadReduceOrderTest.obj: cxx $
+    ..\..\tests\PathOpsQuadReduceOrderTest.cpp
+build obj\tests\dm.PathOpsSimplifyDegenerateThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyDegenerateThreadedTest.cpp
+build obj\tests\dm.PathOpsSimplifyFailTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyFailTest.cpp
+build obj\tests\dm.PathOpsSimplifyQuadralateralsThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyQuadralateralsThreadedTest.cpp
+build obj\tests\dm.PathOpsSimplifyQuadThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyQuadThreadedTest.cpp
+build obj\tests\dm.PathOpsSimplifyRectThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyRectThreadedTest.cpp
+build obj\tests\dm.PathOpsSimplifyTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyTest.cpp
+build obj\tests\dm.PathOpsSimplifyTrianglesThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyTrianglesThreadedTest.cpp
+build obj\tests\dm.PathOpsSkpTest.obj: cxx ..\..\tests\PathOpsSkpTest.cpp
+build obj\tests\dm.PathOpsTestCommon.obj: cxx $
+    ..\..\tests\PathOpsTestCommon.cpp
+build obj\tests\dm.PathOpsThreadedCommon.obj: cxx $
+    ..\..\tests\PathOpsThreadedCommon.cpp
+build obj\tests\dm.PathOpsTightBoundsTest.obj: cxx $
+    ..\..\tests\PathOpsTightBoundsTest.cpp
+build obj\tests\dm.AAClipTest.obj: cxx ..\..\tests\AAClipTest.cpp
+build obj\tests\dm.ARGBImageEncoderTest.obj: cxx $
+    ..\..\tests\ARGBImageEncoderTest.cpp
+build obj\tests\dm.AnnotationTest.obj: cxx ..\..\tests\AnnotationTest.cpp
+build obj\tests\dm.AsADashTest.obj: cxx ..\..\tests\AsADashTest.cpp
+build obj\tests\dm.AtomicTest.obj: cxx ..\..\tests\AtomicTest.cpp
+build obj\tests\dm.BadIcoTest.obj: cxx ..\..\tests\BadIcoTest.cpp
+build obj\tests\dm.BitSetTest.obj: cxx ..\..\tests\BitSetTest.cpp
+build obj\tests\dm.BitmapCopyTest.obj: cxx ..\..\tests\BitmapCopyTest.cpp
+build obj\tests\dm.BitmapGetColorTest.obj: cxx $
+    ..\..\tests\BitmapGetColorTest.cpp
+build obj\tests\dm.BitmapHasherTest.obj: cxx ..\..\tests\BitmapHasherTest.cpp
+build obj\tests\dm.BitmapHeapTest.obj: cxx ..\..\tests\BitmapHeapTest.cpp
+build obj\tests\dm.BitmapTest.obj: cxx ..\..\tests\BitmapTest.cpp
+build obj\tests\dm.BlendTest.obj: cxx ..\..\tests\BlendTest.cpp
+build obj\tests\dm.BlitRowTest.obj: cxx ..\..\tests\BlitRowTest.cpp
+build obj\tests\dm.BlurTest.obj: cxx ..\..\tests\BlurTest.cpp
+build obj\tests\dm.CTest.obj: cxx ..\..\tests\CTest.cpp
+build obj\tests\dm.CachedDataTest.obj: cxx ..\..\tests\CachedDataTest.cpp
+build obj\tests\dm.CachedDecodingPixelRefTest.obj: cxx $
+    ..\..\tests\CachedDecodingPixelRefTest.cpp
+build obj\tests\dm.CanvasStateHelpers.obj: cxx $
+    ..\..\tests\CanvasStateHelpers.cpp
+build obj\tests\dm.CanvasStateTest.obj: cxx ..\..\tests\CanvasStateTest.cpp
+build obj\tests\dm.CanvasTest.obj: cxx ..\..\tests\CanvasTest.cpp
+build obj\tests\dm.ChecksumTest.obj: cxx ..\..\tests\ChecksumTest.cpp
+build obj\tests\dm.ClampRangeTest.obj: cxx ..\..\tests\ClampRangeTest.cpp
+build obj\tests\dm.ClipCacheTest.obj: cxx ..\..\tests\ClipCacheTest.cpp
+build obj\tests\dm.ClipCubicTest.obj: cxx ..\..\tests\ClipCubicTest.cpp
+build obj\tests\dm.ClipStackTest.obj: cxx ..\..\tests\ClipStackTest.cpp
+build obj\tests\dm.ClipperTest.obj: cxx ..\..\tests\ClipperTest.cpp
+build obj\tests\dm.ColorFilterTest.obj: cxx ..\..\tests\ColorFilterTest.cpp
+build obj\tests\dm.ColorPrivTest.obj: cxx ..\..\tests\ColorPrivTest.cpp
+build obj\tests\dm.ColorTest.obj: cxx ..\..\tests\ColorTest.cpp
+build obj\tests\dm.DashPathEffectTest.obj: cxx $
+    ..\..\tests\DashPathEffectTest.cpp
+build obj\tests\dm.DataRefTest.obj: cxx ..\..\tests\DataRefTest.cpp
+build obj\tests\dm.DeferredCanvasTest.obj: cxx $
+    ..\..\tests\DeferredCanvasTest.cpp
+build obj\tests\dm.DequeTest.obj: cxx ..\..\tests\DequeTest.cpp
+build obj\tests\dm.DeviceLooperTest.obj: cxx ..\..\tests\DeviceLooperTest.cpp
+build obj\tests\dm.DiscardableMemoryPoolTest.obj: cxx $
+    ..\..\tests\DiscardableMemoryPoolTest.cpp
+build obj\tests\dm.DiscardableMemoryTest.obj: cxx $
+    ..\..\tests\DiscardableMemoryTest.cpp
+build obj\tests\dm.DocumentTest.obj: cxx ..\..\tests\DocumentTest.cpp
+build obj\tests\dm.DrawBitmapRectTest.obj: cxx $
+    ..\..\tests\DrawBitmapRectTest.cpp
+build obj\tests\dm.DrawPathTest.obj: cxx ..\..\tests\DrawPathTest.cpp
+build obj\tests\dm.DrawTextTest.obj: cxx ..\..\tests\DrawTextTest.cpp
+build obj\tests\dm.DynamicHashTest.obj: cxx ..\..\tests\DynamicHashTest.cpp
+build obj\tests\dm.EmptyPathTest.obj: cxx ..\..\tests\EmptyPathTest.cpp
+build obj\tests\dm.ErrorTest.obj: cxx ..\..\tests\ErrorTest.cpp
+build obj\tests\dm.FillPathTest.obj: cxx ..\..\tests\FillPathTest.cpp
+build obj\tests\dm.FitsInTest.obj: cxx ..\..\tests\FitsInTest.cpp
+build obj\tests\dm.FlateTest.obj: cxx ..\..\tests\FlateTest.cpp
+build obj\tests\dm.FloatingPointTextureTest.obj: cxx $
+    ..\..\tests\FloatingPointTextureTest.cpp
+build obj\tests\dm.FontHostStreamTest.obj: cxx $
+    ..\..\tests\FontHostStreamTest.cpp
+build obj\tests\dm.FontHostTest.obj: cxx ..\..\tests\FontHostTest.cpp
+build obj\tests\dm.FontMgrTest.obj: cxx ..\..\tests\FontMgrTest.cpp
+build obj\tests\dm.FontNamesTest.obj: cxx ..\..\tests\FontNamesTest.cpp
+build obj\tests\dm.FontObjTest.obj: cxx ..\..\tests\FontObjTest.cpp
+build obj\tests\dm.FrontBufferedStreamTest.obj: cxx $
+    ..\..\tests\FrontBufferedStreamTest.cpp
+build obj\tests\dm.GLInterfaceValidationTest.obj: cxx $
+    ..\..\tests\GLInterfaceValidationTest.cpp
+build obj\tests\dm.GLProgramsTest.obj: cxx ..\..\tests\GLProgramsTest.cpp
+build obj\tests\dm.GeometryTest.obj: cxx ..\..\tests\GeometryTest.cpp
+build obj\tests\dm.GifTest.obj: cxx ..\..\tests\GifTest.cpp
+build obj\tests\dm.GpuColorFilterTest.obj: cxx $
+    ..\..\tests\GpuColorFilterTest.cpp
+build obj\tests\dm.GpuDrawPathTest.obj: cxx ..\..\tests\GpuDrawPathTest.cpp
+build obj\tests\dm.GpuLayerCacheTest.obj: cxx $
+    ..\..\tests\GpuLayerCacheTest.cpp
+build obj\tests\dm.GpuRectanizerTest.obj: cxx $
+    ..\..\tests\GpuRectanizerTest.cpp
+build obj\tests\dm.GrBinHashKeyTest.obj: cxx ..\..\tests\GrBinHashKeyTest.cpp
+build obj\tests\dm.GrContextFactoryTest.obj: cxx $
+    ..\..\tests\GrContextFactoryTest.cpp
+build obj\tests\dm.GrDrawTargetTest.obj: cxx ..\..\tests\GrDrawTargetTest.cpp
+build obj\tests\dm.GrAllocatorTest.obj: cxx ..\..\tests\GrAllocatorTest.cpp
+build obj\tests\dm.GrMemoryPoolTest.obj: cxx ..\..\tests\GrMemoryPoolTest.cpp
+build obj\tests\dm.GrOrderedSetTest.obj: cxx ..\..\tests\GrOrderedSetTest.cpp
+build obj\tests\dm.GrGLSLPrettyPrintTest.obj: cxx $
+    ..\..\tests\GrGLSLPrettyPrintTest.cpp
+build obj\tests\dm.GrRedBlackTreeTest.obj: cxx $
+    ..\..\tests\GrRedBlackTreeTest.cpp
+build obj\tests\dm.GrSurfaceTest.obj: cxx ..\..\tests\GrSurfaceTest.cpp
+build obj\tests\dm.GrTBSearchTest.obj: cxx ..\..\tests\GrTBSearchTest.cpp
+build obj\tests\dm.GrTRecorderTest.obj: cxx ..\..\tests\GrTRecorderTest.cpp
+build obj\tests\dm.GradientTest.obj: cxx ..\..\tests\GradientTest.cpp
+build obj\tests\dm.ImageCacheTest.obj: cxx ..\..\tests\ImageCacheTest.cpp
+build obj\tests\dm.ImageDecodingTest.obj: cxx $
+    ..\..\tests\ImageDecodingTest.cpp
+build obj\tests\dm.ImageFilterTest.obj: cxx ..\..\tests\ImageFilterTest.cpp
+build obj\tests\dm.ImageGeneratorTest.obj: cxx $
+    ..\..\tests\ImageGeneratorTest.cpp
+build obj\tests\dm.ImageIsOpaqueTest.obj: cxx $
+    ..\..\tests\ImageIsOpaqueTest.cpp
+build obj\tests\dm.ImageNewShaderTest.obj: cxx $
+    ..\..\tests\ImageNewShaderTest.cpp
+build obj\tests\dm.InfRectTest.obj: cxx ..\..\tests\InfRectTest.cpp
+build obj\tests\dm.InterpolatorTest.obj: cxx ..\..\tests\InterpolatorTest.cpp
+build obj\tests\dm.JpegTest.obj: cxx ..\..\tests\JpegTest.cpp
+build obj\tests\dm.KtxTest.obj: cxx ..\..\tests\KtxTest.cpp
+build obj\tests\dm.LListTest.obj: cxx ..\..\tests\LListTest.cpp
+build obj\tests\dm.LayerDrawLooperTest.obj: cxx $
+    ..\..\tests\LayerDrawLooperTest.cpp
+build obj\tests\dm.LayerRasterizerTest.obj: cxx $
+    ..\..\tests\LayerRasterizerTest.cpp
+build obj\tests\dm.LazyPtrTest.obj: cxx ..\..\tests\LazyPtrTest.cpp
+build obj\tests\dm.MD5Test.obj: cxx ..\..\tests\MD5Test.cpp
+build obj\tests\dm.MallocPixelRefTest.obj: cxx $
+    ..\..\tests\MallocPixelRefTest.cpp
+build obj\tests\dm.MaskCacheTest.obj: cxx ..\..\tests\MaskCacheTest.cpp
+build obj\tests\dm.MathTest.obj: cxx ..\..\tests\MathTest.cpp
+build obj\tests\dm.Matrix44Test.obj: cxx ..\..\tests\Matrix44Test.cpp
+build obj\tests\dm.MatrixClipCollapseTest.obj: cxx $
+    ..\..\tests\MatrixClipCollapseTest.cpp
+build obj\tests\dm.MatrixTest.obj: cxx ..\..\tests\MatrixTest.cpp
+build obj\tests\dm.MemoryTest.obj: cxx ..\..\tests\MemoryTest.cpp
+build obj\tests\dm.MemsetTest.obj: cxx ..\..\tests\MemsetTest.cpp
+build obj\tests\dm.MessageBusTest.obj: cxx ..\..\tests\MessageBusTest.cpp
+build obj\tests\dm.MetaDataTest.obj: cxx ..\..\tests\MetaDataTest.cpp
+build obj\tests\dm.MipMapTest.obj: cxx ..\..\tests\MipMapTest.cpp
+build obj\tests\dm.NameAllocatorTest.obj: cxx $
+    ..\..\tests\NameAllocatorTest.cpp
+build obj\tests\dm.OSPathTest.obj: cxx ..\..\tests\OSPathTest.cpp
+build obj\tests\dm.OnceTest.obj: cxx ..\..\tests\OnceTest.cpp
+build obj\tests\dm.PDFInvalidBitmapTest.obj: cxx $
+    ..\..\tests\PDFInvalidBitmapTest.cpp
+build obj\tests\dm.PDFJpegEmbedTest.obj: cxx ..\..\tests\PDFJpegEmbedTest.cpp
+build obj\tests\dm.PDFPrimitivesTest.obj: cxx $
+    ..\..\tests\PDFPrimitivesTest.cpp
+build obj\tests\dm.PackBitsTest.obj: cxx ..\..\tests\PackBitsTest.cpp
+build obj\tests\dm.PaintTest.obj: cxx ..\..\tests\PaintTest.cpp
+build obj\tests\dm.ParsePathTest.obj: cxx ..\..\tests\ParsePathTest.cpp
+build obj\tests\dm.PathCoverageTest.obj: cxx ..\..\tests\PathCoverageTest.cpp
+build obj\tests\dm.PathMeasureTest.obj: cxx ..\..\tests\PathMeasureTest.cpp
+build obj\tests\dm.PathTest.obj: cxx ..\..\tests\PathTest.cpp
+build obj\tests\dm.PathUtilsTest.obj: cxx ..\..\tests\PathUtilsTest.cpp
+build obj\tests\dm.PictureBBHTest.obj: cxx ..\..\tests\PictureBBHTest.cpp
+build obj\tests\dm.PictureShaderTest.obj: cxx $
+    ..\..\tests\PictureShaderTest.cpp
+build obj\tests\dm.PictureTest.obj: cxx ..\..\tests\PictureTest.cpp
+build obj\tests\dm.PixelRefTest.obj: cxx ..\..\tests\PixelRefTest.cpp
+build obj\tests\dm.PointTest.obj: cxx ..\..\tests\PointTest.cpp
+build obj\tests\dm.PremulAlphaRoundTripTest.obj: cxx $
+    ..\..\tests\PremulAlphaRoundTripTest.cpp
+build obj\tests\dm.QuickRejectTest.obj: cxx ..\..\tests\QuickRejectTest.cpp
+build obj\tests\dm.RTConfRegistryTest.obj: cxx $
+    ..\..\tests\RTConfRegistryTest.cpp
+build obj\tests\dm.RTreeTest.obj: cxx ..\..\tests\RTreeTest.cpp
+build obj\tests\dm.RandomTest.obj: cxx ..\..\tests\RandomTest.cpp
+build obj\tests\dm.ReadPixelsTest.obj: cxx ..\..\tests\ReadPixelsTest.cpp
+build obj\tests\dm.ReadWriteAlphaTest.obj: cxx $
+    ..\..\tests\ReadWriteAlphaTest.cpp
+build obj\tests\dm.Reader32Test.obj: cxx ..\..\tests\Reader32Test.cpp
+build obj\tests\dm.RecordDrawTest.obj: cxx ..\..\tests\RecordDrawTest.cpp
+build obj\tests\dm.RecordReplaceDrawTest.obj: cxx $
+    ..\..\tests\RecordReplaceDrawTest.cpp
+build obj\tests\dm.RecordOptsTest.obj: cxx ..\..\tests\RecordOptsTest.cpp
+build obj\tests\dm.RecordPatternTest.obj: cxx $
+    ..\..\tests\RecordPatternTest.cpp
+build obj\tests\dm.RecordTest.obj: cxx ..\..\tests\RecordTest.cpp
+build obj\tests\dm.RecorderTest.obj: cxx ..\..\tests\RecorderTest.cpp
+build obj\tests\dm.RecordingXfermodeTest.obj: cxx $
+    ..\..\tests\RecordingXfermodeTest.cpp
+build obj\tests\dm.RefCntTest.obj: cxx ..\..\tests\RefCntTest.cpp
+build obj\tests\dm.RefDictTest.obj: cxx ..\..\tests\RefDictTest.cpp
+build obj\tests\dm.RegionTest.obj: cxx ..\..\tests\RegionTest.cpp
+build obj\tests\dm.ResourceCacheTest.obj: cxx $
+    ..\..\tests\ResourceCacheTest.cpp
+build obj\tests\dm.RoundRectTest.obj: cxx ..\..\tests\RoundRectTest.cpp
+build obj\tests\dm.RuntimeConfigTest.obj: cxx $
+    ..\..\tests\RuntimeConfigTest.cpp
+build obj\tests\dm.SHA1Test.obj: cxx ..\..\tests\SHA1Test.cpp
+build obj\tests\dm.ScalarTest.obj: cxx ..\..\tests\ScalarTest.cpp
+build obj\tests\dm.SerializationTest.obj: cxx $
+    ..\..\tests\SerializationTest.cpp
+build obj\tests\dm.ShaderImageFilterTest.obj: cxx $
+    ..\..\tests\ShaderImageFilterTest.cpp
+build obj\tests\dm.ShaderOpacityTest.obj: cxx $
+    ..\..\tests\ShaderOpacityTest.cpp
+build obj\tests\dm.SizeTest.obj: cxx ..\..\tests\SizeTest.cpp
+build obj\tests\dm.Sk4xTest.obj: cxx ..\..\tests\Sk4xTest.cpp
+build obj\tests\dm.SkBase64Test.obj: cxx ..\..\tests\SkBase64Test.cpp
+build obj\tests\dm.SkResourceCacheTest.obj: cxx $
+    ..\..\tests\SkResourceCacheTest.cpp
+build obj\tests\dm.SmallAllocatorTest.obj: cxx $
+    ..\..\tests\SmallAllocatorTest.cpp
+build obj\tests\dm.SortTest.obj: cxx ..\..\tests\SortTest.cpp
+build obj\tests\dm.SrcOverTest.obj: cxx ..\..\tests\SrcOverTest.cpp
+build obj\tests\dm.StreamTest.obj: cxx ..\..\tests\StreamTest.cpp
+build obj\tests\dm.StringTest.obj: cxx ..\..\tests\StringTest.cpp
+build obj\tests\dm.StrokeTest.obj: cxx ..\..\tests\StrokeTest.cpp
+build obj\tests\dm.StrokerTest.obj: cxx ..\..\tests\StrokerTest.cpp
+build obj\tests\dm.SurfaceTest.obj: cxx ..\..\tests\SurfaceTest.cpp
+build obj\tests\dm.TArrayTest.obj: cxx ..\..\tests\TArrayTest.cpp
+build obj\tests\dm.THashCache.obj: cxx ..\..\tests\THashCache.cpp
+build obj\tests\dm.Time.obj: cxx ..\..\tests\Time.cpp
+build obj\tests\dm.TLSTest.obj: cxx ..\..\tests\TLSTest.cpp
+build obj\tests\dm.TSetTest.obj: cxx ..\..\tests\TSetTest.cpp
+build obj\tests\dm.TextBlobTest.obj: cxx ..\..\tests\TextBlobTest.cpp
+build obj\tests\dm.TextureCompressionTest.obj: cxx $
+    ..\..\tests\TextureCompressionTest.cpp
+build obj\tests\dm.TileGridTest.obj: cxx ..\..\tests\TileGridTest.cpp
+build obj\tests\dm.ToUnicodeTest.obj: cxx ..\..\tests\ToUnicodeTest.cpp
+build obj\tests\dm.TracingTest.obj: cxx ..\..\tests\TracingTest.cpp
+build obj\tests\dm.TypefaceTest.obj: cxx ..\..\tests\TypefaceTest.cpp
+build obj\tests\dm.UnicodeTest.obj: cxx ..\..\tests\UnicodeTest.cpp
+build obj\tests\dm.UtilsTest.obj: cxx ..\..\tests\UtilsTest.cpp
+build obj\tests\dm.VarAllocTest.obj: cxx ..\..\tests\VarAllocTest.cpp
+build obj\tests\dm.WArrayTest.obj: cxx ..\..\tests\WArrayTest.cpp
+build obj\tests\dm.WritePixelsTest.obj: cxx ..\..\tests\WritePixelsTest.cpp
+build obj\tests\dm.Writer32Test.obj: cxx ..\..\tests\Writer32Test.cpp
+build obj\tests\dm.XfermodeTest.obj: cxx ..\..\tests\XfermodeTest.cpp
+build obj\tests\dm.PipeTest.obj: cxx ..\..\tests\PipeTest.cpp
+build obj\tests\dm.TDStackNesterTest.obj: cxx $
+    ..\..\tests\TDStackNesterTest.cpp
+build obj\gm\dm.aaclip.obj: cxx ..\..\gm\aaclip.cpp
+build obj\gm\dm.aarectmodes.obj: cxx ..\..\gm\aarectmodes.cpp
+build obj\gm\dm.alphagradients.obj: cxx ..\..\gm\alphagradients.cpp
+build obj\gm\dm.arcofzorro.obj: cxx ..\..\gm\arcofzorro.cpp
+build obj\gm\dm.arithmode.obj: cxx ..\..\gm\arithmode.cpp
+build obj\gm\dm.astcbitmap.obj: cxx ..\..\gm\astcbitmap.cpp
+build obj\gm\dm.beziereffects.obj: cxx ..\..\gm\beziereffects.cpp
+build obj\gm\dm.beziers.obj: cxx ..\..\gm\beziers.cpp
+build obj\gm\dm.bigblurs.obj: cxx ..\..\gm\bigblurs.cpp
+build obj\gm\dm.bigmatrix.obj: cxx ..\..\gm\bigmatrix.cpp
+build obj\gm\dm.bigtext.obj: cxx ..\..\gm\bigtext.cpp
+build obj\gm\dm.bitmapcopy.obj: cxx ..\..\gm\bitmapcopy.cpp
+build obj\gm\dm.bitmapfilters.obj: cxx ..\..\gm\bitmapfilters.cpp
+build obj\gm\dm.bitmappremul.obj: cxx ..\..\gm\bitmappremul.cpp
+build obj\gm\dm.bitmaprect.obj: cxx ..\..\gm\bitmaprect.cpp
+build obj\gm\dm.bitmaprecttest.obj: cxx ..\..\gm\bitmaprecttest.cpp
+build obj\gm\dm.bitmapscroll.obj: cxx ..\..\gm\bitmapscroll.cpp
+build obj\gm\dm.bitmapshader.obj: cxx ..\..\gm\bitmapshader.cpp
+build obj\gm\dm.bitmapsource.obj: cxx ..\..\gm\bitmapsource.cpp
+build obj\gm\dm.bleed.obj: cxx ..\..\gm\bleed.cpp
+build obj\gm\dm.blurcircles.obj: cxx ..\..\gm\blurcircles.cpp
+build obj\gm\dm.blurs.obj: cxx ..\..\gm\blurs.cpp
+build obj\gm\dm.blurquickreject.obj: cxx ..\..\gm\blurquickreject.cpp
+build obj\gm\dm.blurrect.obj: cxx ..\..\gm\blurrect.cpp
+build obj\gm\dm.blurroundrect.obj: cxx ..\..\gm\blurroundrect.cpp
+build obj\gm\dm.circles.obj: cxx ..\..\gm\circles.cpp
+build obj\gm\dm.circularclips.obj: cxx ..\..\gm\circularclips.cpp
+build obj\gm\dm.clip_strokerect.obj: cxx ..\..\gm\clip_strokerect.cpp
+build obj\gm\dm.clippedbitmapshaders.obj: cxx $
+    ..\..\gm\clippedbitmapshaders.cpp
+build obj\gm\dm.cgms.obj: cxx ..\..\gm\cgms.cpp
+build obj\gm\dm.cgm.obj: cc ..\..\gm\cgm.c
+build obj\gm\dm.colorcube.obj: cxx ..\..\gm\colorcube.cpp
+build obj\gm\dm.coloremoji.obj: cxx ..\..\gm\coloremoji.cpp
+build obj\gm\dm.colorfilterimagefilter.obj: cxx $
+    ..\..\gm\colorfilterimagefilter.cpp
+build obj\gm\dm.colorfilters.obj: cxx ..\..\gm\colorfilters.cpp
+build obj\gm\dm.colormatrix.obj: cxx ..\..\gm\colormatrix.cpp
+build obj\gm\dm.colortype.obj: cxx ..\..\gm\colortype.cpp
+build obj\gm\dm.colortypexfermode.obj: cxx ..\..\gm\colortypexfermode.cpp
+build obj\gm\dm.colorwheel.obj: cxx ..\..\gm\colorwheel.cpp
+build obj\gm\dm.complexclip.obj: cxx ..\..\gm\complexclip.cpp
+build obj\gm\dm.complexclip2.obj: cxx ..\..\gm\complexclip2.cpp
+build obj\gm\dm.complexclip3.obj: cxx ..\..\gm\complexclip3.cpp
+build obj\gm\dm.composeshader.obj: cxx ..\..\gm\composeshader.cpp
+build obj\gm\dm.convexpaths.obj: cxx ..\..\gm\convexpaths.cpp
+build obj\gm\dm.convexpolyclip.obj: cxx ..\..\gm\convexpolyclip.cpp
+build obj\gm\dm.convexpolyeffect.obj: cxx ..\..\gm\convexpolyeffect.cpp
+build obj\gm\dm.copyTo4444.obj: cxx ..\..\gm\copyTo4444.cpp
+build obj\gm\dm.cubicpaths.obj: cxx ..\..\gm\cubicpaths.cpp
+build obj\gm\dm.cmykjpeg.obj: cxx ..\..\gm\cmykjpeg.cpp
+build obj\gm\dm.degeneratesegments.obj: cxx ..\..\gm\degeneratesegments.cpp
+build obj\gm\dm.dcshader.obj: cxx ..\..\gm\dcshader.cpp
+build obj\gm\dm.discard.obj: cxx ..\..\gm\discard.cpp
+build obj\gm\dm.dashcubics.obj: cxx ..\..\gm\dashcubics.cpp
+build obj\gm\dm.dashing.obj: cxx ..\..\gm\dashing.cpp
+build obj\gm\dm.distantclip.obj: cxx ..\..\gm\distantclip.cpp
+build obj\gm\dm.dftext.obj: cxx ..\..\gm\dftext.cpp
+build obj\gm\dm.displacement.obj: cxx ..\..\gm\displacement.cpp
+build obj\gm\dm.downsamplebitmap.obj: cxx ..\..\gm\downsamplebitmap.cpp
+build obj\gm\dm.drawbitmaprect.obj: cxx ..\..\gm\drawbitmaprect.cpp
+build obj\gm\dm.drawlooper.obj: cxx ..\..\gm\drawlooper.cpp
+build obj\gm\dm.dropshadowimagefilter.obj: cxx $
+    ..\..\gm\dropshadowimagefilter.cpp
+build obj\gm\dm.drrect.obj: cxx ..\..\gm\drrect.cpp
+build obj\gm\dm.etc1bitmap.obj: cxx ..\..\gm\etc1bitmap.cpp
+build obj\gm\dm.extractbitmap.obj: cxx ..\..\gm\extractbitmap.cpp
+build obj\gm\dm.emboss.obj: cxx ..\..\gm\emboss.cpp
+build obj\gm\dm.emptypath.obj: cxx ..\..\gm\emptypath.cpp
+build obj\gm\dm.fatpathfill.obj: cxx ..\..\gm\fatpathfill.cpp
+build obj\gm\dm.factory.obj: cxx ..\..\gm\factory.cpp
+build obj\gm\dm.filltypes.obj: cxx ..\..\gm\filltypes.cpp
+build obj\gm\dm.filltypespersp.obj: cxx ..\..\gm\filltypespersp.cpp
+build obj\gm\dm.filterbitmap.obj: cxx ..\..\gm\filterbitmap.cpp
+build obj\gm\dm.filterfastbounds.obj: cxx ..\..\gm\filterfastbounds.cpp
+build obj\gm\dm.filterindiabox.obj: cxx ..\..\gm\filterindiabox.cpp
+build obj\gm\dm.fontcache.obj: cxx ..\..\gm\fontcache.cpp
+build obj\gm\dm.fontmgr.obj: cxx ..\..\gm\fontmgr.cpp
+build obj\gm\dm.fontscaler.obj: cxx ..\..\gm\fontscaler.cpp
+build obj\gm\dm.gammatext.obj: cxx ..\..\gm\gammatext.cpp
+build obj\gm\dm.getpostextpath.obj: cxx ..\..\gm\getpostextpath.cpp
+build obj\gm\dm.giantbitmap.obj: cxx ..\..\gm\giantbitmap.cpp
+build obj\gm\dm.glyph_pos.obj: cxx ..\..\gm\glyph_pos.cpp
+build obj\gm\dm.glyph_pos_align.obj: cxx ..\..\gm\glyph_pos_align.cpp
+build obj\gm\dm.gradients.obj: cxx ..\..\gm\gradients.cpp
+build obj\gm\dm.gradients_2pt_conical.obj: cxx $
+    ..\..\gm\gradients_2pt_conical.cpp
+build obj\gm\dm.gradients_no_texture.obj: cxx $
+    ..\..\gm\gradients_no_texture.cpp
+build obj\gm\dm.gradientDirtyLaundry.obj: cxx $
+    ..\..\gm\gradientDirtyLaundry.cpp
+build obj\gm\dm.gradient_matrix.obj: cxx ..\..\gm\gradient_matrix.cpp
+build obj\gm\dm.gradtext.obj: cxx ..\..\gm\gradtext.cpp
+build obj\gm\dm.grayscalejpg.obj: cxx ..\..\gm\grayscalejpg.cpp
+build obj\gm\dm.hairlines.obj: cxx ..\..\gm\hairlines.cpp
+build obj\gm\dm.hairmodes.obj: cxx ..\..\gm\hairmodes.cpp
+build obj\gm\dm.hittestpath.obj: cxx ..\..\gm\hittestpath.cpp
+build obj\gm\dm.imagealphathreshold.obj: cxx ..\..\gm\imagealphathreshold.cpp
+build obj\gm\dm.imageblur.obj: cxx ..\..\gm\imageblur.cpp
+build obj\gm\dm.imageblur2.obj: cxx ..\..\gm\imageblur2.cpp
+build obj\gm\dm.imageblurtiled.obj: cxx ..\..\gm\imageblurtiled.cpp
+build obj\gm\dm.imagemagnifier.obj: cxx ..\..\gm\imagemagnifier.cpp
+build obj\gm\dm.imageresizetiled.obj: cxx ..\..\gm\imageresizetiled.cpp
+build obj\gm\dm.inversepaths.obj: cxx ..\..\gm\inversepaths.cpp
+build obj\gm\dm.lerpmode.obj: cxx ..\..\gm\lerpmode.cpp
+build obj\gm\dm.lighting.obj: cxx ..\..\gm\lighting.cpp
+build obj\gm\dm.lumafilter.obj: cxx ..\..\gm\lumafilter.cpp
+build obj\gm\dm.image.obj: cxx ..\..\gm\image.cpp
+build obj\gm\dm.imagefiltersbase.obj: cxx ..\..\gm\imagefiltersbase.cpp
+build obj\gm\dm.imagefiltersclipped.obj: cxx ..\..\gm\imagefiltersclipped.cpp
+build obj\gm\dm.imagefilterscropped.obj: cxx ..\..\gm\imagefilterscropped.cpp
+build obj\gm\dm.imagefilterscropexpand.obj: cxx $
+    ..\..\gm\imagefilterscropexpand.cpp
+build obj\gm\dm.imagefiltersgraph.obj: cxx ..\..\gm\imagefiltersgraph.cpp
+build obj\gm\dm.imagefiltersscaled.obj: cxx ..\..\gm\imagefiltersscaled.cpp
+build obj\gm\dm.internal_links.obj: cxx ..\..\gm\internal_links.cpp
+build obj\gm\dm.lcdtext.obj: cxx ..\..\gm\lcdtext.cpp
+build obj\gm\dm.linepaths.obj: cxx ..\..\gm\linepaths.cpp
+build obj\gm\dm.matrixconvolution.obj: cxx ..\..\gm\matrixconvolution.cpp
+build obj\gm\dm.matriximagefilter.obj: cxx ..\..\gm\matriximagefilter.cpp
+build obj\gm\dm.megalooper.obj: cxx ..\..\gm\megalooper.cpp
+build obj\gm\dm.mixedxfermodes.obj: cxx ..\..\gm\mixedxfermodes.cpp
+build obj\gm\dm.modecolorfilters.obj: cxx ..\..\gm\modecolorfilters.cpp
+build obj\gm\dm.morphology.obj: cxx ..\..\gm\morphology.cpp
+build obj\gm\dm.multipicturedraw.obj: cxx ..\..\gm\multipicturedraw.cpp
+build obj\gm\dm.nested.obj: cxx ..\..\gm\nested.cpp
+build obj\gm\dm.ninepatchstretch.obj: cxx ..\..\gm\ninepatchstretch.cpp
+build obj\gm\dm.nonclosedpaths.obj: cxx ..\..\gm\nonclosedpaths.cpp
+build obj\gm\dm.offsetimagefilter.obj: cxx ..\..\gm\offsetimagefilter.cpp
+build obj\gm\dm.ovals.obj: cxx ..\..\gm\ovals.cpp
+build obj\gm\dm.patch.obj: cxx ..\..\gm\patch.cpp
+build obj\gm\dm.patchgrid.obj: cxx ..\..\gm\patchgrid.cpp
+build obj\gm\dm.patheffects.obj: cxx ..\..\gm\patheffects.cpp
+build obj\gm\dm.pathfill.obj: cxx ..\..\gm\pathfill.cpp
+build obj\gm\dm.pathinterior.obj: cxx ..\..\gm\pathinterior.cpp
+build obj\gm\dm.pathopsinverse.obj: cxx ..\..\gm\pathopsinverse.cpp
+build obj\gm\dm.pathopsskpclip.obj: cxx ..\..\gm\pathopsskpclip.cpp
+build obj\gm\dm.pathreverse.obj: cxx ..\..\gm\pathreverse.cpp
+build obj\gm\dm.peekpixels.obj: cxx ..\..\gm\peekpixels.cpp
+build obj\gm\dm.perlinnoise.obj: cxx ..\..\gm\perlinnoise.cpp
+build obj\gm\dm.picture.obj: cxx ..\..\gm\picture.cpp
+build obj\gm\dm.pictureimagefilter.obj: cxx ..\..\gm\pictureimagefilter.cpp
+build obj\gm\dm.pictureshader.obj: cxx ..\..\gm\pictureshader.cpp
+build obj\gm\dm.pictureshadertile.obj: cxx ..\..\gm\pictureshadertile.cpp
+build obj\gm\dm.points.obj: cxx ..\..\gm\points.cpp
+build obj\gm\dm.poly2poly.obj: cxx ..\..\gm\poly2poly.cpp
+build obj\gm\dm.polygons.obj: cxx ..\..\gm\polygons.cpp
+build obj\gm\dm.quadpaths.obj: cxx ..\..\gm\quadpaths.cpp
+build obj\gm\dm.rects.obj: cxx ..\..\gm\rects.cpp
+build obj\gm\dm.resizeimagefilter.obj: cxx ..\..\gm\resizeimagefilter.cpp
+build obj\gm\dm.rrect.obj: cxx ..\..\gm\rrect.cpp
+build obj\gm\dm.rrects.obj: cxx ..\..\gm\rrects.cpp
+build obj\gm\dm.roundrects.obj: cxx ..\..\gm\roundrects.cpp
+build obj\gm\dm.samplerstress.obj: cxx ..\..\gm\samplerstress.cpp
+build obj\gm\dm.shaderbounds.obj: cxx ..\..\gm\shaderbounds.cpp
+build obj\gm\dm.selftest.obj: cxx ..\..\gm\selftest.cpp
+build obj\gm\dm.shadertext.obj: cxx ..\..\gm\shadertext.cpp
+build obj\gm\dm.shadertext2.obj: cxx ..\..\gm\shadertext2.cpp
+build obj\gm\dm.shadertext3.obj: cxx ..\..\gm\shadertext3.cpp
+build obj\gm\dm.shadows.obj: cxx ..\..\gm\shadows.cpp
+build obj\gm\dm.shallowgradient.obj: cxx ..\..\gm\shallowgradient.cpp
+build obj\gm\dm.simpleaaclip.obj: cxx ..\..\gm\simpleaaclip.cpp
+build obj\gm\dm.skbug1719.obj: cxx ..\..\gm\skbug1719.cpp
+build obj\gm\dm.smallarc.obj: cxx ..\..\gm\smallarc.cpp
+build obj\gm\dm.smallimage.obj: cxx ..\..\gm\smallimage.cpp
+build obj\gm\dm.stringart.obj: cxx ..\..\gm\stringart.cpp
+build obj\gm\dm.spritebitmap.obj: cxx ..\..\gm\spritebitmap.cpp
+build obj\gm\dm.srcmode.obj: cxx ..\..\gm\srcmode.cpp
+build obj\gm\dm.strokefill.obj: cxx ..\..\gm\strokefill.cpp
+build obj\gm\dm.strokerect.obj: cxx ..\..\gm\strokerect.cpp
+build obj\gm\dm.strokerects.obj: cxx ..\..\gm\strokerects.cpp
+build obj\gm\dm.strokes.obj: cxx ..\..\gm\strokes.cpp
+build obj\gm\dm.stroketext.obj: cxx ..\..\gm\stroketext.cpp
+build obj\gm\dm.surface.obj: cxx ..\..\gm\surface.cpp
+build obj\gm\dm.tablecolorfilter.obj: cxx ..\..\gm\tablecolorfilter.cpp
+build obj\gm\dm.texteffects.obj: cxx ..\..\gm\texteffects.cpp
+build obj\gm\dm.testimagefilters.obj: cxx ..\..\gm\testimagefilters.cpp
+build obj\gm\dm.texdata.obj: cxx ..\..\gm\texdata.cpp
+build obj\gm\dm.variedtext.obj: cxx ..\..\gm\variedtext.cpp
+build obj\gm\dm.tallstretchedbitmaps.obj: cxx $
+    ..\..\gm\tallstretchedbitmaps.cpp
+build obj\gm\dm.textblob.obj: cxx ..\..\gm\textblob.cpp
+build obj\gm\dm.textblobshader.obj: cxx ..\..\gm\textblobshader.cpp
+build obj\gm\dm.texturedomaineffect.obj: cxx ..\..\gm\texturedomaineffect.cpp
+build obj\gm\dm.thinrects.obj: cxx ..\..\gm\thinrects.cpp
+build obj\gm\dm.thinstrokedrects.obj: cxx ..\..\gm\thinstrokedrects.cpp
+build obj\gm\dm.tiledscaledbitmap.obj: cxx ..\..\gm\tiledscaledbitmap.cpp
+build obj\gm\dm.tileimagefilter.obj: cxx ..\..\gm\tileimagefilter.cpp
+build obj\gm\dm.tilemodes.obj: cxx ..\..\gm\tilemodes.cpp
+build obj\gm\dm.tilemodes_scaled.obj: cxx ..\..\gm\tilemodes_scaled.cpp
+build obj\gm\dm.tinybitmap.obj: cxx ..\..\gm\tinybitmap.cpp
+build obj\gm\dm.twopointradial.obj: cxx ..\..\gm\twopointradial.cpp
+build obj\gm\dm.typeface.obj: cxx ..\..\gm\typeface.cpp
+build obj\gm\dm.vertices.obj: cxx ..\..\gm\vertices.cpp
+build obj\gm\dm.verttext.obj: cxx ..\..\gm\verttext.cpp
+build obj\gm\dm.verttext2.obj: cxx ..\..\gm\verttext2.cpp
+build obj\gm\dm.verylargebitmap.obj: cxx ..\..\gm\verylargebitmap.cpp
+build obj\gm\dm.xfermodeimagefilter.obj: cxx ..\..\gm\xfermodeimagefilter.cpp
+build obj\gm\dm.xfermodes.obj: cxx ..\..\gm\xfermodes.cpp
+build obj\gm\dm.xfermodes2.obj: cxx ..\..\gm\xfermodes2.cpp
+build obj\gm\dm.xfermodes3.obj: cxx ..\..\gm\xfermodes3.cpp
+build obj\gm\dm.yuvtorgbeffect.obj: cxx ..\..\gm\yuvtorgbeffect.cpp
+
+manifests = obj\gyp\dm.dm.exe.generated.manifest
+intermediatemanifest = obj\gyp\dm.dm.exe.intermediate.manifest
+ldflags = /DEBUG /PDB:dm.exe.pdb /SUBSYSTEM:CONSOLE /LTCG $
+    /ENTRY:mainCRTStartup /LARGEADDRESSAWARE OpenGL32.lib usp10.lib $
+    kernel32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib $
+    shell32.lib ole32.lib oleaut32.lib user32.lib uuid.lib odbc32.lib $
+    odbccp32.lib DelayImp.lib Dbghelp.lib /DYNAMICBASE /NXCOMPAT /MANIFEST $
+    /ManifestFile:obj\gyp\dm.dm.exe.intermediate.manifest /MANIFESTUAC:NO $
+    /ALLOWISOLATION
+libs = windowscodecs.lib
+build dm.exe dm.exe.pdb: link_embed obj\dm\dm.DM.obj $
+    obj\dm\dm.DMCpuGMTask.obj obj\dm\dm.DMGpuGMTask.obj $
+    obj\dm\dm.DMPDFRasterizeTask.obj obj\dm\dm.DMImageTask.obj $
+    obj\dm\dm.DMJsonWriter.obj obj\dm\dm.DMPDFTask.obj $
+    obj\dm\dm.DMPipeTask.obj obj\dm\dm.DMQuiltTask.obj $
+    obj\dm\dm.DMReporter.obj obj\dm\dm.DMSKPTask.obj $
+    obj\dm\dm.DMSerializeTask.obj obj\dm\dm.DMTask.obj $
+    obj\dm\dm.DMTaskRunner.obj obj\dm\dm.DMTestTask.obj $
+    obj\dm\dm.DMUtil.obj obj\dm\dm.DMWriteTask.obj obj\gm\dm.gm.obj $
+    obj\src\pipe\utils\dm.SamplePipeControllers.obj $
+    obj\src\utils\debugger\dm.SkDebugCanvas.obj $
+    obj\src\utils\debugger\dm.SkDrawCommand.obj $
+    obj\src\utils\debugger\dm.SkObjectParser.obj $
+    obj\tools\dm.LazyDecodeBitmap.obj obj\tests\dm.Test.obj $
+    obj\tests\dm.PathOpsAngleTest.obj obj\tests\dm.PathOpsBoundsTest.obj $
+    obj\tests\dm.PathOpsCubicIntersectionTest.obj $
+    obj\tests\dm.PathOpsCubicIntersectionTestData.obj $
+    obj\tests\dm.PathOpsCubicLineIntersectionTest.obj $
+    obj\tests\dm.PathOpsCubicQuadIntersectionTest.obj $
+    obj\tests\dm.PathOpsCubicReduceOrderTest.obj $
+    obj\tests\dm.PathOpsCubicToQuadsTest.obj $
+    obj\tests\dm.PathOpsDCubicTest.obj obj\tests\dm.PathOpsDLineTest.obj $
+    obj\tests\dm.PathOpsDPointTest.obj obj\tests\dm.PathOpsDQuadTest.obj $
+    obj\tests\dm.PathOpsDRectTest.obj obj\tests\dm.PathOpsDTriangleTest.obj $
+    obj\tests\dm.PathOpsDVectorTest.obj $
+    obj\tests\dm.PathOpsExtendedTest.obj $
+    obj\tests\dm.PathOpsFuzz763Test.obj obj\tests\dm.PathOpsInverseTest.obj $
+    obj\tests\dm.PathOpsLineIntersectionTest.obj $
+    obj\tests\dm.PathOpsLineParametetersTest.obj $
+    obj\tests\dm.PathOpsOpCubicThreadedTest.obj $
+    obj\tests\dm.PathOpsOpRectThreadedTest.obj $
+    obj\tests\dm.PathOpsOpTest.obj $
+    obj\tests\dm.PathOpsQuadIntersectionTest.obj $
+    obj\tests\dm.PathOpsQuadIntersectionTestData.obj $
+    obj\tests\dm.PathOpsQuadLineIntersectionTest.obj $
+    obj\tests\dm.PathOpsQuadLineIntersectionThreadedTest.obj $
+    obj\tests\dm.PathOpsQuadParameterizationTest.obj $
+    obj\tests\dm.PathOpsQuadReduceOrderTest.obj $
+    obj\tests\dm.PathOpsSimplifyDegenerateThreadedTest.obj $
+    obj\tests\dm.PathOpsSimplifyFailTest.obj $
+    obj\tests\dm.PathOpsSimplifyQuadralateralsThreadedTest.obj $
+    obj\tests\dm.PathOpsSimplifyQuadThreadedTest.obj $
+    obj\tests\dm.PathOpsSimplifyRectThreadedTest.obj $
+    obj\tests\dm.PathOpsSimplifyTest.obj $
+    obj\tests\dm.PathOpsSimplifyTrianglesThreadedTest.obj $
+    obj\tests\dm.PathOpsSkpTest.obj obj\tests\dm.PathOpsTestCommon.obj $
+    obj\tests\dm.PathOpsThreadedCommon.obj $
+    obj\tests\dm.PathOpsTightBoundsTest.obj obj\tests\dm.AAClipTest.obj $
+    obj\tests\dm.ARGBImageEncoderTest.obj obj\tests\dm.AnnotationTest.obj $
+    obj\tests\dm.AsADashTest.obj obj\tests\dm.AtomicTest.obj $
+    obj\tests\dm.BadIcoTest.obj obj\tests\dm.BitSetTest.obj $
+    obj\tests\dm.BitmapCopyTest.obj obj\tests\dm.BitmapGetColorTest.obj $
+    obj\tests\dm.BitmapHasherTest.obj obj\tests\dm.BitmapHeapTest.obj $
+    obj\tests\dm.BitmapTest.obj obj\tests\dm.BlendTest.obj $
+    obj\tests\dm.BlitRowTest.obj obj\tests\dm.BlurTest.obj $
+    obj\tests\dm.CTest.obj obj\tests\dm.CachedDataTest.obj $
+    obj\tests\dm.CachedDecodingPixelRefTest.obj $
+    obj\tests\dm.CanvasStateHelpers.obj obj\tests\dm.CanvasStateTest.obj $
+    obj\tests\dm.CanvasTest.obj obj\tests\dm.ChecksumTest.obj $
+    obj\tests\dm.ClampRangeTest.obj obj\tests\dm.ClipCacheTest.obj $
+    obj\tests\dm.ClipCubicTest.obj obj\tests\dm.ClipStackTest.obj $
+    obj\tests\dm.ClipperTest.obj obj\tests\dm.ColorFilterTest.obj $
+    obj\tests\dm.ColorPrivTest.obj obj\tests\dm.ColorTest.obj $
+    obj\tests\dm.DashPathEffectTest.obj obj\tests\dm.DataRefTest.obj $
+    obj\tests\dm.DeferredCanvasTest.obj obj\tests\dm.DequeTest.obj $
+    obj\tests\dm.DeviceLooperTest.obj $
+    obj\tests\dm.DiscardableMemoryPoolTest.obj $
+    obj\tests\dm.DiscardableMemoryTest.obj obj\tests\dm.DocumentTest.obj $
+    obj\tests\dm.DrawBitmapRectTest.obj obj\tests\dm.DrawPathTest.obj $
+    obj\tests\dm.DrawTextTest.obj obj\tests\dm.DynamicHashTest.obj $
+    obj\tests\dm.EmptyPathTest.obj obj\tests\dm.ErrorTest.obj $
+    obj\tests\dm.FillPathTest.obj obj\tests\dm.FitsInTest.obj $
+    obj\tests\dm.FlateTest.obj obj\tests\dm.FloatingPointTextureTest.obj $
+    obj\tests\dm.FontHostStreamTest.obj obj\tests\dm.FontHostTest.obj $
+    obj\tests\dm.FontMgrTest.obj obj\tests\dm.FontNamesTest.obj $
+    obj\tests\dm.FontObjTest.obj obj\tests\dm.FrontBufferedStreamTest.obj $
+    obj\tests\dm.GLInterfaceValidationTest.obj $
+    obj\tests\dm.GLProgramsTest.obj obj\tests\dm.GeometryTest.obj $
+    obj\tests\dm.GifTest.obj obj\tests\dm.GpuColorFilterTest.obj $
+    obj\tests\dm.GpuDrawPathTest.obj obj\tests\dm.GpuLayerCacheTest.obj $
+    obj\tests\dm.GpuRectanizerTest.obj obj\tests\dm.GrBinHashKeyTest.obj $
+    obj\tests\dm.GrContextFactoryTest.obj obj\tests\dm.GrDrawTargetTest.obj $
+    obj\tests\dm.GrAllocatorTest.obj obj\tests\dm.GrMemoryPoolTest.obj $
+    obj\tests\dm.GrOrderedSetTest.obj $
+    obj\tests\dm.GrGLSLPrettyPrintTest.obj $
+    obj\tests\dm.GrRedBlackTreeTest.obj obj\tests\dm.GrSurfaceTest.obj $
+    obj\tests\dm.GrTBSearchTest.obj obj\tests\dm.GrTRecorderTest.obj $
+    obj\tests\dm.GradientTest.obj obj\tests\dm.ImageCacheTest.obj $
+    obj\tests\dm.ImageDecodingTest.obj obj\tests\dm.ImageFilterTest.obj $
+    obj\tests\dm.ImageGeneratorTest.obj obj\tests\dm.ImageIsOpaqueTest.obj $
+    obj\tests\dm.ImageNewShaderTest.obj obj\tests\dm.InfRectTest.obj $
+    obj\tests\dm.InterpolatorTest.obj obj\tests\dm.JpegTest.obj $
+    obj\tests\dm.KtxTest.obj obj\tests\dm.LListTest.obj $
+    obj\tests\dm.LayerDrawLooperTest.obj $
+    obj\tests\dm.LayerRasterizerTest.obj obj\tests\dm.LazyPtrTest.obj $
+    obj\tests\dm.MD5Test.obj obj\tests\dm.MallocPixelRefTest.obj $
+    obj\tests\dm.MaskCacheTest.obj obj\tests\dm.MathTest.obj $
+    obj\tests\dm.Matrix44Test.obj obj\tests\dm.MatrixClipCollapseTest.obj $
+    obj\tests\dm.MatrixTest.obj obj\tests\dm.MemoryTest.obj $
+    obj\tests\dm.MemsetTest.obj obj\tests\dm.MessageBusTest.obj $
+    obj\tests\dm.MetaDataTest.obj obj\tests\dm.MipMapTest.obj $
+    obj\tests\dm.NameAllocatorTest.obj obj\tests\dm.OSPathTest.obj $
+    obj\tests\dm.OnceTest.obj obj\tests\dm.PDFInvalidBitmapTest.obj $
+    obj\tests\dm.PDFJpegEmbedTest.obj obj\tests\dm.PDFPrimitivesTest.obj $
+    obj\tests\dm.PackBitsTest.obj obj\tests\dm.PaintTest.obj $
+    obj\tests\dm.ParsePathTest.obj obj\tests\dm.PathCoverageTest.obj $
+    obj\tests\dm.PathMeasureTest.obj obj\tests\dm.PathTest.obj $
+    obj\tests\dm.PathUtilsTest.obj obj\tests\dm.PictureBBHTest.obj $
+    obj\tests\dm.PictureShaderTest.obj obj\tests\dm.PictureTest.obj $
+    obj\tests\dm.PixelRefTest.obj obj\tests\dm.PointTest.obj $
+    obj\tests\dm.PremulAlphaRoundTripTest.obj $
+    obj\tests\dm.QuickRejectTest.obj obj\tests\dm.RTConfRegistryTest.obj $
+    obj\tests\dm.RTreeTest.obj obj\tests\dm.RandomTest.obj $
+    obj\tests\dm.ReadPixelsTest.obj obj\tests\dm.ReadWriteAlphaTest.obj $
+    obj\tests\dm.Reader32Test.obj obj\tests\dm.RecordDrawTest.obj $
+    obj\tests\dm.RecordReplaceDrawTest.obj obj\tests\dm.RecordOptsTest.obj $
+    obj\tests\dm.RecordPatternTest.obj obj\tests\dm.RecordTest.obj $
+    obj\tests\dm.RecorderTest.obj obj\tests\dm.RecordingXfermodeTest.obj $
+    obj\tests\dm.RefCntTest.obj obj\tests\dm.RefDictTest.obj $
+    obj\tests\dm.RegionTest.obj obj\tests\dm.ResourceCacheTest.obj $
+    obj\tests\dm.RoundRectTest.obj obj\tests\dm.RuntimeConfigTest.obj $
+    obj\tests\dm.SHA1Test.obj obj\tests\dm.ScalarTest.obj $
+    obj\tests\dm.SerializationTest.obj $
+    obj\tests\dm.ShaderImageFilterTest.obj $
+    obj\tests\dm.ShaderOpacityTest.obj obj\tests\dm.SizeTest.obj $
+    obj\tests\dm.Sk4xTest.obj obj\tests\dm.SkBase64Test.obj $
+    obj\tests\dm.SkResourceCacheTest.obj $
+    obj\tests\dm.SmallAllocatorTest.obj obj\tests\dm.SortTest.obj $
+    obj\tests\dm.SrcOverTest.obj obj\tests\dm.StreamTest.obj $
+    obj\tests\dm.StringTest.obj obj\tests\dm.StrokeTest.obj $
+    obj\tests\dm.StrokerTest.obj obj\tests\dm.SurfaceTest.obj $
+    obj\tests\dm.TArrayTest.obj obj\tests\dm.THashCache.obj $
+    obj\tests\dm.Time.obj obj\tests\dm.TLSTest.obj $
+    obj\tests\dm.TSetTest.obj obj\tests\dm.TextBlobTest.obj $
+    obj\tests\dm.TextureCompressionTest.obj obj\tests\dm.TileGridTest.obj $
+    obj\tests\dm.ToUnicodeTest.obj obj\tests\dm.TracingTest.obj $
+    obj\tests\dm.TypefaceTest.obj obj\tests\dm.UnicodeTest.obj $
+    obj\tests\dm.UtilsTest.obj obj\tests\dm.VarAllocTest.obj $
+    obj\tests\dm.WArrayTest.obj obj\tests\dm.WritePixelsTest.obj $
+    obj\tests\dm.Writer32Test.obj obj\tests\dm.XfermodeTest.obj $
+    obj\tests\dm.PipeTest.obj obj\tests\dm.TDStackNesterTest.obj $
+    obj\gm\dm.aaclip.obj obj\gm\dm.aarectmodes.obj $
+    obj\gm\dm.alphagradients.obj obj\gm\dm.arcofzorro.obj $
+    obj\gm\dm.arithmode.obj obj\gm\dm.astcbitmap.obj $
+    obj\gm\dm.beziereffects.obj obj\gm\dm.beziers.obj $
+    obj\gm\dm.bigblurs.obj obj\gm\dm.bigmatrix.obj obj\gm\dm.bigtext.obj $
+    obj\gm\dm.bitmapcopy.obj obj\gm\dm.bitmapfilters.obj $
+    obj\gm\dm.bitmappremul.obj obj\gm\dm.bitmaprect.obj $
+    obj\gm\dm.bitmaprecttest.obj obj\gm\dm.bitmapscroll.obj $
+    obj\gm\dm.bitmapshader.obj obj\gm\dm.bitmapsource.obj $
+    obj\gm\dm.bleed.obj obj\gm\dm.blurcircles.obj obj\gm\dm.blurs.obj $
+    obj\gm\dm.blurquickreject.obj obj\gm\dm.blurrect.obj $
+    obj\gm\dm.blurroundrect.obj obj\gm\dm.circles.obj $
+    obj\gm\dm.circularclips.obj obj\gm\dm.clip_strokerect.obj $
+    obj\gm\dm.clippedbitmapshaders.obj obj\gm\dm.cgms.obj obj\gm\dm.cgm.obj $
+    obj\gm\dm.colorcube.obj obj\gm\dm.coloremoji.obj $
+    obj\gm\dm.colorfilterimagefilter.obj obj\gm\dm.colorfilters.obj $
+    obj\gm\dm.colormatrix.obj obj\gm\dm.colortype.obj $
+    obj\gm\dm.colortypexfermode.obj obj\gm\dm.colorwheel.obj $
+    obj\gm\dm.complexclip.obj obj\gm\dm.complexclip2.obj $
+    obj\gm\dm.complexclip3.obj obj\gm\dm.composeshader.obj $
+    obj\gm\dm.convexpaths.obj obj\gm\dm.convexpolyclip.obj $
+    obj\gm\dm.convexpolyeffect.obj obj\gm\dm.copyTo4444.obj $
+    obj\gm\dm.cubicpaths.obj obj\gm\dm.cmykjpeg.obj $
+    obj\gm\dm.degeneratesegments.obj obj\gm\dm.dcshader.obj $
+    obj\gm\dm.discard.obj obj\gm\dm.dashcubics.obj obj\gm\dm.dashing.obj $
+    obj\gm\dm.distantclip.obj obj\gm\dm.dftext.obj $
+    obj\gm\dm.displacement.obj obj\gm\dm.downsamplebitmap.obj $
+    obj\gm\dm.drawbitmaprect.obj obj\gm\dm.drawlooper.obj $
+    obj\gm\dm.dropshadowimagefilter.obj obj\gm\dm.drrect.obj $
+    obj\gm\dm.etc1bitmap.obj obj\gm\dm.extractbitmap.obj $
+    obj\gm\dm.emboss.obj obj\gm\dm.emptypath.obj obj\gm\dm.fatpathfill.obj $
+    obj\gm\dm.factory.obj obj\gm\dm.filltypes.obj $
+    obj\gm\dm.filltypespersp.obj obj\gm\dm.filterbitmap.obj $
+    obj\gm\dm.filterfastbounds.obj obj\gm\dm.filterindiabox.obj $
+    obj\gm\dm.fontcache.obj obj\gm\dm.fontmgr.obj obj\gm\dm.fontscaler.obj $
+    obj\gm\dm.gammatext.obj obj\gm\dm.getpostextpath.obj $
+    obj\gm\dm.giantbitmap.obj obj\gm\dm.glyph_pos.obj $
+    obj\gm\dm.glyph_pos_align.obj obj\gm\dm.gradients.obj $
+    obj\gm\dm.gradients_2pt_conical.obj obj\gm\dm.gradients_no_texture.obj $
+    obj\gm\dm.gradientDirtyLaundry.obj obj\gm\dm.gradient_matrix.obj $
+    obj\gm\dm.gradtext.obj obj\gm\dm.grayscalejpg.obj $
+    obj\gm\dm.hairlines.obj obj\gm\dm.hairmodes.obj $
+    obj\gm\dm.hittestpath.obj obj\gm\dm.imagealphathreshold.obj $
+    obj\gm\dm.imageblur.obj obj\gm\dm.imageblur2.obj $
+    obj\gm\dm.imageblurtiled.obj obj\gm\dm.imagemagnifier.obj $
+    obj\gm\dm.imageresizetiled.obj obj\gm\dm.inversepaths.obj $
+    obj\gm\dm.lerpmode.obj obj\gm\dm.lighting.obj obj\gm\dm.lumafilter.obj $
+    obj\gm\dm.image.obj obj\gm\dm.imagefiltersbase.obj $
+    obj\gm\dm.imagefiltersclipped.obj obj\gm\dm.imagefilterscropped.obj $
+    obj\gm\dm.imagefilterscropexpand.obj obj\gm\dm.imagefiltersgraph.obj $
+    obj\gm\dm.imagefiltersscaled.obj obj\gm\dm.internal_links.obj $
+    obj\gm\dm.lcdtext.obj obj\gm\dm.linepaths.obj $
+    obj\gm\dm.matrixconvolution.obj obj\gm\dm.matriximagefilter.obj $
+    obj\gm\dm.megalooper.obj obj\gm\dm.mixedxfermodes.obj $
+    obj\gm\dm.modecolorfilters.obj obj\gm\dm.morphology.obj $
+    obj\gm\dm.multipicturedraw.obj obj\gm\dm.nested.obj $
+    obj\gm\dm.ninepatchstretch.obj obj\gm\dm.nonclosedpaths.obj $
+    obj\gm\dm.offsetimagefilter.obj obj\gm\dm.ovals.obj obj\gm\dm.patch.obj $
+    obj\gm\dm.patchgrid.obj obj\gm\dm.patheffects.obj $
+    obj\gm\dm.pathfill.obj obj\gm\dm.pathinterior.obj $
+    obj\gm\dm.pathopsinverse.obj obj\gm\dm.pathopsskpclip.obj $
+    obj\gm\dm.pathreverse.obj obj\gm\dm.peekpixels.obj $
+    obj\gm\dm.perlinnoise.obj obj\gm\dm.picture.obj $
+    obj\gm\dm.pictureimagefilter.obj obj\gm\dm.pictureshader.obj $
+    obj\gm\dm.pictureshadertile.obj obj\gm\dm.points.obj $
+    obj\gm\dm.poly2poly.obj obj\gm\dm.polygons.obj obj\gm\dm.quadpaths.obj $
+    obj\gm\dm.rects.obj obj\gm\dm.resizeimagefilter.obj obj\gm\dm.rrect.obj $
+    obj\gm\dm.rrects.obj obj\gm\dm.roundrects.obj $
+    obj\gm\dm.samplerstress.obj obj\gm\dm.shaderbounds.obj $
+    obj\gm\dm.selftest.obj obj\gm\dm.shadertext.obj $
+    obj\gm\dm.shadertext2.obj obj\gm\dm.shadertext3.obj $
+    obj\gm\dm.shadows.obj obj\gm\dm.shallowgradient.obj $
+    obj\gm\dm.simpleaaclip.obj obj\gm\dm.skbug1719.obj $
+    obj\gm\dm.smallarc.obj obj\gm\dm.smallimage.obj obj\gm\dm.stringart.obj $
+    obj\gm\dm.spritebitmap.obj obj\gm\dm.srcmode.obj $
+    obj\gm\dm.strokefill.obj obj\gm\dm.strokerect.obj $
+    obj\gm\dm.strokerects.obj obj\gm\dm.strokes.obj $
+    obj\gm\dm.stroketext.obj obj\gm\dm.surface.obj $
+    obj\gm\dm.tablecolorfilter.obj obj\gm\dm.texteffects.obj $
+    obj\gm\dm.testimagefilters.obj obj\gm\dm.texdata.obj $
+    obj\gm\dm.variedtext.obj obj\gm\dm.tallstretchedbitmaps.obj $
+    obj\gm\dm.textblob.obj obj\gm\dm.textblobshader.obj $
+    obj\gm\dm.texturedomaineffect.obj obj\gm\dm.thinrects.obj $
+    obj\gm\dm.thinstrokedrects.obj obj\gm\dm.tiledscaledbitmap.obj $
+    obj\gm\dm.tileimagefilter.obj obj\gm\dm.tilemodes.obj $
+    obj\gm\dm.tilemodes_scaled.obj obj\gm\dm.tinybitmap.obj $
+    obj\gm\dm.twopointradial.obj obj\gm\dm.typeface.obj $
+    obj\gm\dm.vertices.obj obj\gm\dm.verttext.obj obj\gm\dm.verttext2.obj $
+    obj\gm\dm.verylargebitmap.obj obj\gm\dm.xfermodeimagefilter.obj $
+    obj\gm\dm.xfermodes.obj obj\gm\dm.xfermodes2.obj $
+    obj\gm\dm.xfermodes3.obj obj\gm\dm.yuvtorgbeffect.obj $
+    obj\gyp\libetc1.lib obj\gyp\flags.lib obj\gyp\jsoncpp.lib $
+    obj\gyp\crash_handler.lib obj\gyp\proc_stats.lib $
+    obj\gyp\sk_tool_utils.lib obj\gyp\resources.lib $
+    obj\gyp\experimental.lib obj\gyp\flags_common.lib skia_pdf.lib $
+    obj\gyp\picture_utils.lib skia_skgputest.lib skia_core.lib $
+    skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libSkKTX.lib obj\gyp\libwebp_dec.lib obj\gyp\libwebp_demux.lib $
+    obj\gyp\libwebp_dsp.lib obj\gyp\libwebp_enc.lib $
+    obj\gyp\libwebp_utils.lib skia_utils.lib skia_opts.lib $
+    skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib skia_sfnt.lib $
+    skia_skgpu.lib obj\gyp\skflate.lib | $
+    obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\skia_lib.actions_depends.stamp $
+    obj\gyp\dm.dm.exe.generated.manifest
+  binary = dm.exe

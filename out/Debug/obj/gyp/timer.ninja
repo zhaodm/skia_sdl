@@ -1,0 +1,38 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = timer.pdb
+pdbname_cc = timer.pdb
+pchprefix = timer
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DSK_DEVELOPER=1 -D_DEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\src\core -I..\..\src\gpu -I..\..\include\c $
+    -I..\..\include\config -I..\..\include\core -I..\..\include\pathops $
+    -I..\..\include\pipe -I..\..\gyp\config\win -I..\..\include\effects $
+    -I..\..\include\images -I..\..\include\ports -I..\..\src\sfnt $
+    -I..\..\include\utils -I..\..\src\utils -I..\..\include\utils\win $
+    -I..\..\include\gpu -I..\..\third_party\externals\jsoncpp\include
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Od /W3 /WX /ZI /GR- /MDd /we4189 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\tools\timer\timer.Timer.obj: cxx ..\..\tools\timer\Timer.cpp
+build obj\tools\timer\timer.TimerData.obj: cxx ..\..\tools\timer\TimerData.cpp
+build obj\tools\timer\timer.GpuTimer.obj: cxx ..\..\tools\timer\GpuTimer.cpp
+build obj\tools\timer\timer.SysTimer_windows.obj: cxx $
+    ..\..\tools\timer\SysTimer_windows.cpp
+
+build obj\gyp\timer.lib: alink obj\tools\timer\timer.Timer.obj $
+    obj\tools\timer\timer.TimerData.obj obj\tools\timer\timer.GpuTimer.obj $
+    obj\tools\timer\timer.SysTimer_windows.obj || $
+    obj\gyp\skia_lib.actions_depends.stamp
+  libflags = 

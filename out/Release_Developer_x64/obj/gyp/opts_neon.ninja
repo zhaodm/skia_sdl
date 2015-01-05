@@ -1,0 +1,53 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = opts_neon.pdb
+pdbname_cc = opts_neon.pdb
+pchprefix = opts_neon
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DSK_DEVELOPER=1 -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\src\core -I..\..\src\opts -I..\..\src\utils $
+    -I..\..\include\c -I..\..\include\config -I..\..\include\core $
+    -I..\..\include\pathops -I..\..\include\pipe -I..\..\gyp\config\win $
+    -I..\..\include\effects
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\src\opts\opts_neon.SkBitmapProcState_arm_neon.obj: cxx $
+    ..\..\src\opts\SkBitmapProcState_arm_neon.cpp
+build obj\src\opts\opts_neon.SkBitmapProcState_matrixProcs_neon.obj: cxx $
+    ..\..\src\opts\SkBitmapProcState_matrixProcs_neon.cpp
+build obj\src\opts\opts_neon.SkBlitMask_opts_arm_neon.obj: cxx $
+    ..\..\src\opts\SkBlitMask_opts_arm_neon.cpp
+build obj\src\opts\opts_neon.SkBlitRow_opts_arm_neon.obj: cxx $
+    ..\..\src\opts\SkBlitRow_opts_arm_neon.cpp
+build obj\src\opts\opts_neon.SkBlurImage_opts_neon.obj: cxx $
+    ..\..\src\opts\SkBlurImage_opts_neon.cpp
+build obj\src\opts\opts_neon.SkMorphology_opts_neon.obj: cxx $
+    ..\..\src\opts\SkMorphology_opts_neon.cpp
+build obj\src\opts\opts_neon.SkTextureCompression_opts_neon.obj: cxx $
+    ..\..\src\opts\SkTextureCompression_opts_neon.cpp
+build obj\src\opts\opts_neon.SkXfermode_opts_arm_neon.obj: cxx $
+    ..\..\src\opts\SkXfermode_opts_arm_neon.cpp
+
+build skia_opts_neon.lib: alink $
+    obj\src\opts\opts_neon.SkBitmapProcState_arm_neon.obj $
+    obj\src\opts\opts_neon.SkBitmapProcState_matrixProcs_neon.obj $
+    obj\src\opts\opts_neon.SkBlitMask_opts_arm_neon.obj $
+    obj\src\opts\opts_neon.SkBlitRow_opts_arm_neon.obj $
+    obj\src\opts\opts_neon.SkBlurImage_opts_neon.obj $
+    obj\src\opts\opts_neon.SkMorphology_opts_neon.obj $
+    obj\src\opts\opts_neon.SkTextureCompression_opts_neon.obj $
+    obj\src\opts\opts_neon.SkXfermode_opts_arm_neon.obj
+  libflags = /LTCG

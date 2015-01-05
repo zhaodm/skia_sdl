@@ -1,0 +1,9 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+build obj\gyp\libwebp.actions_depends.stamp: stamp obj\gyp\libwebp_dec.lib $
+    obj\gyp\libwebp_demux.lib obj\gyp\libwebp_dsp.lib $
+    obj\gyp\libwebp_enc.lib obj\gyp\libwebp_utils.lib
+

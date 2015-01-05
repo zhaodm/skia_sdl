@@ -1,0 +1,254 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = animator.pdb
+pdbname_cc = animator.pdb
+pchprefix = animator
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DSK_DEVELOPER=1 -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\include\animator -I..\..\src\utils -I..\..\include\c $
+    -I..\..\include\config -I..\..\include\core -I..\..\include\pathops $
+    -I..\..\include\pipe -I..\..\gyp\config\win -I..\..\include\effects $
+    -I..\..\include\images -I..\..\include\ports -I..\..\src\sfnt $
+    -I..\..\include\utils -I..\..\include\utils\win -I..\..\include\gpu $
+    -I..\..\include\views -I..\..\include\xml
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\src\animator\animator.SkADrawable.obj: cxx $
+    ..\..\src\animator\SkADrawable.cpp
+build obj\src\animator\animator.SkAnimateActive.obj: cxx $
+    ..\..\src\animator\SkAnimateActive.cpp
+build obj\src\animator\animator.SkAnimateBase.obj: cxx $
+    ..\..\src\animator\SkAnimateBase.cpp
+build obj\src\animator\animator.SkAnimateField.obj: cxx $
+    ..\..\src\animator\SkAnimateField.cpp
+build obj\src\animator\animator.SkAnimateMaker.obj: cxx $
+    ..\..\src\animator\SkAnimateMaker.cpp
+build obj\src\animator\animator.SkAnimateSet.obj: cxx $
+    ..\..\src\animator\SkAnimateSet.cpp
+build obj\src\animator\animator.SkAnimator.obj: cxx $
+    ..\..\src\animator\SkAnimator.cpp
+build obj\src\animator\animator.SkAnimatorScript.obj: cxx $
+    ..\..\src\animator\SkAnimatorScript.cpp
+build obj\src\animator\animator.SkBoundable.obj: cxx $
+    ..\..\src\animator\SkBoundable.cpp
+build obj\src\animator\animator.SkBuildCondensedInfo.obj: cxx $
+    ..\..\src\animator\SkBuildCondensedInfo.cpp
+build obj\src\animator\animator.SkDisplayable.obj: cxx $
+    ..\..\src\animator\SkDisplayable.cpp
+build obj\src\animator\animator.SkDisplayAdd.obj: cxx $
+    ..\..\src\animator\SkDisplayAdd.cpp
+build obj\src\animator\animator.SkDisplayApply.obj: cxx $
+    ..\..\src\animator\SkDisplayApply.cpp
+build obj\src\animator\animator.SkDisplayBounds.obj: cxx $
+    ..\..\src\animator\SkDisplayBounds.cpp
+build obj\src\animator\animator.SkDisplayEvent.obj: cxx $
+    ..\..\src\animator\SkDisplayEvent.cpp
+build obj\src\animator\animator.SkDisplayEvents.obj: cxx $
+    ..\..\src\animator\SkDisplayEvents.cpp
+build obj\src\animator\animator.SkDisplayInclude.obj: cxx $
+    ..\..\src\animator\SkDisplayInclude.cpp
+build obj\src\animator\animator.SkDisplayInput.obj: cxx $
+    ..\..\src\animator\SkDisplayInput.cpp
+build obj\src\animator\animator.SkDisplayList.obj: cxx $
+    ..\..\src\animator\SkDisplayList.cpp
+build obj\src\animator\animator.SkDisplayMath.obj: cxx $
+    ..\..\src\animator\SkDisplayMath.cpp
+build obj\src\animator\animator.SkDisplayMovie.obj: cxx $
+    ..\..\src\animator\SkDisplayMovie.cpp
+build obj\src\animator\animator.SkDisplayNumber.obj: cxx $
+    ..\..\src\animator\SkDisplayNumber.cpp
+build obj\src\animator\animator.SkDisplayPost.obj: cxx $
+    ..\..\src\animator\SkDisplayPost.cpp
+build obj\src\animator\animator.SkDisplayRandom.obj: cxx $
+    ..\..\src\animator\SkDisplayRandom.cpp
+build obj\src\animator\animator.SkDisplayScreenplay.obj: cxx $
+    ..\..\src\animator\SkDisplayScreenplay.cpp
+build obj\src\animator\animator.SkDisplayType.obj: cxx $
+    ..\..\src\animator\SkDisplayType.cpp
+build obj\src\animator\animator.SkDisplayTypes.obj: cxx $
+    ..\..\src\animator\SkDisplayTypes.cpp
+build obj\src\animator\animator.SkDisplayXMLParser.obj: cxx $
+    ..\..\src\animator\SkDisplayXMLParser.cpp
+build obj\src\animator\animator.SkDraw3D.obj: cxx $
+    ..\..\src\animator\SkDraw3D.cpp
+build obj\src\animator\animator.SkDrawBitmap.obj: cxx $
+    ..\..\src\animator\SkDrawBitmap.cpp
+build obj\src\animator\animator.SkDrawBlur.obj: cxx $
+    ..\..\src\animator\SkDrawBlur.cpp
+build obj\src\animator\animator.SkDrawClip.obj: cxx $
+    ..\..\src\animator\SkDrawClip.cpp
+build obj\src\animator\animator.SkDrawColor.obj: cxx $
+    ..\..\src\animator\SkDrawColor.cpp
+build obj\src\animator\animator.SkDrawDash.obj: cxx $
+    ..\..\src\animator\SkDrawDash.cpp
+build obj\src\animator\animator.SkDrawDiscrete.obj: cxx $
+    ..\..\src\animator\SkDrawDiscrete.cpp
+build obj\src\animator\animator.SkDrawEmboss.obj: cxx $
+    ..\..\src\animator\SkDrawEmboss.cpp
+build obj\src\animator\animator.SkDrawExtraPathEffect.obj: cxx $
+    ..\..\src\animator\SkDrawExtraPathEffect.cpp
+build obj\src\animator\animator.SkDrawFull.obj: cxx $
+    ..\..\src\animator\SkDrawFull.cpp
+build obj\src\animator\animator.SkDrawGradient.obj: cxx $
+    ..\..\src\animator\SkDrawGradient.cpp
+build obj\src\animator\animator.SkDrawGroup.obj: cxx $
+    ..\..\src\animator\SkDrawGroup.cpp
+build obj\src\animator\animator.SkDrawLine.obj: cxx $
+    ..\..\src\animator\SkDrawLine.cpp
+build obj\src\animator\animator.SkDrawMatrix.obj: cxx $
+    ..\..\src\animator\SkDrawMatrix.cpp
+build obj\src\animator\animator.SkDrawOval.obj: cxx $
+    ..\..\src\animator\SkDrawOval.cpp
+build obj\src\animator\animator.SkDrawPaint.obj: cxx $
+    ..\..\src\animator\SkDrawPaint.cpp
+build obj\src\animator\animator.SkDrawPath.obj: cxx $
+    ..\..\src\animator\SkDrawPath.cpp
+build obj\src\animator\animator.SkDrawPoint.obj: cxx $
+    ..\..\src\animator\SkDrawPoint.cpp
+build obj\src\animator\animator.SkDrawRectangle.obj: cxx $
+    ..\..\src\animator\SkDrawRectangle.cpp
+build obj\src\animator\animator.SkDrawSaveLayer.obj: cxx $
+    ..\..\src\animator\SkDrawSaveLayer.cpp
+build obj\src\animator\animator.SkDrawShader.obj: cxx $
+    ..\..\src\animator\SkDrawShader.cpp
+build obj\src\animator\animator.SkDrawText.obj: cxx $
+    ..\..\src\animator\SkDrawText.cpp
+build obj\src\animator\animator.SkDrawTextBox.obj: cxx $
+    ..\..\src\animator\SkDrawTextBox.cpp
+build obj\src\animator\animator.SkDrawTo.obj: cxx $
+    ..\..\src\animator\SkDrawTo.cpp
+build obj\src\animator\animator.SkDrawTransparentShader.obj: cxx $
+    ..\..\src\animator\SkDrawTransparentShader.cpp
+build obj\src\animator\animator.SkDump.obj: cxx ..\..\src\animator\SkDump.cpp
+build obj\src\animator\animator.SkGetCondensedInfo.obj: cxx $
+    ..\..\src\animator\SkGetCondensedInfo.cpp
+build obj\src\animator\animator.SkHitClear.obj: cxx $
+    ..\..\src\animator\SkHitClear.cpp
+build obj\src\animator\animator.SkHitTest.obj: cxx $
+    ..\..\src\animator\SkHitTest.cpp
+build obj\src\animator\animator.SkMatrixParts.obj: cxx $
+    ..\..\src\animator\SkMatrixParts.cpp
+build obj\src\animator\animator.SkMemberInfo.obj: cxx $
+    ..\..\src\animator\SkMemberInfo.cpp
+build obj\src\animator\animator.SkOpArray.obj: cxx $
+    ..\..\src\animator\SkOpArray.cpp
+build obj\src\animator\animator.SkOperandIterpolator.obj: cxx $
+    ..\..\src\animator\SkOperandIterpolator.cpp
+build obj\src\animator\animator.SkPaintPart.obj: cxx $
+    ..\..\src\animator\SkPaintPart.cpp
+build obj\src\animator\animator.SkParseSVGPath.obj: cxx $
+    ..\..\src\animator\SkParseSVGPath.cpp
+build obj\src\animator\animator.SkPathParts.obj: cxx $
+    ..\..\src\animator\SkPathParts.cpp
+build obj\src\animator\animator.SkPostParts.obj: cxx $
+    ..\..\src\animator\SkPostParts.cpp
+build obj\src\animator\animator.SkScript.obj: cxx $
+    ..\..\src\animator\SkScript.cpp
+build obj\src\animator\animator.SkScriptDecompile.obj: cxx $
+    ..\..\src\animator\SkScriptDecompile.cpp
+build obj\src\animator\animator.SkScriptRuntime.obj: cxx $
+    ..\..\src\animator\SkScriptRuntime.cpp
+build obj\src\animator\animator.SkScriptTokenizer.obj: cxx $
+    ..\..\src\animator\SkScriptTokenizer.cpp
+build obj\src\animator\animator.SkSnapshot.obj: cxx $
+    ..\..\src\animator\SkSnapshot.cpp
+build obj\src\animator\animator.SkTextOnPath.obj: cxx $
+    ..\..\src\animator\SkTextOnPath.cpp
+build obj\src\animator\animator.SkTextToPath.obj: cxx $
+    ..\..\src\animator\SkTextToPath.cpp
+build obj\src\animator\animator.SkTime.obj: cxx ..\..\src\animator\SkTime.cpp
+build obj\src\animator\animator.SkTypedArray.obj: cxx $
+    ..\..\src\animator\SkTypedArray.cpp
+build obj\src\animator\animator.SkXMLAnimatorWriter.obj: cxx $
+    ..\..\src\animator\SkXMLAnimatorWriter.cpp
+
+build skia_animator.lib: alink obj\src\animator\animator.SkADrawable.obj $
+    obj\src\animator\animator.SkAnimateActive.obj $
+    obj\src\animator\animator.SkAnimateBase.obj $
+    obj\src\animator\animator.SkAnimateField.obj $
+    obj\src\animator\animator.SkAnimateMaker.obj $
+    obj\src\animator\animator.SkAnimateSet.obj $
+    obj\src\animator\animator.SkAnimator.obj $
+    obj\src\animator\animator.SkAnimatorScript.obj $
+    obj\src\animator\animator.SkBoundable.obj $
+    obj\src\animator\animator.SkBuildCondensedInfo.obj $
+    obj\src\animator\animator.SkDisplayable.obj $
+    obj\src\animator\animator.SkDisplayAdd.obj $
+    obj\src\animator\animator.SkDisplayApply.obj $
+    obj\src\animator\animator.SkDisplayBounds.obj $
+    obj\src\animator\animator.SkDisplayEvent.obj $
+    obj\src\animator\animator.SkDisplayEvents.obj $
+    obj\src\animator\animator.SkDisplayInclude.obj $
+    obj\src\animator\animator.SkDisplayInput.obj $
+    obj\src\animator\animator.SkDisplayList.obj $
+    obj\src\animator\animator.SkDisplayMath.obj $
+    obj\src\animator\animator.SkDisplayMovie.obj $
+    obj\src\animator\animator.SkDisplayNumber.obj $
+    obj\src\animator\animator.SkDisplayPost.obj $
+    obj\src\animator\animator.SkDisplayRandom.obj $
+    obj\src\animator\animator.SkDisplayScreenplay.obj $
+    obj\src\animator\animator.SkDisplayType.obj $
+    obj\src\animator\animator.SkDisplayTypes.obj $
+    obj\src\animator\animator.SkDisplayXMLParser.obj $
+    obj\src\animator\animator.SkDraw3D.obj $
+    obj\src\animator\animator.SkDrawBitmap.obj $
+    obj\src\animator\animator.SkDrawBlur.obj $
+    obj\src\animator\animator.SkDrawClip.obj $
+    obj\src\animator\animator.SkDrawColor.obj $
+    obj\src\animator\animator.SkDrawDash.obj $
+    obj\src\animator\animator.SkDrawDiscrete.obj $
+    obj\src\animator\animator.SkDrawEmboss.obj $
+    obj\src\animator\animator.SkDrawExtraPathEffect.obj $
+    obj\src\animator\animator.SkDrawFull.obj $
+    obj\src\animator\animator.SkDrawGradient.obj $
+    obj\src\animator\animator.SkDrawGroup.obj $
+    obj\src\animator\animator.SkDrawLine.obj $
+    obj\src\animator\animator.SkDrawMatrix.obj $
+    obj\src\animator\animator.SkDrawOval.obj $
+    obj\src\animator\animator.SkDrawPaint.obj $
+    obj\src\animator\animator.SkDrawPath.obj $
+    obj\src\animator\animator.SkDrawPoint.obj $
+    obj\src\animator\animator.SkDrawRectangle.obj $
+    obj\src\animator\animator.SkDrawSaveLayer.obj $
+    obj\src\animator\animator.SkDrawShader.obj $
+    obj\src\animator\animator.SkDrawText.obj $
+    obj\src\animator\animator.SkDrawTextBox.obj $
+    obj\src\animator\animator.SkDrawTo.obj $
+    obj\src\animator\animator.SkDrawTransparentShader.obj $
+    obj\src\animator\animator.SkDump.obj $
+    obj\src\animator\animator.SkGetCondensedInfo.obj $
+    obj\src\animator\animator.SkHitClear.obj $
+    obj\src\animator\animator.SkHitTest.obj $
+    obj\src\animator\animator.SkMatrixParts.obj $
+    obj\src\animator\animator.SkMemberInfo.obj $
+    obj\src\animator\animator.SkOpArray.obj $
+    obj\src\animator\animator.SkOperandIterpolator.obj $
+    obj\src\animator\animator.SkPaintPart.obj $
+    obj\src\animator\animator.SkParseSVGPath.obj $
+    obj\src\animator\animator.SkPathParts.obj $
+    obj\src\animator\animator.SkPostParts.obj $
+    obj\src\animator\animator.SkScript.obj $
+    obj\src\animator\animator.SkScriptDecompile.obj $
+    obj\src\animator\animator.SkScriptRuntime.obj $
+    obj\src\animator\animator.SkScriptTokenizer.obj $
+    obj\src\animator\animator.SkSnapshot.obj $
+    obj\src\animator\animator.SkTextOnPath.obj $
+    obj\src\animator\animator.SkTextToPath.obj $
+    obj\src\animator\animator.SkTime.obj $
+    obj\src\animator\animator.SkTypedArray.obj $
+    obj\src\animator\animator.SkXMLAnimatorWriter.obj || $
+    obj\gyp\skia_lib.actions_depends.stamp
+  libflags = /LTCG

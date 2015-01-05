@@ -1,0 +1,57 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = opts.pdb
+pdbname_cc = opts.pdb
+pchprefix = opts
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DSK_DEVELOPER=1 -D_DEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\src\core -I..\..\src\opts -I..\..\src\utils $
+    -I..\..\include\utils -I..\..\include\c -I..\..\include\config $
+    -I..\..\include\core -I..\..\include\pathops -I..\..\include\pipe $
+    -I..\..\gyp\config\win -I..\..\include\effects
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Od /W3 /WX /ZI /GR- /MDd /we4189 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\src\opts\opts.opts_check_x86.obj: cxx $
+    ..\..\src\opts\opts_check_x86.cpp
+build obj\src\opts\opts.SkBitmapProcState_opts_SSE2.obj: cxx $
+    ..\..\src\opts\SkBitmapProcState_opts_SSE2.cpp
+build obj\src\opts\opts.SkBitmapFilter_opts_SSE2.obj: cxx $
+    ..\..\src\opts\SkBitmapFilter_opts_SSE2.cpp
+build obj\src\opts\opts.SkBlitRow_opts_SSE2.obj: cxx $
+    ..\..\src\opts\SkBlitRow_opts_SSE2.cpp
+build obj\src\opts\opts.SkBlitRect_opts_SSE2.obj: cxx $
+    ..\..\src\opts\SkBlitRect_opts_SSE2.cpp
+build obj\src\opts\opts.SkBlurImage_opts_SSE2.obj: cxx $
+    ..\..\src\opts\SkBlurImage_opts_SSE2.cpp
+build obj\src\opts\opts.SkMorphology_opts_SSE2.obj: cxx $
+    ..\..\src\opts\SkMorphology_opts_SSE2.cpp
+build obj\src\opts\opts.SkTextureCompression_opts_none.obj: cxx $
+    ..\..\src\opts\SkTextureCompression_opts_none.cpp
+build obj\src\opts\opts.SkUtils_opts_SSE2.obj: cxx $
+    ..\..\src\opts\SkUtils_opts_SSE2.cpp
+build obj\src\opts\opts.SkXfermode_opts_SSE2.obj: cxx $
+    ..\..\src\opts\SkXfermode_opts_SSE2.cpp
+
+build skia_opts.lib: alink obj\src\opts\opts.opts_check_x86.obj $
+    obj\src\opts\opts.SkBitmapProcState_opts_SSE2.obj $
+    obj\src\opts\opts.SkBitmapFilter_opts_SSE2.obj $
+    obj\src\opts\opts.SkBlitRow_opts_SSE2.obj $
+    obj\src\opts\opts.SkBlitRect_opts_SSE2.obj $
+    obj\src\opts\opts.SkBlurImage_opts_SSE2.obj $
+    obj\src\opts\opts.SkMorphology_opts_SSE2.obj $
+    obj\src\opts\opts.SkTextureCompression_opts_none.obj $
+    obj\src\opts\opts.SkUtils_opts_SSE2.obj $
+    obj\src\opts\opts.SkXfermode_opts_SSE2.obj
+  libflags = 

@@ -1,0 +1,160 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = libjpeg.pdb
+pdbname_cc = libjpeg.pdb
+pchprefix = libjpeg
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DSK_DEVELOPER=1 -D_DEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = 
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Od /W3 /ZI /GR- /MDd /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\third_party\externals\libjpeg\libjpeg.jsimd_none.obj: cc $
+    ..\..\third_party\externals\libjpeg\jsimd_none.c
+build obj\third_party\externals\libjpeg\libjpeg.jcapimin.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcapimin.c
+build obj\third_party\externals\libjpeg\libjpeg.jcapistd.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcapistd.c
+build obj\third_party\externals\libjpeg\libjpeg.jccoefct.obj: cc $
+    ..\..\third_party\externals\libjpeg\jccoefct.c
+build obj\third_party\externals\libjpeg\libjpeg.jccolor.obj: cc $
+    ..\..\third_party\externals\libjpeg\jccolor.c
+build obj\third_party\externals\libjpeg\libjpeg.jcdctmgr.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcdctmgr.c
+build obj\third_party\externals\libjpeg\libjpeg.jchuff.obj: cc $
+    ..\..\third_party\externals\libjpeg\jchuff.c
+build obj\third_party\externals\libjpeg\libjpeg.jcinit.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcinit.c
+build obj\third_party\externals\libjpeg\libjpeg.jcmainct.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcmainct.c
+build obj\third_party\externals\libjpeg\libjpeg.jcmarker.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcmarker.c
+build obj\third_party\externals\libjpeg\libjpeg.jcmaster.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcmaster.c
+build obj\third_party\externals\libjpeg\libjpeg.jcomapi.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcomapi.c
+build obj\third_party\externals\libjpeg\libjpeg.jcparam.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcparam.c
+build obj\third_party\externals\libjpeg\libjpeg.jcphuff.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcphuff.c
+build obj\third_party\externals\libjpeg\libjpeg.jcprepct.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcprepct.c
+build obj\third_party\externals\libjpeg\libjpeg.jcsample.obj: cc $
+    ..\..\third_party\externals\libjpeg\jcsample.c
+build obj\third_party\externals\libjpeg\libjpeg.jdapimin.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdapimin.c
+build obj\third_party\externals\libjpeg\libjpeg.jdapistd.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdapistd.c
+build obj\third_party\externals\libjpeg\libjpeg.jdatadst.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdatadst.c
+build obj\third_party\externals\libjpeg\libjpeg.jdatasrc.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdatasrc.c
+build obj\third_party\externals\libjpeg\libjpeg.jdcoefct.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdcoefct.c
+build obj\third_party\externals\libjpeg\libjpeg.jdcolor.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdcolor.c
+build obj\third_party\externals\libjpeg\libjpeg.jddctmgr.obj: cc $
+    ..\..\third_party\externals\libjpeg\jddctmgr.c
+build obj\third_party\externals\libjpeg\libjpeg.jdhuff.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdhuff.c
+build obj\third_party\externals\libjpeg\libjpeg.jdinput.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdinput.c
+build obj\third_party\externals\libjpeg\libjpeg.jdmainct.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdmainct.c
+build obj\third_party\externals\libjpeg\libjpeg.jdmarker.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdmarker.c
+build obj\third_party\externals\libjpeg\libjpeg.jdmaster.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdmaster.c
+build obj\third_party\externals\libjpeg\libjpeg.jdmerge.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdmerge.c
+build obj\third_party\externals\libjpeg\libjpeg.jdphuff.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdphuff.c
+build obj\third_party\externals\libjpeg\libjpeg.jdpostct.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdpostct.c
+build obj\third_party\externals\libjpeg\libjpeg.jdsample.obj: cc $
+    ..\..\third_party\externals\libjpeg\jdsample.c
+build obj\third_party\externals\libjpeg\libjpeg.jerror.obj: cc $
+    ..\..\third_party\externals\libjpeg\jerror.c
+build obj\third_party\externals\libjpeg\libjpeg.jfdctflt.obj: cc $
+    ..\..\third_party\externals\libjpeg\jfdctflt.c
+build obj\third_party\externals\libjpeg\libjpeg.jfdctfst.obj: cc $
+    ..\..\third_party\externals\libjpeg\jfdctfst.c
+build obj\third_party\externals\libjpeg\libjpeg.jfdctint.obj: cc $
+    ..\..\third_party\externals\libjpeg\jfdctint.c
+build obj\third_party\externals\libjpeg\libjpeg.jidctflt.obj: cc $
+    ..\..\third_party\externals\libjpeg\jidctflt.c
+build obj\third_party\externals\libjpeg\libjpeg.jidctfst.obj: cc $
+    ..\..\third_party\externals\libjpeg\jidctfst.c
+build obj\third_party\externals\libjpeg\libjpeg.jidctint.obj: cc $
+    ..\..\third_party\externals\libjpeg\jidctint.c
+build obj\third_party\externals\libjpeg\libjpeg.jidctred.obj: cc $
+    ..\..\third_party\externals\libjpeg\jidctred.c
+build obj\third_party\externals\libjpeg\libjpeg.jmemmgr.obj: cc $
+    ..\..\third_party\externals\libjpeg\jmemmgr.c
+build obj\third_party\externals\libjpeg\libjpeg.jmemnobs.obj: cc $
+    ..\..\third_party\externals\libjpeg\jmemnobs.c
+build obj\third_party\externals\libjpeg\libjpeg.jquant1.obj: cc $
+    ..\..\third_party\externals\libjpeg\jquant1.c
+build obj\third_party\externals\libjpeg\libjpeg.jquant2.obj: cc $
+    ..\..\third_party\externals\libjpeg\jquant2.c
+build obj\third_party\externals\libjpeg\libjpeg.jutils.obj: cc $
+    ..\..\third_party\externals\libjpeg\jutils.c
+
+build obj\gyp\libjpeg.lib: alink $
+    obj\third_party\externals\libjpeg\libjpeg.jsimd_none.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcapimin.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcapistd.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jccoefct.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jccolor.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcdctmgr.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jchuff.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcinit.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcmainct.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcmarker.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcmaster.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcomapi.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcparam.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcphuff.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcprepct.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jcsample.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdapimin.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdapistd.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdatadst.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdatasrc.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdcoefct.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdcolor.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jddctmgr.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdhuff.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdinput.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdmainct.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdmarker.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdmaster.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdmerge.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdphuff.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdpostct.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jdsample.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jerror.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jfdctflt.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jfdctfst.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jfdctint.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jidctflt.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jidctfst.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jidctint.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jidctred.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jmemmgr.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jmemnobs.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jquant1.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jquant2.obj $
+    obj\third_party\externals\libjpeg\libjpeg.jutils.obj
+  libflags = 

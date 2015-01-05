@@ -1,0 +1,389 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+build obj\gyp\gmtoskp.actions_depends.stamp: stamp $
+    obj\gyp\skia_lib.actions_depends.stamp obj\gyp\resources.lib $
+    obj\gyp\sk_tool_utils.lib skia_skgputest.lib skia_core.lib $
+    skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libetc1.lib obj\gyp\libSkKTX.lib $
+    obj\gyp\libwebp.actions_depends.stamp obj\gyp\libwebp_dec.lib $
+    obj\gyp\libwebp_demux.lib obj\gyp\libwebp_dsp.lib $
+    obj\gyp\libwebp_enc.lib obj\gyp\libwebp_utils.lib skia_utils.lib $
+    skia_opts.lib skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib $
+    skia_sfnt.lib skia_skgpu.lib obj\gyp\flags.lib
+
+pdbname_c = gmtoskp.pdb
+pdbname_cc = gmtoskp.pdb
+pchprefix = gmtoskp
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\tools -I..\..\src\effects -I..\..\src\core $
+    -I..\..\src\gpu -I..\..\third_party\etc1 -I..\..\gm $
+    -I..\..\src\utils\debugger -I..\..\src\images -I..\..\src\lazy $
+    -I..\..\include\c -I..\..\include\config -I..\..\include\core $
+    -I..\..\include\pathops -I..\..\include\pipe -I..\..\gyp\config\win $
+    -I..\..\include\effects -I..\..\include\images -I..\..\include\ports $
+    -I..\..\src\sfnt -I..\..\include\utils -I..\..\src\utils $
+    -I..\..\include\utils\win -I..\..\include\gpu
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\experimental\tools\gmtoskp.gmtoskp.obj: cxx $
+    ..\..\experimental\tools\gmtoskp.cpp
+build obj\gm\gmtoskp.gm.obj: cxx ..\..\gm\gm.cpp
+build obj\gm\gmtoskp.aaclip.obj: cxx ..\..\gm\aaclip.cpp
+build obj\gm\gmtoskp.aarectmodes.obj: cxx ..\..\gm\aarectmodes.cpp
+build obj\gm\gmtoskp.alphagradients.obj: cxx ..\..\gm\alphagradients.cpp
+build obj\gm\gmtoskp.arcofzorro.obj: cxx ..\..\gm\arcofzorro.cpp
+build obj\gm\gmtoskp.arithmode.obj: cxx ..\..\gm\arithmode.cpp
+build obj\gm\gmtoskp.astcbitmap.obj: cxx ..\..\gm\astcbitmap.cpp
+build obj\gm\gmtoskp.beziereffects.obj: cxx ..\..\gm\beziereffects.cpp
+build obj\gm\gmtoskp.beziers.obj: cxx ..\..\gm\beziers.cpp
+build obj\gm\gmtoskp.bigblurs.obj: cxx ..\..\gm\bigblurs.cpp
+build obj\gm\gmtoskp.bigmatrix.obj: cxx ..\..\gm\bigmatrix.cpp
+build obj\gm\gmtoskp.bigtext.obj: cxx ..\..\gm\bigtext.cpp
+build obj\gm\gmtoskp.bitmapcopy.obj: cxx ..\..\gm\bitmapcopy.cpp
+build obj\gm\gmtoskp.bitmapfilters.obj: cxx ..\..\gm\bitmapfilters.cpp
+build obj\gm\gmtoskp.bitmappremul.obj: cxx ..\..\gm\bitmappremul.cpp
+build obj\gm\gmtoskp.bitmaprect.obj: cxx ..\..\gm\bitmaprect.cpp
+build obj\gm\gmtoskp.bitmaprecttest.obj: cxx ..\..\gm\bitmaprecttest.cpp
+build obj\gm\gmtoskp.bitmapscroll.obj: cxx ..\..\gm\bitmapscroll.cpp
+build obj\gm\gmtoskp.bitmapshader.obj: cxx ..\..\gm\bitmapshader.cpp
+build obj\gm\gmtoskp.bitmapsource.obj: cxx ..\..\gm\bitmapsource.cpp
+build obj\gm\gmtoskp.bleed.obj: cxx ..\..\gm\bleed.cpp
+build obj\gm\gmtoskp.blurcircles.obj: cxx ..\..\gm\blurcircles.cpp
+build obj\gm\gmtoskp.blurs.obj: cxx ..\..\gm\blurs.cpp
+build obj\gm\gmtoskp.blurquickreject.obj: cxx ..\..\gm\blurquickreject.cpp
+build obj\gm\gmtoskp.blurrect.obj: cxx ..\..\gm\blurrect.cpp
+build obj\gm\gmtoskp.blurroundrect.obj: cxx ..\..\gm\blurroundrect.cpp
+build obj\gm\gmtoskp.circles.obj: cxx ..\..\gm\circles.cpp
+build obj\gm\gmtoskp.circularclips.obj: cxx ..\..\gm\circularclips.cpp
+build obj\gm\gmtoskp.clip_strokerect.obj: cxx ..\..\gm\clip_strokerect.cpp
+build obj\gm\gmtoskp.clippedbitmapshaders.obj: cxx $
+    ..\..\gm\clippedbitmapshaders.cpp
+build obj\gm\gmtoskp.cgms.obj: cxx ..\..\gm\cgms.cpp
+build obj\gm\gmtoskp.cgm.obj: cc ..\..\gm\cgm.c
+build obj\gm\gmtoskp.colorcube.obj: cxx ..\..\gm\colorcube.cpp
+build obj\gm\gmtoskp.coloremoji.obj: cxx ..\..\gm\coloremoji.cpp
+build obj\gm\gmtoskp.colorfilterimagefilter.obj: cxx $
+    ..\..\gm\colorfilterimagefilter.cpp
+build obj\gm\gmtoskp.colorfilters.obj: cxx ..\..\gm\colorfilters.cpp
+build obj\gm\gmtoskp.colormatrix.obj: cxx ..\..\gm\colormatrix.cpp
+build obj\gm\gmtoskp.colortype.obj: cxx ..\..\gm\colortype.cpp
+build obj\gm\gmtoskp.colortypexfermode.obj: cxx ..\..\gm\colortypexfermode.cpp
+build obj\gm\gmtoskp.colorwheel.obj: cxx ..\..\gm\colorwheel.cpp
+build obj\gm\gmtoskp.complexclip.obj: cxx ..\..\gm\complexclip.cpp
+build obj\gm\gmtoskp.complexclip2.obj: cxx ..\..\gm\complexclip2.cpp
+build obj\gm\gmtoskp.complexclip3.obj: cxx ..\..\gm\complexclip3.cpp
+build obj\gm\gmtoskp.composeshader.obj: cxx ..\..\gm\composeshader.cpp
+build obj\gm\gmtoskp.convexpaths.obj: cxx ..\..\gm\convexpaths.cpp
+build obj\gm\gmtoskp.convexpolyclip.obj: cxx ..\..\gm\convexpolyclip.cpp
+build obj\gm\gmtoskp.convexpolyeffect.obj: cxx ..\..\gm\convexpolyeffect.cpp
+build obj\gm\gmtoskp.copyTo4444.obj: cxx ..\..\gm\copyTo4444.cpp
+build obj\gm\gmtoskp.cubicpaths.obj: cxx ..\..\gm\cubicpaths.cpp
+build obj\gm\gmtoskp.cmykjpeg.obj: cxx ..\..\gm\cmykjpeg.cpp
+build obj\gm\gmtoskp.degeneratesegments.obj: cxx $
+    ..\..\gm\degeneratesegments.cpp
+build obj\gm\gmtoskp.dcshader.obj: cxx ..\..\gm\dcshader.cpp
+build obj\gm\gmtoskp.discard.obj: cxx ..\..\gm\discard.cpp
+build obj\gm\gmtoskp.dashcubics.obj: cxx ..\..\gm\dashcubics.cpp
+build obj\gm\gmtoskp.dashing.obj: cxx ..\..\gm\dashing.cpp
+build obj\gm\gmtoskp.distantclip.obj: cxx ..\..\gm\distantclip.cpp
+build obj\gm\gmtoskp.dftext.obj: cxx ..\..\gm\dftext.cpp
+build obj\gm\gmtoskp.displacement.obj: cxx ..\..\gm\displacement.cpp
+build obj\gm\gmtoskp.downsamplebitmap.obj: cxx ..\..\gm\downsamplebitmap.cpp
+build obj\gm\gmtoskp.drawbitmaprect.obj: cxx ..\..\gm\drawbitmaprect.cpp
+build obj\gm\gmtoskp.drawlooper.obj: cxx ..\..\gm\drawlooper.cpp
+build obj\gm\gmtoskp.dropshadowimagefilter.obj: cxx $
+    ..\..\gm\dropshadowimagefilter.cpp
+build obj\gm\gmtoskp.drrect.obj: cxx ..\..\gm\drrect.cpp
+build obj\gm\gmtoskp.etc1bitmap.obj: cxx ..\..\gm\etc1bitmap.cpp
+build obj\gm\gmtoskp.extractbitmap.obj: cxx ..\..\gm\extractbitmap.cpp
+build obj\gm\gmtoskp.emboss.obj: cxx ..\..\gm\emboss.cpp
+build obj\gm\gmtoskp.emptypath.obj: cxx ..\..\gm\emptypath.cpp
+build obj\gm\gmtoskp.fatpathfill.obj: cxx ..\..\gm\fatpathfill.cpp
+build obj\gm\gmtoskp.factory.obj: cxx ..\..\gm\factory.cpp
+build obj\gm\gmtoskp.filltypes.obj: cxx ..\..\gm\filltypes.cpp
+build obj\gm\gmtoskp.filltypespersp.obj: cxx ..\..\gm\filltypespersp.cpp
+build obj\gm\gmtoskp.filterbitmap.obj: cxx ..\..\gm\filterbitmap.cpp
+build obj\gm\gmtoskp.filterfastbounds.obj: cxx ..\..\gm\filterfastbounds.cpp
+build obj\gm\gmtoskp.filterindiabox.obj: cxx ..\..\gm\filterindiabox.cpp
+build obj\gm\gmtoskp.fontcache.obj: cxx ..\..\gm\fontcache.cpp
+build obj\gm\gmtoskp.fontmgr.obj: cxx ..\..\gm\fontmgr.cpp
+build obj\gm\gmtoskp.fontscaler.obj: cxx ..\..\gm\fontscaler.cpp
+build obj\gm\gmtoskp.gammatext.obj: cxx ..\..\gm\gammatext.cpp
+build obj\gm\gmtoskp.getpostextpath.obj: cxx ..\..\gm\getpostextpath.cpp
+build obj\gm\gmtoskp.giantbitmap.obj: cxx ..\..\gm\giantbitmap.cpp
+build obj\gm\gmtoskp.glyph_pos.obj: cxx ..\..\gm\glyph_pos.cpp
+build obj\gm\gmtoskp.glyph_pos_align.obj: cxx ..\..\gm\glyph_pos_align.cpp
+build obj\gm\gmtoskp.gradients.obj: cxx ..\..\gm\gradients.cpp
+build obj\gm\gmtoskp.gradients_2pt_conical.obj: cxx $
+    ..\..\gm\gradients_2pt_conical.cpp
+build obj\gm\gmtoskp.gradients_no_texture.obj: cxx $
+    ..\..\gm\gradients_no_texture.cpp
+build obj\gm\gmtoskp.gradientDirtyLaundry.obj: cxx $
+    ..\..\gm\gradientDirtyLaundry.cpp
+build obj\gm\gmtoskp.gradient_matrix.obj: cxx ..\..\gm\gradient_matrix.cpp
+build obj\gm\gmtoskp.gradtext.obj: cxx ..\..\gm\gradtext.cpp
+build obj\gm\gmtoskp.grayscalejpg.obj: cxx ..\..\gm\grayscalejpg.cpp
+build obj\gm\gmtoskp.hairlines.obj: cxx ..\..\gm\hairlines.cpp
+build obj\gm\gmtoskp.hairmodes.obj: cxx ..\..\gm\hairmodes.cpp
+build obj\gm\gmtoskp.hittestpath.obj: cxx ..\..\gm\hittestpath.cpp
+build obj\gm\gmtoskp.imagealphathreshold.obj: cxx $
+    ..\..\gm\imagealphathreshold.cpp
+build obj\gm\gmtoskp.imageblur.obj: cxx ..\..\gm\imageblur.cpp
+build obj\gm\gmtoskp.imageblur2.obj: cxx ..\..\gm\imageblur2.cpp
+build obj\gm\gmtoskp.imageblurtiled.obj: cxx ..\..\gm\imageblurtiled.cpp
+build obj\gm\gmtoskp.imagemagnifier.obj: cxx ..\..\gm\imagemagnifier.cpp
+build obj\gm\gmtoskp.imageresizetiled.obj: cxx ..\..\gm\imageresizetiled.cpp
+build obj\gm\gmtoskp.inversepaths.obj: cxx ..\..\gm\inversepaths.cpp
+build obj\gm\gmtoskp.lerpmode.obj: cxx ..\..\gm\lerpmode.cpp
+build obj\gm\gmtoskp.lighting.obj: cxx ..\..\gm\lighting.cpp
+build obj\gm\gmtoskp.lumafilter.obj: cxx ..\..\gm\lumafilter.cpp
+build obj\gm\gmtoskp.image.obj: cxx ..\..\gm\image.cpp
+build obj\gm\gmtoskp.imagefiltersbase.obj: cxx ..\..\gm\imagefiltersbase.cpp
+build obj\gm\gmtoskp.imagefiltersclipped.obj: cxx $
+    ..\..\gm\imagefiltersclipped.cpp
+build obj\gm\gmtoskp.imagefilterscropped.obj: cxx $
+    ..\..\gm\imagefilterscropped.cpp
+build obj\gm\gmtoskp.imagefilterscropexpand.obj: cxx $
+    ..\..\gm\imagefilterscropexpand.cpp
+build obj\gm\gmtoskp.imagefiltersgraph.obj: cxx ..\..\gm\imagefiltersgraph.cpp
+build obj\gm\gmtoskp.imagefiltersscaled.obj: cxx $
+    ..\..\gm\imagefiltersscaled.cpp
+build obj\gm\gmtoskp.internal_links.obj: cxx ..\..\gm\internal_links.cpp
+build obj\gm\gmtoskp.lcdtext.obj: cxx ..\..\gm\lcdtext.cpp
+build obj\gm\gmtoskp.linepaths.obj: cxx ..\..\gm\linepaths.cpp
+build obj\gm\gmtoskp.matrixconvolution.obj: cxx ..\..\gm\matrixconvolution.cpp
+build obj\gm\gmtoskp.matriximagefilter.obj: cxx ..\..\gm\matriximagefilter.cpp
+build obj\gm\gmtoskp.megalooper.obj: cxx ..\..\gm\megalooper.cpp
+build obj\gm\gmtoskp.mixedxfermodes.obj: cxx ..\..\gm\mixedxfermodes.cpp
+build obj\gm\gmtoskp.modecolorfilters.obj: cxx ..\..\gm\modecolorfilters.cpp
+build obj\gm\gmtoskp.morphology.obj: cxx ..\..\gm\morphology.cpp
+build obj\gm\gmtoskp.multipicturedraw.obj: cxx ..\..\gm\multipicturedraw.cpp
+build obj\gm\gmtoskp.nested.obj: cxx ..\..\gm\nested.cpp
+build obj\gm\gmtoskp.ninepatchstretch.obj: cxx ..\..\gm\ninepatchstretch.cpp
+build obj\gm\gmtoskp.nonclosedpaths.obj: cxx ..\..\gm\nonclosedpaths.cpp
+build obj\gm\gmtoskp.offsetimagefilter.obj: cxx ..\..\gm\offsetimagefilter.cpp
+build obj\gm\gmtoskp.ovals.obj: cxx ..\..\gm\ovals.cpp
+build obj\gm\gmtoskp.patch.obj: cxx ..\..\gm\patch.cpp
+build obj\gm\gmtoskp.patchgrid.obj: cxx ..\..\gm\patchgrid.cpp
+build obj\gm\gmtoskp.patheffects.obj: cxx ..\..\gm\patheffects.cpp
+build obj\gm\gmtoskp.pathfill.obj: cxx ..\..\gm\pathfill.cpp
+build obj\gm\gmtoskp.pathinterior.obj: cxx ..\..\gm\pathinterior.cpp
+build obj\gm\gmtoskp.pathopsinverse.obj: cxx ..\..\gm\pathopsinverse.cpp
+build obj\gm\gmtoskp.pathopsskpclip.obj: cxx ..\..\gm\pathopsskpclip.cpp
+build obj\gm\gmtoskp.pathreverse.obj: cxx ..\..\gm\pathreverse.cpp
+build obj\gm\gmtoskp.peekpixels.obj: cxx ..\..\gm\peekpixels.cpp
+build obj\gm\gmtoskp.perlinnoise.obj: cxx ..\..\gm\perlinnoise.cpp
+build obj\gm\gmtoskp.picture.obj: cxx ..\..\gm\picture.cpp
+build obj\gm\gmtoskp.pictureimagefilter.obj: cxx $
+    ..\..\gm\pictureimagefilter.cpp
+build obj\gm\gmtoskp.pictureshader.obj: cxx ..\..\gm\pictureshader.cpp
+build obj\gm\gmtoskp.pictureshadertile.obj: cxx ..\..\gm\pictureshadertile.cpp
+build obj\gm\gmtoskp.points.obj: cxx ..\..\gm\points.cpp
+build obj\gm\gmtoskp.poly2poly.obj: cxx ..\..\gm\poly2poly.cpp
+build obj\gm\gmtoskp.polygons.obj: cxx ..\..\gm\polygons.cpp
+build obj\gm\gmtoskp.quadpaths.obj: cxx ..\..\gm\quadpaths.cpp
+build obj\gm\gmtoskp.rects.obj: cxx ..\..\gm\rects.cpp
+build obj\gm\gmtoskp.resizeimagefilter.obj: cxx ..\..\gm\resizeimagefilter.cpp
+build obj\gm\gmtoskp.rrect.obj: cxx ..\..\gm\rrect.cpp
+build obj\gm\gmtoskp.rrects.obj: cxx ..\..\gm\rrects.cpp
+build obj\gm\gmtoskp.roundrects.obj: cxx ..\..\gm\roundrects.cpp
+build obj\gm\gmtoskp.samplerstress.obj: cxx ..\..\gm\samplerstress.cpp
+build obj\gm\gmtoskp.shaderbounds.obj: cxx ..\..\gm\shaderbounds.cpp
+build obj\gm\gmtoskp.selftest.obj: cxx ..\..\gm\selftest.cpp
+build obj\gm\gmtoskp.shadertext.obj: cxx ..\..\gm\shadertext.cpp
+build obj\gm\gmtoskp.shadertext2.obj: cxx ..\..\gm\shadertext2.cpp
+build obj\gm\gmtoskp.shadertext3.obj: cxx ..\..\gm\shadertext3.cpp
+build obj\gm\gmtoskp.shadows.obj: cxx ..\..\gm\shadows.cpp
+build obj\gm\gmtoskp.shallowgradient.obj: cxx ..\..\gm\shallowgradient.cpp
+build obj\gm\gmtoskp.simpleaaclip.obj: cxx ..\..\gm\simpleaaclip.cpp
+build obj\gm\gmtoskp.skbug1719.obj: cxx ..\..\gm\skbug1719.cpp
+build obj\gm\gmtoskp.smallarc.obj: cxx ..\..\gm\smallarc.cpp
+build obj\gm\gmtoskp.smallimage.obj: cxx ..\..\gm\smallimage.cpp
+build obj\gm\gmtoskp.stringart.obj: cxx ..\..\gm\stringart.cpp
+build obj\gm\gmtoskp.spritebitmap.obj: cxx ..\..\gm\spritebitmap.cpp
+build obj\gm\gmtoskp.srcmode.obj: cxx ..\..\gm\srcmode.cpp
+build obj\gm\gmtoskp.strokefill.obj: cxx ..\..\gm\strokefill.cpp
+build obj\gm\gmtoskp.strokerect.obj: cxx ..\..\gm\strokerect.cpp
+build obj\gm\gmtoskp.strokerects.obj: cxx ..\..\gm\strokerects.cpp
+build obj\gm\gmtoskp.strokes.obj: cxx ..\..\gm\strokes.cpp
+build obj\gm\gmtoskp.stroketext.obj: cxx ..\..\gm\stroketext.cpp
+build obj\gm\gmtoskp.surface.obj: cxx ..\..\gm\surface.cpp
+build obj\gm\gmtoskp.tablecolorfilter.obj: cxx ..\..\gm\tablecolorfilter.cpp
+build obj\gm\gmtoskp.texteffects.obj: cxx ..\..\gm\texteffects.cpp
+build obj\gm\gmtoskp.testimagefilters.obj: cxx ..\..\gm\testimagefilters.cpp
+build obj\gm\gmtoskp.texdata.obj: cxx ..\..\gm\texdata.cpp
+build obj\gm\gmtoskp.variedtext.obj: cxx ..\..\gm\variedtext.cpp
+build obj\gm\gmtoskp.tallstretchedbitmaps.obj: cxx $
+    ..\..\gm\tallstretchedbitmaps.cpp
+build obj\gm\gmtoskp.textblob.obj: cxx ..\..\gm\textblob.cpp
+build obj\gm\gmtoskp.textblobshader.obj: cxx ..\..\gm\textblobshader.cpp
+build obj\gm\gmtoskp.texturedomaineffect.obj: cxx $
+    ..\..\gm\texturedomaineffect.cpp
+build obj\gm\gmtoskp.thinrects.obj: cxx ..\..\gm\thinrects.cpp
+build obj\gm\gmtoskp.thinstrokedrects.obj: cxx ..\..\gm\thinstrokedrects.cpp
+build obj\gm\gmtoskp.tiledscaledbitmap.obj: cxx ..\..\gm\tiledscaledbitmap.cpp
+build obj\gm\gmtoskp.tileimagefilter.obj: cxx ..\..\gm\tileimagefilter.cpp
+build obj\gm\gmtoskp.tilemodes.obj: cxx ..\..\gm\tilemodes.cpp
+build obj\gm\gmtoskp.tilemodes_scaled.obj: cxx ..\..\gm\tilemodes_scaled.cpp
+build obj\gm\gmtoskp.tinybitmap.obj: cxx ..\..\gm\tinybitmap.cpp
+build obj\gm\gmtoskp.twopointradial.obj: cxx ..\..\gm\twopointradial.cpp
+build obj\gm\gmtoskp.typeface.obj: cxx ..\..\gm\typeface.cpp
+build obj\gm\gmtoskp.vertices.obj: cxx ..\..\gm\vertices.cpp
+build obj\gm\gmtoskp.verttext.obj: cxx ..\..\gm\verttext.cpp
+build obj\gm\gmtoskp.verttext2.obj: cxx ..\..\gm\verttext2.cpp
+build obj\gm\gmtoskp.verylargebitmap.obj: cxx ..\..\gm\verylargebitmap.cpp
+build obj\gm\gmtoskp.xfermodeimagefilter.obj: cxx $
+    ..\..\gm\xfermodeimagefilter.cpp
+build obj\gm\gmtoskp.xfermodes.obj: cxx ..\..\gm\xfermodes.cpp
+build obj\gm\gmtoskp.xfermodes2.obj: cxx ..\..\gm\xfermodes2.cpp
+build obj\gm\gmtoskp.xfermodes3.obj: cxx ..\..\gm\xfermodes3.cpp
+build obj\gm\gmtoskp.yuvtorgbeffect.obj: cxx ..\..\gm\yuvtorgbeffect.cpp
+build obj\src\utils\debugger\gmtoskp.SkDrawCommand.obj: cxx $
+    ..\..\src\utils\debugger\SkDrawCommand.cpp
+build obj\src\utils\debugger\gmtoskp.SkDebugCanvas.obj: cxx $
+    ..\..\src\utils\debugger\SkDebugCanvas.cpp
+build obj\src\utils\debugger\gmtoskp.SkObjectParser.obj: cxx $
+    ..\..\src\utils\debugger\SkObjectParser.cpp
+
+manifests = obj\gyp\gmtoskp.gmtoskp.exe.generated.manifest
+intermediatemanifest = obj\gyp\gmtoskp.gmtoskp.exe.intermediate.manifest
+ldflags = /DEBUG /PDB:gmtoskp.exe.pdb /LTCG /LARGEADDRESSAWARE OpenGL32.lib $
+    usp10.lib kernel32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib $
+    shell32.lib ole32.lib oleaut32.lib user32.lib uuid.lib odbc32.lib $
+    odbccp32.lib DelayImp.lib /DYNAMICBASE /NXCOMPAT /MANIFEST $
+    /ManifestFile:obj\gyp\gmtoskp.gmtoskp.exe.intermediate.manifest $
+    /MANIFESTUAC:NO /ALLOWISOLATION
+libs = windowscodecs.lib
+build gmtoskp.exe gmtoskp.exe.pdb: link_embed $
+    obj\experimental\tools\gmtoskp.gmtoskp.obj obj\gm\gmtoskp.gm.obj $
+    obj\gm\gmtoskp.aaclip.obj obj\gm\gmtoskp.aarectmodes.obj $
+    obj\gm\gmtoskp.alphagradients.obj obj\gm\gmtoskp.arcofzorro.obj $
+    obj\gm\gmtoskp.arithmode.obj obj\gm\gmtoskp.astcbitmap.obj $
+    obj\gm\gmtoskp.beziereffects.obj obj\gm\gmtoskp.beziers.obj $
+    obj\gm\gmtoskp.bigblurs.obj obj\gm\gmtoskp.bigmatrix.obj $
+    obj\gm\gmtoskp.bigtext.obj obj\gm\gmtoskp.bitmapcopy.obj $
+    obj\gm\gmtoskp.bitmapfilters.obj obj\gm\gmtoskp.bitmappremul.obj $
+    obj\gm\gmtoskp.bitmaprect.obj obj\gm\gmtoskp.bitmaprecttest.obj $
+    obj\gm\gmtoskp.bitmapscroll.obj obj\gm\gmtoskp.bitmapshader.obj $
+    obj\gm\gmtoskp.bitmapsource.obj obj\gm\gmtoskp.bleed.obj $
+    obj\gm\gmtoskp.blurcircles.obj obj\gm\gmtoskp.blurs.obj $
+    obj\gm\gmtoskp.blurquickreject.obj obj\gm\gmtoskp.blurrect.obj $
+    obj\gm\gmtoskp.blurroundrect.obj obj\gm\gmtoskp.circles.obj $
+    obj\gm\gmtoskp.circularclips.obj obj\gm\gmtoskp.clip_strokerect.obj $
+    obj\gm\gmtoskp.clippedbitmapshaders.obj obj\gm\gmtoskp.cgms.obj $
+    obj\gm\gmtoskp.cgm.obj obj\gm\gmtoskp.colorcube.obj $
+    obj\gm\gmtoskp.coloremoji.obj obj\gm\gmtoskp.colorfilterimagefilter.obj $
+    obj\gm\gmtoskp.colorfilters.obj obj\gm\gmtoskp.colormatrix.obj $
+    obj\gm\gmtoskp.colortype.obj obj\gm\gmtoskp.colortypexfermode.obj $
+    obj\gm\gmtoskp.colorwheel.obj obj\gm\gmtoskp.complexclip.obj $
+    obj\gm\gmtoskp.complexclip2.obj obj\gm\gmtoskp.complexclip3.obj $
+    obj\gm\gmtoskp.composeshader.obj obj\gm\gmtoskp.convexpaths.obj $
+    obj\gm\gmtoskp.convexpolyclip.obj obj\gm\gmtoskp.convexpolyeffect.obj $
+    obj\gm\gmtoskp.copyTo4444.obj obj\gm\gmtoskp.cubicpaths.obj $
+    obj\gm\gmtoskp.cmykjpeg.obj obj\gm\gmtoskp.degeneratesegments.obj $
+    obj\gm\gmtoskp.dcshader.obj obj\gm\gmtoskp.discard.obj $
+    obj\gm\gmtoskp.dashcubics.obj obj\gm\gmtoskp.dashing.obj $
+    obj\gm\gmtoskp.distantclip.obj obj\gm\gmtoskp.dftext.obj $
+    obj\gm\gmtoskp.displacement.obj obj\gm\gmtoskp.downsamplebitmap.obj $
+    obj\gm\gmtoskp.drawbitmaprect.obj obj\gm\gmtoskp.drawlooper.obj $
+    obj\gm\gmtoskp.dropshadowimagefilter.obj obj\gm\gmtoskp.drrect.obj $
+    obj\gm\gmtoskp.etc1bitmap.obj obj\gm\gmtoskp.extractbitmap.obj $
+    obj\gm\gmtoskp.emboss.obj obj\gm\gmtoskp.emptypath.obj $
+    obj\gm\gmtoskp.fatpathfill.obj obj\gm\gmtoskp.factory.obj $
+    obj\gm\gmtoskp.filltypes.obj obj\gm\gmtoskp.filltypespersp.obj $
+    obj\gm\gmtoskp.filterbitmap.obj obj\gm\gmtoskp.filterfastbounds.obj $
+    obj\gm\gmtoskp.filterindiabox.obj obj\gm\gmtoskp.fontcache.obj $
+    obj\gm\gmtoskp.fontmgr.obj obj\gm\gmtoskp.fontscaler.obj $
+    obj\gm\gmtoskp.gammatext.obj obj\gm\gmtoskp.getpostextpath.obj $
+    obj\gm\gmtoskp.giantbitmap.obj obj\gm\gmtoskp.glyph_pos.obj $
+    obj\gm\gmtoskp.glyph_pos_align.obj obj\gm\gmtoskp.gradients.obj $
+    obj\gm\gmtoskp.gradients_2pt_conical.obj $
+    obj\gm\gmtoskp.gradients_no_texture.obj $
+    obj\gm\gmtoskp.gradientDirtyLaundry.obj $
+    obj\gm\gmtoskp.gradient_matrix.obj obj\gm\gmtoskp.gradtext.obj $
+    obj\gm\gmtoskp.grayscalejpg.obj obj\gm\gmtoskp.hairlines.obj $
+    obj\gm\gmtoskp.hairmodes.obj obj\gm\gmtoskp.hittestpath.obj $
+    obj\gm\gmtoskp.imagealphathreshold.obj obj\gm\gmtoskp.imageblur.obj $
+    obj\gm\gmtoskp.imageblur2.obj obj\gm\gmtoskp.imageblurtiled.obj $
+    obj\gm\gmtoskp.imagemagnifier.obj obj\gm\gmtoskp.imageresizetiled.obj $
+    obj\gm\gmtoskp.inversepaths.obj obj\gm\gmtoskp.lerpmode.obj $
+    obj\gm\gmtoskp.lighting.obj obj\gm\gmtoskp.lumafilter.obj $
+    obj\gm\gmtoskp.image.obj obj\gm\gmtoskp.imagefiltersbase.obj $
+    obj\gm\gmtoskp.imagefiltersclipped.obj $
+    obj\gm\gmtoskp.imagefilterscropped.obj $
+    obj\gm\gmtoskp.imagefilterscropexpand.obj $
+    obj\gm\gmtoskp.imagefiltersgraph.obj $
+    obj\gm\gmtoskp.imagefiltersscaled.obj obj\gm\gmtoskp.internal_links.obj $
+    obj\gm\gmtoskp.lcdtext.obj obj\gm\gmtoskp.linepaths.obj $
+    obj\gm\gmtoskp.matrixconvolution.obj $
+    obj\gm\gmtoskp.matriximagefilter.obj obj\gm\gmtoskp.megalooper.obj $
+    obj\gm\gmtoskp.mixedxfermodes.obj obj\gm\gmtoskp.modecolorfilters.obj $
+    obj\gm\gmtoskp.morphology.obj obj\gm\gmtoskp.multipicturedraw.obj $
+    obj\gm\gmtoskp.nested.obj obj\gm\gmtoskp.ninepatchstretch.obj $
+    obj\gm\gmtoskp.nonclosedpaths.obj obj\gm\gmtoskp.offsetimagefilter.obj $
+    obj\gm\gmtoskp.ovals.obj obj\gm\gmtoskp.patch.obj $
+    obj\gm\gmtoskp.patchgrid.obj obj\gm\gmtoskp.patheffects.obj $
+    obj\gm\gmtoskp.pathfill.obj obj\gm\gmtoskp.pathinterior.obj $
+    obj\gm\gmtoskp.pathopsinverse.obj obj\gm\gmtoskp.pathopsskpclip.obj $
+    obj\gm\gmtoskp.pathreverse.obj obj\gm\gmtoskp.peekpixels.obj $
+    obj\gm\gmtoskp.perlinnoise.obj obj\gm\gmtoskp.picture.obj $
+    obj\gm\gmtoskp.pictureimagefilter.obj obj\gm\gmtoskp.pictureshader.obj $
+    obj\gm\gmtoskp.pictureshadertile.obj obj\gm\gmtoskp.points.obj $
+    obj\gm\gmtoskp.poly2poly.obj obj\gm\gmtoskp.polygons.obj $
+    obj\gm\gmtoskp.quadpaths.obj obj\gm\gmtoskp.rects.obj $
+    obj\gm\gmtoskp.resizeimagefilter.obj obj\gm\gmtoskp.rrect.obj $
+    obj\gm\gmtoskp.rrects.obj obj\gm\gmtoskp.roundrects.obj $
+    obj\gm\gmtoskp.samplerstress.obj obj\gm\gmtoskp.shaderbounds.obj $
+    obj\gm\gmtoskp.selftest.obj obj\gm\gmtoskp.shadertext.obj $
+    obj\gm\gmtoskp.shadertext2.obj obj\gm\gmtoskp.shadertext3.obj $
+    obj\gm\gmtoskp.shadows.obj obj\gm\gmtoskp.shallowgradient.obj $
+    obj\gm\gmtoskp.simpleaaclip.obj obj\gm\gmtoskp.skbug1719.obj $
+    obj\gm\gmtoskp.smallarc.obj obj\gm\gmtoskp.smallimage.obj $
+    obj\gm\gmtoskp.stringart.obj obj\gm\gmtoskp.spritebitmap.obj $
+    obj\gm\gmtoskp.srcmode.obj obj\gm\gmtoskp.strokefill.obj $
+    obj\gm\gmtoskp.strokerect.obj obj\gm\gmtoskp.strokerects.obj $
+    obj\gm\gmtoskp.strokes.obj obj\gm\gmtoskp.stroketext.obj $
+    obj\gm\gmtoskp.surface.obj obj\gm\gmtoskp.tablecolorfilter.obj $
+    obj\gm\gmtoskp.texteffects.obj obj\gm\gmtoskp.testimagefilters.obj $
+    obj\gm\gmtoskp.texdata.obj obj\gm\gmtoskp.variedtext.obj $
+    obj\gm\gmtoskp.tallstretchedbitmaps.obj obj\gm\gmtoskp.textblob.obj $
+    obj\gm\gmtoskp.textblobshader.obj $
+    obj\gm\gmtoskp.texturedomaineffect.obj obj\gm\gmtoskp.thinrects.obj $
+    obj\gm\gmtoskp.thinstrokedrects.obj $
+    obj\gm\gmtoskp.tiledscaledbitmap.obj obj\gm\gmtoskp.tileimagefilter.obj $
+    obj\gm\gmtoskp.tilemodes.obj obj\gm\gmtoskp.tilemodes_scaled.obj $
+    obj\gm\gmtoskp.tinybitmap.obj obj\gm\gmtoskp.twopointradial.obj $
+    obj\gm\gmtoskp.typeface.obj obj\gm\gmtoskp.vertices.obj $
+    obj\gm\gmtoskp.verttext.obj obj\gm\gmtoskp.verttext2.obj $
+    obj\gm\gmtoskp.verylargebitmap.obj $
+    obj\gm\gmtoskp.xfermodeimagefilter.obj obj\gm\gmtoskp.xfermodes.obj $
+    obj\gm\gmtoskp.xfermodes2.obj obj\gm\gmtoskp.xfermodes3.obj $
+    obj\gm\gmtoskp.yuvtorgbeffect.obj $
+    obj\src\utils\debugger\gmtoskp.SkDrawCommand.obj $
+    obj\src\utils\debugger\gmtoskp.SkDebugCanvas.obj $
+    obj\src\utils\debugger\gmtoskp.SkObjectParser.obj obj\gyp\resources.lib $
+    obj\gyp\sk_tool_utils.lib skia_skgputest.lib skia_core.lib $
+    skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libetc1.lib obj\gyp\libSkKTX.lib obj\gyp\libwebp_dec.lib $
+    obj\gyp\libwebp_demux.lib obj\gyp\libwebp_dsp.lib $
+    obj\gyp\libwebp_enc.lib obj\gyp\libwebp_utils.lib skia_utils.lib $
+    skia_opts.lib skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib $
+    skia_sfnt.lib skia_skgpu.lib obj\gyp\flags.lib | $
+    obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\skia_lib.actions_depends.stamp $
+    obj\gyp\gmtoskp.gmtoskp.exe.generated.manifest
+  binary = gmtoskp.exe

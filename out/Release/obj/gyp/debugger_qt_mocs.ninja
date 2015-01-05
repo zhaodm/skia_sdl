@@ -1,0 +1,84 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+rule debugger_qt_mocs_target_generate_moc_fb0cd65a5b9555ef1c74335c35f001dc
+  command = C:\Python27\python.exe gyp-win-tool action-wrapper $arch $
+      debugger_qt_mocs_target_generate_moc_fb0cd65a5b9555ef1c74335c35f001dc.$unique_name.rsp $
+      ..\..\gyp
+  description = RULE Generating ${root}.cpp.
+  restat = 1
+  rspfile = $
+      debugger_qt_mocs_target_generate_moc_fb0cd65a5b9555ef1c74335c35f001dc.$unique_name.rsp
+  rspfile_content = C:\Qt\4.8.3\bin\moc "-DSK_SUPPORT_GPU=1" "${source}" $
+      "-o" "..\out\Release/gen/debugger/QT/moc_${root}.cpp"
+
+build gen\debugger\QT\moc_SkCanvasWidget.cpp: $
+    debugger_qt_mocs_target_generate_moc_fb0cd65a5b9555ef1c74335c35f001dc $
+    ..\..\debugger\QT\SkCanvasWidget.h
+  source = ..\debugger\QT\SkCanvasWidget.h
+  root = SkCanvasWidget
+  unique_name = e751287a58eedccb354b02259b93536b
+build gen\debugger\QT\moc_SkDebuggerGUI.cpp: $
+    debugger_qt_mocs_target_generate_moc_fb0cd65a5b9555ef1c74335c35f001dc $
+    ..\..\debugger\QT\SkDebuggerGUI.h
+  source = ..\debugger\QT\SkDebuggerGUI.h
+  root = SkDebuggerGUI
+  unique_name = f6597662d645d59cafe110651f9ccc9c
+build gen\debugger\QT\moc_SkDrawCommandGeometryWidget.cpp: $
+    debugger_qt_mocs_target_generate_moc_fb0cd65a5b9555ef1c74335c35f001dc $
+    ..\..\debugger\QT\SkDrawCommandGeometryWidget.h
+  source = ..\debugger\QT\SkDrawCommandGeometryWidget.h
+  root = SkDrawCommandGeometryWidget
+  unique_name = 11b5d85562412260314d8da789cfedc2
+build gen\debugger\QT\moc_SkInspectorWidget.cpp: $
+    debugger_qt_mocs_target_generate_moc_fb0cd65a5b9555ef1c74335c35f001dc $
+    ..\..\debugger\QT\SkInspectorWidget.h
+  source = ..\debugger\QT\SkInspectorWidget.h
+  root = SkInspectorWidget
+  unique_name = 03b340035406771f14fddb496228a84e
+build gen\debugger\QT\moc_SkSettingsWidget.cpp: $
+    debugger_qt_mocs_target_generate_moc_fb0cd65a5b9555ef1c74335c35f001dc $
+    ..\..\debugger\QT\SkSettingsWidget.h
+  source = ..\debugger\QT\SkSettingsWidget.h
+  root = SkSettingsWidget
+  unique_name = 5f83f5687fe35a2cc4886d9f2f6eb8c7
+build gen\debugger\QT\moc_SkRasterWidget.cpp: $
+    debugger_qt_mocs_target_generate_moc_fb0cd65a5b9555ef1c74335c35f001dc $
+    ..\..\debugger\QT\SkRasterWidget.h
+  source = ..\debugger\QT\SkRasterWidget.h
+  root = SkRasterWidget
+  unique_name = 05ed832d44b1b0d9cdbe0bea2aa6c879
+build gen\debugger\QT\moc_SkGLWidget.cpp: $
+    debugger_qt_mocs_target_generate_moc_fb0cd65a5b9555ef1c74335c35f001dc $
+    ..\..\debugger\QT\SkGLWidget.h
+  source = ..\debugger\QT\SkGLWidget.h
+  root = SkGLWidget
+  unique_name = a006286f1f0cbf24bd128d3d08a2fb75
+build obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp: stamp $
+    gen\debugger\QT\moc_SkCanvasWidget.cpp $
+    gen\debugger\QT\moc_SkDebuggerGUI.cpp $
+    gen\debugger\QT\moc_SkDrawCommandGeometryWidget.cpp $
+    gen\debugger\QT\moc_SkInspectorWidget.cpp $
+    gen\debugger\QT\moc_SkSettingsWidget.cpp $
+    gen\debugger\QT\moc_SkRasterWidget.cpp gen\debugger\QT\moc_SkGLWidget.cpp
+
+pdbname_c = debugger_qt_mocs.pdb
+pdbname_cc = debugger_qt_mocs.pdb
+pchprefix = debugger_qt_mocs
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = 
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /Zi /GR- /MD /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+

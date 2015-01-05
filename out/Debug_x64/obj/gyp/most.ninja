@@ -1,0 +1,10 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+build obj\gyp\most.actions_depends.stamp: stamp $
+    obj\gyp\skia_lib.actions_depends.stamp nanobench.exe gm.exe $
+    SampleApp.exe obj\gyp\tools.actions_depends.stamp pathops_unittest.exe $
+    pathops_skpclip.exe dm.exe
+

@@ -1,0 +1,204 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+build obj\gyp\pathops_unittest.actions_depends.stamp: stamp $
+    obj\gyp\flags_common.lib obj\gyp\crash_handler.lib obj\gyp\flags.lib $
+    obj\gyp\skia_lib.actions_depends.stamp obj\gyp\resources.lib $
+    skia_core.lib skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libetc1.lib obj\gyp\libSkKTX.lib $
+    obj\gyp\libwebp.actions_depends.stamp obj\gyp\libwebp_dec.lib $
+    obj\gyp\libwebp_demux.lib obj\gyp\libwebp_dsp.lib $
+    obj\gyp\libwebp_enc.lib obj\gyp\libwebp_utils.lib skia_utils.lib $
+    skia_opts.lib skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib $
+    skia_sfnt.lib skia_skgpu.lib
+
+pdbname_c = pathops_unittest.pdb
+pdbname_cc = pathops_unittest.pdb
+pchprefix = pathops_unittest
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DSK_DEVELOPER=1 -D_DEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\src\core -I..\..\src\effects -I..\..\src\lazy $
+    -I..\..\src\pathops -I..\..\src\pipe\utils -I..\..\src\utils $
+    -I..\..\src\gpu -I..\..\tools\flags -I..\..\tools -I..\..\include\c $
+    -I..\..\include\config -I..\..\include\core -I..\..\include\pathops $
+    -I..\..\include\pipe -I..\..\gyp\config\win -I..\..\include\effects $
+    -I..\..\include\images -I..\..\include\ports -I..\..\src\sfnt $
+    -I..\..\include\utils -I..\..\include\utils\win -I..\..\include\gpu
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Od /W3 /WX /ZI /GR- /MDd /we4189 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\tests\pathops_unittest.PathOpsAngleIdeas.obj: cxx $
+    ..\..\tests\PathOpsAngleIdeas.cpp
+build obj\tests\pathops_unittest.PathOpsBattles.obj: cxx $
+    ..\..\tests\PathOpsBattles.cpp
+build obj\tests\pathops_unittest.PathOpsCubicLineIntersectionIdeas.obj: cxx $
+    ..\..\tests\PathOpsCubicLineIntersectionIdeas.cpp
+build obj\tests\pathops_unittest.PathOpsDebug.obj: cxx $
+    ..\..\tests\PathOpsDebug.cpp
+build obj\tests\pathops_unittest.PathOpsOpLoopThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsOpLoopThreadedTest.cpp
+build obj\tests\pathops_unittest.skia_test.obj: cxx ..\..\tests\skia_test.cpp
+build obj\tests\pathops_unittest.Test.obj: cxx ..\..\tests\Test.cpp
+build obj\tests\pathops_unittest.PathOpsAngleTest.obj: cxx $
+    ..\..\tests\PathOpsAngleTest.cpp
+build obj\tests\pathops_unittest.PathOpsBoundsTest.obj: cxx $
+    ..\..\tests\PathOpsBoundsTest.cpp
+build obj\tests\pathops_unittest.PathOpsCubicIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsCubicIntersectionTest.cpp
+build obj\tests\pathops_unittest.PathOpsCubicIntersectionTestData.obj: cxx $
+    ..\..\tests\PathOpsCubicIntersectionTestData.cpp
+build obj\tests\pathops_unittest.PathOpsCubicLineIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsCubicLineIntersectionTest.cpp
+build obj\tests\pathops_unittest.PathOpsCubicQuadIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsCubicQuadIntersectionTest.cpp
+build obj\tests\pathops_unittest.PathOpsCubicReduceOrderTest.obj: cxx $
+    ..\..\tests\PathOpsCubicReduceOrderTest.cpp
+build obj\tests\pathops_unittest.PathOpsCubicToQuadsTest.obj: cxx $
+    ..\..\tests\PathOpsCubicToQuadsTest.cpp
+build obj\tests\pathops_unittest.PathOpsDCubicTest.obj: cxx $
+    ..\..\tests\PathOpsDCubicTest.cpp
+build obj\tests\pathops_unittest.PathOpsDLineTest.obj: cxx $
+    ..\..\tests\PathOpsDLineTest.cpp
+build obj\tests\pathops_unittest.PathOpsDPointTest.obj: cxx $
+    ..\..\tests\PathOpsDPointTest.cpp
+build obj\tests\pathops_unittest.PathOpsDQuadTest.obj: cxx $
+    ..\..\tests\PathOpsDQuadTest.cpp
+build obj\tests\pathops_unittest.PathOpsDRectTest.obj: cxx $
+    ..\..\tests\PathOpsDRectTest.cpp
+build obj\tests\pathops_unittest.PathOpsDTriangleTest.obj: cxx $
+    ..\..\tests\PathOpsDTriangleTest.cpp
+build obj\tests\pathops_unittest.PathOpsDVectorTest.obj: cxx $
+    ..\..\tests\PathOpsDVectorTest.cpp
+build obj\tests\pathops_unittest.PathOpsExtendedTest.obj: cxx $
+    ..\..\tests\PathOpsExtendedTest.cpp
+build obj\tests\pathops_unittest.PathOpsFuzz763Test.obj: cxx $
+    ..\..\tests\PathOpsFuzz763Test.cpp
+build obj\tests\pathops_unittest.PathOpsInverseTest.obj: cxx $
+    ..\..\tests\PathOpsInverseTest.cpp
+build obj\tests\pathops_unittest.PathOpsLineIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsLineIntersectionTest.cpp
+build obj\tests\pathops_unittest.PathOpsLineParametetersTest.obj: cxx $
+    ..\..\tests\PathOpsLineParametetersTest.cpp
+build obj\tests\pathops_unittest.PathOpsOpCubicThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsOpCubicThreadedTest.cpp
+build obj\tests\pathops_unittest.PathOpsOpRectThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsOpRectThreadedTest.cpp
+build obj\tests\pathops_unittest.PathOpsOpTest.obj: cxx $
+    ..\..\tests\PathOpsOpTest.cpp
+build obj\tests\pathops_unittest.PathOpsQuadIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsQuadIntersectionTest.cpp
+build obj\tests\pathops_unittest.PathOpsQuadIntersectionTestData.obj: cxx $
+    ..\..\tests\PathOpsQuadIntersectionTestData.cpp
+build obj\tests\pathops_unittest.PathOpsQuadLineIntersectionTest.obj: cxx $
+    ..\..\tests\PathOpsQuadLineIntersectionTest.cpp
+build $
+    obj\tests\pathops_unittest.PathOpsQuadLineIntersectionThreadedTest.obj: $
+    cxx ..\..\tests\PathOpsQuadLineIntersectionThreadedTest.cpp
+build obj\tests\pathops_unittest.PathOpsQuadParameterizationTest.obj: cxx $
+    ..\..\tests\PathOpsQuadParameterizationTest.cpp
+build obj\tests\pathops_unittest.PathOpsQuadReduceOrderTest.obj: cxx $
+    ..\..\tests\PathOpsQuadReduceOrderTest.cpp
+build obj\tests\pathops_unittest.PathOpsSimplifyDegenerateThreadedTest.obj: $
+    cxx ..\..\tests\PathOpsSimplifyDegenerateThreadedTest.cpp
+build obj\tests\pathops_unittest.PathOpsSimplifyFailTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyFailTest.cpp
+build $
+    obj\tests\pathops_unittest.PathOpsSimplifyQuadralateralsThreadedTest.obj: $
+    cxx ..\..\tests\PathOpsSimplifyQuadralateralsThreadedTest.cpp
+build obj\tests\pathops_unittest.PathOpsSimplifyQuadThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyQuadThreadedTest.cpp
+build obj\tests\pathops_unittest.PathOpsSimplifyRectThreadedTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyRectThreadedTest.cpp
+build obj\tests\pathops_unittest.PathOpsSimplifyTest.obj: cxx $
+    ..\..\tests\PathOpsSimplifyTest.cpp
+build obj\tests\pathops_unittest.PathOpsSimplifyTrianglesThreadedTest.obj: $
+    cxx ..\..\tests\PathOpsSimplifyTrianglesThreadedTest.cpp
+build obj\tests\pathops_unittest.PathOpsSkpTest.obj: cxx $
+    ..\..\tests\PathOpsSkpTest.cpp
+build obj\tests\pathops_unittest.PathOpsTestCommon.obj: cxx $
+    ..\..\tests\PathOpsTestCommon.cpp
+build obj\tests\pathops_unittest.PathOpsThreadedCommon.obj: cxx $
+    ..\..\tests\PathOpsThreadedCommon.cpp
+build obj\tests\pathops_unittest.PathOpsTightBoundsTest.obj: cxx $
+    ..\..\tests\PathOpsTightBoundsTest.cpp
+
+manifests = obj\gyp\pathops_unittest.pathops_unittest.exe.generated.manifest
+intermediatemanifest = $
+    obj\gyp\pathops_unittest.pathops_unittest.exe.intermediate.manifest
+ldflags = /DEBUG /PDB:pathops_unittest.exe.pdb /SUBSYSTEM:CONSOLE $
+    /INCREMENTAL /ENTRY:mainCRTStartup /LARGEADDRESSAWARE OpenGL32.lib $
+    usp10.lib kernel32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib $
+    shell32.lib ole32.lib oleaut32.lib user32.lib uuid.lib odbc32.lib $
+    odbccp32.lib DelayImp.lib Dbghelp.lib /DYNAMICBASE /NXCOMPAT /MANIFEST $
+    /ManifestFile:obj\gyp\pathops_unittest.pathops_unittest.exe.intermediate.manifest $
+    /MANIFESTUAC:NO /ALLOWISOLATION
+libs = windowscodecs.lib
+build pathops_unittest.exe pathops_unittest.exe.pdb: link_embed $
+    obj\tests\pathops_unittest.PathOpsAngleIdeas.obj $
+    obj\tests\pathops_unittest.PathOpsBattles.obj $
+    obj\tests\pathops_unittest.PathOpsCubicLineIntersectionIdeas.obj $
+    obj\tests\pathops_unittest.PathOpsDebug.obj $
+    obj\tests\pathops_unittest.PathOpsOpLoopThreadedTest.obj $
+    obj\tests\pathops_unittest.skia_test.obj $
+    obj\tests\pathops_unittest.Test.obj $
+    obj\tests\pathops_unittest.PathOpsAngleTest.obj $
+    obj\tests\pathops_unittest.PathOpsBoundsTest.obj $
+    obj\tests\pathops_unittest.PathOpsCubicIntersectionTest.obj $
+    obj\tests\pathops_unittest.PathOpsCubicIntersectionTestData.obj $
+    obj\tests\pathops_unittest.PathOpsCubicLineIntersectionTest.obj $
+    obj\tests\pathops_unittest.PathOpsCubicQuadIntersectionTest.obj $
+    obj\tests\pathops_unittest.PathOpsCubicReduceOrderTest.obj $
+    obj\tests\pathops_unittest.PathOpsCubicToQuadsTest.obj $
+    obj\tests\pathops_unittest.PathOpsDCubicTest.obj $
+    obj\tests\pathops_unittest.PathOpsDLineTest.obj $
+    obj\tests\pathops_unittest.PathOpsDPointTest.obj $
+    obj\tests\pathops_unittest.PathOpsDQuadTest.obj $
+    obj\tests\pathops_unittest.PathOpsDRectTest.obj $
+    obj\tests\pathops_unittest.PathOpsDTriangleTest.obj $
+    obj\tests\pathops_unittest.PathOpsDVectorTest.obj $
+    obj\tests\pathops_unittest.PathOpsExtendedTest.obj $
+    obj\tests\pathops_unittest.PathOpsFuzz763Test.obj $
+    obj\tests\pathops_unittest.PathOpsInverseTest.obj $
+    obj\tests\pathops_unittest.PathOpsLineIntersectionTest.obj $
+    obj\tests\pathops_unittest.PathOpsLineParametetersTest.obj $
+    obj\tests\pathops_unittest.PathOpsOpCubicThreadedTest.obj $
+    obj\tests\pathops_unittest.PathOpsOpRectThreadedTest.obj $
+    obj\tests\pathops_unittest.PathOpsOpTest.obj $
+    obj\tests\pathops_unittest.PathOpsQuadIntersectionTest.obj $
+    obj\tests\pathops_unittest.PathOpsQuadIntersectionTestData.obj $
+    obj\tests\pathops_unittest.PathOpsQuadLineIntersectionTest.obj $
+    obj\tests\pathops_unittest.PathOpsQuadLineIntersectionThreadedTest.obj $
+    obj\tests\pathops_unittest.PathOpsQuadParameterizationTest.obj $
+    obj\tests\pathops_unittest.PathOpsQuadReduceOrderTest.obj $
+    obj\tests\pathops_unittest.PathOpsSimplifyDegenerateThreadedTest.obj $
+    obj\tests\pathops_unittest.PathOpsSimplifyFailTest.obj $
+    obj\tests\pathops_unittest.PathOpsSimplifyQuadralateralsThreadedTest.obj $
+    obj\tests\pathops_unittest.PathOpsSimplifyQuadThreadedTest.obj $
+    obj\tests\pathops_unittest.PathOpsSimplifyRectThreadedTest.obj $
+    obj\tests\pathops_unittest.PathOpsSimplifyTest.obj $
+    obj\tests\pathops_unittest.PathOpsSimplifyTrianglesThreadedTest.obj $
+    obj\tests\pathops_unittest.PathOpsSkpTest.obj $
+    obj\tests\pathops_unittest.PathOpsTestCommon.obj $
+    obj\tests\pathops_unittest.PathOpsThreadedCommon.obj $
+    obj\tests\pathops_unittest.PathOpsTightBoundsTest.obj $
+    obj\gyp\flags_common.lib obj\gyp\crash_handler.lib obj\gyp\flags.lib $
+    obj\gyp\resources.lib skia_core.lib skia_effects.lib skia_images.lib $
+    obj\gyp\libjpeg.lib obj\gyp\libetc1.lib obj\gyp\libSkKTX.lib $
+    obj\gyp\libwebp_dec.lib obj\gyp\libwebp_demux.lib $
+    obj\gyp\libwebp_dsp.lib obj\gyp\libwebp_enc.lib $
+    obj\gyp\libwebp_utils.lib skia_utils.lib skia_opts.lib $
+    skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib skia_sfnt.lib $
+    skia_skgpu.lib | obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\skia_lib.actions_depends.stamp $
+    obj\gyp\pathops_unittest.pathops_unittest.exe.generated.manifest
+  binary = pathops_unittest.exe

@@ -1,0 +1,154 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+build obj\gyp\debugger.actions_depends.stamp: stamp $
+    obj\gyp\skia_lib.actions_depends.stamp obj\gyp\picture_renderer.lib $
+    obj\gyp\timer.lib obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp $
+    skia_core.lib skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libetc1.lib obj\gyp\libSkKTX.lib $
+    obj\gyp\libwebp.actions_depends.stamp obj\gyp\libwebp_dec.lib $
+    obj\gyp\libwebp_demux.lib obj\gyp\libwebp_dsp.lib $
+    obj\gyp\libwebp_enc.lib obj\gyp\libwebp_utils.lib skia_utils.lib $
+    skia_opts.lib skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib $
+    skia_sfnt.lib skia_skgpu.lib obj\gyp\flags.lib obj\gyp\jsoncpp.lib $
+    obj\gyp\picture_utils.lib skia_skgputest.lib
+
+pdbname_c = debugger.pdb
+pdbname_cc = debugger.pdb
+pchprefix = debugger
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DSK_DEVELOPER=1 -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\src\core -I..\..\src\utils\debugger -I..\..\debugger $
+    -I..\..\src\gpu -I..\..\src\ports -I..\..\bench -I..\..\tools $
+    -I..\..\debugger\QT "-IC:\Qt\4.8.3\include" $
+    "-IC:\Qt\4.8.3\include\QtCore" "-IC:\Qt\4.8.3\include\QtGui" $
+    "-IC:\Qt\4.8.3\include\QtOpenGL" -I..\..\include\c $
+    -I..\..\include\config -I..\..\include\core -I..\..\include\pathops $
+    -I..\..\include\pipe -I..\..\gyp\config\win -I..\..\include\effects $
+    -I..\..\include\images -I..\..\include\ports -I..\..\src\sfnt $
+    -I..\..\include\utils -I..\..\src\utils -I..\..\include\utils\win $
+    -I..\..\include\gpu $
+    -I..\..\third_party\externals\jsoncpp-chromium\overrides\include $
+    -I..\..\third_party\externals\jsoncpp\include -I..\..\tools\timer
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /Zi /GR- /MD /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\debugger\debugger.SkDebugger.obj: cxx $
+    ..\..\debugger\SkDebugger.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\src\utils\debugger\debugger.SkDebugCanvas.obj: cxx $
+    ..\..\src\utils\debugger\SkDebugCanvas.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\src\utils\debugger\debugger.SkDrawCommand.obj: cxx $
+    ..\..\src\utils\debugger\SkDrawCommand.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\src\utils\debugger\debugger.SkObjectParser.obj: cxx $
+    ..\..\src\utils\debugger\SkObjectParser.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\debugger\debugger.debuggermain.obj: cxx $
+    ..\..\debugger\debuggermain.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\debugger\QT\debugger.SkDebuggerGUI.obj: cxx $
+    ..\..\debugger\QT\SkDebuggerGUI.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\debugger\QT\debugger.SkDrawCommandGeometryWidget.obj: cxx $
+    ..\..\debugger\QT\SkDrawCommandGeometryWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\debugger\QT\debugger.SkCanvasWidget.obj: cxx $
+    ..\..\debugger\QT\SkCanvasWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\debugger\QT\debugger.SkInspectorWidget.obj: cxx $
+    ..\..\debugger\QT\SkInspectorWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\debugger\QT\debugger.SkListWidget.obj: cxx $
+    ..\..\debugger\QT\SkListWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\debugger\QT\debugger.SkSettingsWidget.obj: cxx $
+    ..\..\debugger\QT\SkSettingsWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\debugger\QT\debugger.SkGLWidget.obj: cxx $
+    ..\..\debugger\QT\SkGLWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\debugger\QT\debugger.SkRasterWidget.obj: cxx $
+    ..\..\debugger\QT\SkRasterWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\debugger\QT\debugger.qrc_SkIcons.obj: cxx $
+    ..\..\debugger\QT\qrc_SkIcons.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\gyp\gen\debugger\QT\debugger.moc_SkCanvasWidget.obj: cxx $
+    gen\debugger\QT\moc_SkCanvasWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\gyp\gen\debugger\QT\debugger.moc_SkDebuggerGUI.obj: cxx $
+    gen\debugger\QT\moc_SkDebuggerGUI.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\gyp\gen\debugger\QT\debugger.moc_SkDrawCommandGeometryWidget.obj: $
+    cxx gen\debugger\QT\moc_SkDrawCommandGeometryWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\gyp\gen\debugger\QT\debugger.moc_SkInspectorWidget.obj: cxx $
+    gen\debugger\QT\moc_SkInspectorWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\gyp\gen\debugger\QT\debugger.moc_SkSettingsWidget.obj: cxx $
+    gen\debugger\QT\moc_SkSettingsWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\gyp\gen\debugger\QT\debugger.moc_SkRasterWidget.obj: cxx $
+    gen\debugger\QT\moc_SkRasterWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build obj\gyp\gen\debugger\QT\debugger.moc_SkGLWidget.obj: cxx $
+    gen\debugger\QT\moc_SkGLWidget.cpp || $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+
+manifests = obj\gyp\debugger.debugger.exe.generated.manifest
+intermediatemanifest = obj\gyp\debugger.debugger.exe.intermediate.manifest
+ldflags = /DEBUG /PDB:debugger.exe.pdb /LTCG /LARGEADDRESSAWARE $
+    OpenGL32.lib usp10.lib kernel32.lib gdi32.lib winspool.lib comdlg32.lib $
+    advapi32.lib shell32.lib ole32.lib oleaut32.lib user32.lib uuid.lib $
+    odbc32.lib odbccp32.lib DelayImp.lib /DYNAMICBASE /NXCOMPAT /MANIFEST $
+    /ManifestFile:obj\gyp\debugger.debugger.exe.intermediate.manifest $
+    /MANIFESTUAC:NO /ALLOWISOLATION
+libs = C:/Qt/4.8.3//lib/QtCore4.lib C:/Qt/4.8.3//lib/QtGui4.lib $
+    C:/Qt/4.8.3//lib/QtOpenGL4.lib windowscodecs.lib
+build debugger.exe debugger.exe.pdb: link_embed $
+    obj\debugger\debugger.SkDebugger.obj $
+    obj\src\utils\debugger\debugger.SkDebugCanvas.obj $
+    obj\src\utils\debugger\debugger.SkDrawCommand.obj $
+    obj\src\utils\debugger\debugger.SkObjectParser.obj $
+    obj\debugger\debugger.debuggermain.obj $
+    obj\debugger\QT\debugger.SkDebuggerGUI.obj $
+    obj\debugger\QT\debugger.SkDrawCommandGeometryWidget.obj $
+    obj\debugger\QT\debugger.SkCanvasWidget.obj $
+    obj\debugger\QT\debugger.SkInspectorWidget.obj $
+    obj\debugger\QT\debugger.SkListWidget.obj $
+    obj\debugger\QT\debugger.SkSettingsWidget.obj $
+    obj\debugger\QT\debugger.SkGLWidget.obj $
+    obj\debugger\QT\debugger.SkRasterWidget.obj $
+    obj\debugger\QT\debugger.qrc_SkIcons.obj $
+    obj\gyp\gen\debugger\QT\debugger.moc_SkCanvasWidget.obj $
+    obj\gyp\gen\debugger\QT\debugger.moc_SkDebuggerGUI.obj $
+    obj\gyp\gen\debugger\QT\debugger.moc_SkDrawCommandGeometryWidget.obj $
+    obj\gyp\gen\debugger\QT\debugger.moc_SkInspectorWidget.obj $
+    obj\gyp\gen\debugger\QT\debugger.moc_SkSettingsWidget.obj $
+    obj\gyp\gen\debugger\QT\debugger.moc_SkRasterWidget.obj $
+    obj\gyp\gen\debugger\QT\debugger.moc_SkGLWidget.obj $
+    obj\gyp\picture_renderer.lib obj\gyp\timer.lib skia_core.lib $
+    skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libetc1.lib obj\gyp\libSkKTX.lib obj\gyp\libwebp_dec.lib $
+    obj\gyp\libwebp_demux.lib obj\gyp\libwebp_dsp.lib $
+    obj\gyp\libwebp_enc.lib obj\gyp\libwebp_utils.lib skia_utils.lib $
+    skia_opts.lib skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib $
+    skia_sfnt.lib skia_skgpu.lib obj\gyp\flags.lib obj\gyp\jsoncpp.lib $
+    obj\gyp\picture_utils.lib skia_skgputest.lib | $
+    obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\skia_lib.actions_depends.stamp $
+    obj\gyp\debugger.debugger.exe.generated.manifest $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+  binary = debugger.exe

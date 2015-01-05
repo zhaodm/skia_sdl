@@ -1,0 +1,78 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+build obj\gyp\bench_pictures.actions_depends.stamp: stamp obj\gyp\timer.lib $
+    obj\gyp\crash_handler.lib obj\gyp\flags.lib obj\gyp\jsoncpp.lib $
+    obj\gyp\skia_lib.actions_depends.stamp obj\gyp\picture_renderer.lib $
+    obj\gyp\picture_utils.lib skia_core.lib skia_effects.lib $
+    skia_images.lib obj\gyp\libjpeg.lib obj\gyp\libetc1.lib $
+    obj\gyp\libSkKTX.lib obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\libwebp_dec.lib obj\gyp\libwebp_demux.lib $
+    obj\gyp\libwebp_dsp.lib obj\gyp\libwebp_enc.lib $
+    obj\gyp\libwebp_utils.lib skia_utils.lib skia_opts.lib $
+    skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib skia_sfnt.lib $
+    skia_skgpu.lib skia_skgputest.lib
+
+pdbname_c = bench_pictures.pdb
+pdbname_cc = bench_pictures.pdb
+pchprefix = bench_pictures
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DSK_DEVELOPER=1 -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\src\core -I..\..\bench -I..\..\src\lazy $
+    -I..\..\tools\timer -I..\..\tools -I..\..\tools\flags $
+    -I..\..\third_party\externals\jsoncpp\include -I..\..\include\c $
+    -I..\..\include\config -I..\..\include\core -I..\..\include\pathops $
+    -I..\..\include\pipe -I..\..\gyp\config\win -I..\..\include\effects $
+    -I..\..\include\images -I..\..\include\ports -I..\..\src\sfnt $
+    -I..\..\include\utils -I..\..\src\utils -I..\..\include\utils\win $
+    -I..\..\include\gpu $
+    -I..\..\third_party\externals\jsoncpp-chromium\overrides\include $
+    -I..\..\src\gpu -I..\..\tools
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\bench\bench_pictures.BenchLogger.obj: cxx $
+    ..\..\bench\BenchLogger.cpp
+build obj\tools\bench_pictures.PictureBenchmark.obj: cxx $
+    ..\..\tools\PictureBenchmark.cpp
+build obj\tools\bench_pictures.bench_pictures_main.obj: cxx $
+    ..\..\tools\bench_pictures_main.cpp
+
+manifests = obj\gyp\bench_pictures.bench_pictures.exe.generated.manifest
+intermediatemanifest = $
+    obj\gyp\bench_pictures.bench_pictures.exe.intermediate.manifest
+ldflags = /DEBUG /PDB:bench_pictures.exe.pdb /SUBSYSTEM:CONSOLE /LTCG $
+    /ENTRY:mainCRTStartup /LARGEADDRESSAWARE OpenGL32.lib usp10.lib $
+    kernel32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib $
+    shell32.lib ole32.lib oleaut32.lib user32.lib uuid.lib odbc32.lib $
+    odbccp32.lib DelayImp.lib Dbghelp.lib /DYNAMICBASE /NXCOMPAT /MANIFEST $
+    /ManifestFile:obj\gyp\bench_pictures.bench_pictures.exe.intermediate.manifest $
+    /MANIFESTUAC:NO /ALLOWISOLATION
+libs = windowscodecs.lib
+build bench_pictures.exe bench_pictures.exe.pdb: link_embed $
+    obj\bench\bench_pictures.BenchLogger.obj $
+    obj\tools\bench_pictures.PictureBenchmark.obj $
+    obj\tools\bench_pictures.bench_pictures_main.obj obj\gyp\timer.lib $
+    obj\gyp\crash_handler.lib obj\gyp\flags.lib obj\gyp\jsoncpp.lib $
+    obj\gyp\picture_renderer.lib obj\gyp\picture_utils.lib skia_core.lib $
+    skia_effects.lib skia_images.lib obj\gyp\libjpeg.lib $
+    obj\gyp\libetc1.lib obj\gyp\libSkKTX.lib obj\gyp\libwebp_dec.lib $
+    obj\gyp\libwebp_demux.lib obj\gyp\libwebp_dsp.lib $
+    obj\gyp\libwebp_enc.lib obj\gyp\libwebp_utils.lib skia_utils.lib $
+    skia_opts.lib skia_opts_ssse3.lib skia_opts_sse4.lib skia_ports.lib $
+    skia_sfnt.lib skia_skgpu.lib skia_skgputest.lib | $
+    obj\gyp\libwebp.actions_depends.stamp $
+    obj\gyp\skia_lib.actions_depends.stamp $
+    obj\gyp\bench_pictures.bench_pictures.exe.generated.manifest
+  binary = bench_pictures.exe

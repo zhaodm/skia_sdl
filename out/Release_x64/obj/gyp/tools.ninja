@@ -1,0 +1,11 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+build obj\gyp\tools.actions_depends.stamp: stamp bbh_shootout.exe $
+    bench_pictures.exe dump_record.exe filter.exe gpuveto.exe lua_app.exe $
+    lua_pictures.exe imgconv.exe pinspect.exe render_pdfs.exe $
+    render_pictures.exe skdiff.exe skhello.exe skpdiff.exe skpinfo.exe $
+    skpmaker.exe test_image_decoder.exe obj\gyp\test_public_includes.lib
+

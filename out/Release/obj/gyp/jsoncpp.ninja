@@ -1,0 +1,38 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = jsoncpp.pdb
+pdbname_cc = jsoncpp.pdb
+pchprefix = jsoncpp
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DJSON_USE_EXCEPTION=0 -DNDEBUG -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\third_party\externals\jsoncpp\include $
+    -I..\..\third_party\externals\jsoncpp\src\lib_json
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /Zi /GR- /MD /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build $
+    obj\third_party\externals\jsoncpp\src\lib_json\jsoncpp.json_reader.obj: $
+    cxx ..\..\third_party\externals\jsoncpp\src\lib_json\json_reader.cpp
+build $
+    obj\third_party\externals\jsoncpp\src\lib_json\jsoncpp.json_value.obj: $
+    cxx ..\..\third_party\externals\jsoncpp\src\lib_json\json_value.cpp
+build $
+    obj\third_party\externals\jsoncpp\src\lib_json\jsoncpp.json_writer.obj: $
+    cxx ..\..\third_party\externals\jsoncpp\src\lib_json\json_writer.cpp
+
+build obj\gyp\jsoncpp.lib: alink $
+    obj\third_party\externals\jsoncpp\src\lib_json\jsoncpp.json_reader.obj $
+    obj\third_party\externals\jsoncpp\src\lib_json\jsoncpp.json_value.obj $
+    obj\third_party\externals\jsoncpp\src\lib_json\jsoncpp.json_writer.obj
+  libflags = /LTCG

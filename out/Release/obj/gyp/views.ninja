@@ -1,0 +1,67 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = views.pdb
+pdbname_cc = views.pdb
+pchprefix = views
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\include\views -I..\..\include\views\unix $
+    -I..\..\include\gpu -I..\..\include\c -I..\..\include\config $
+    -I..\..\include\core -I..\..\include\pathops -I..\..\include\pipe $
+    -I..\..\gyp\config\win -I..\..\include\effects -I..\..\include\images $
+    -I..\..\include\ports -I..\..\src\sfnt -I..\..\include\utils $
+    -I..\..\src\utils -I..\..\include\utils\win -I..\..\include\xml
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\src\views\views.SkBGViewArtist.obj: cxx $
+    ..\..\src\views\SkBGViewArtist.cpp
+build obj\src\views\views.SkEvent.obj: cxx ..\..\src\views\SkEvent.cpp
+build obj\src\views\views.SkEventSink.obj: cxx ..\..\src\views\SkEventSink.cpp
+build obj\src\views\views.SkOSMenu.obj: cxx ..\..\src\views\SkOSMenu.cpp
+build obj\src\views\views.SkParsePaint.obj: cxx $
+    ..\..\src\views\SkParsePaint.cpp
+build obj\src\views\views.SkProgressView.obj: cxx $
+    ..\..\src\views\SkProgressView.cpp
+build obj\src\views\views.SkStackViewLayout.obj: cxx $
+    ..\..\src\views\SkStackViewLayout.cpp
+build obj\src\views\views.SkTagList.obj: cxx ..\..\src\views\SkTagList.cpp
+build obj\src\views\views.SkTouchGesture.obj: cxx $
+    ..\..\src\views\SkTouchGesture.cpp
+build obj\src\views\views.SkView.obj: cxx ..\..\src\views\SkView.cpp
+build obj\src\views\views.SkViewInflate.obj: cxx $
+    ..\..\src\views\SkViewInflate.cpp
+build obj\src\views\views.SkViewPriv.obj: cxx ..\..\src\views\SkViewPriv.cpp
+build obj\src\views\views.SkWidgets.obj: cxx ..\..\src\views\SkWidgets.cpp
+build obj\src\views\views.SkWindow.obj: cxx ..\..\src\views\SkWindow.cpp
+build obj\src\views\win\views.SkOSWindow_win.obj: cxx $
+    ..\..\src\views\win\SkOSWindow_win.cpp
+build obj\src\views\win\views.skia_win.obj: cxx $
+    ..\..\src\views\win\skia_win.cpp
+
+build skia_views.lib: alink obj\src\views\views.SkBGViewArtist.obj $
+    obj\src\views\views.SkEvent.obj obj\src\views\views.SkEventSink.obj $
+    obj\src\views\views.SkOSMenu.obj obj\src\views\views.SkParsePaint.obj $
+    obj\src\views\views.SkProgressView.obj $
+    obj\src\views\views.SkStackViewLayout.obj $
+    obj\src\views\views.SkTagList.obj $
+    obj\src\views\views.SkTouchGesture.obj obj\src\views\views.SkView.obj $
+    obj\src\views\views.SkViewInflate.obj $
+    obj\src\views\views.SkViewPriv.obj obj\src\views\views.SkWidgets.obj $
+    obj\src\views\views.SkWindow.obj $
+    obj\src\views\win\views.SkOSWindow_win.obj $
+    obj\src\views\win\views.skia_win.obj || $
+    obj\gyp\skia_lib.actions_depends.stamp
+  libflags = /LTCG

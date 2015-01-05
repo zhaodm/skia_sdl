@@ -1,0 +1,200 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = effects.pdb
+pdbname_cc = effects.pdb
+pchprefix = effects
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DSK_DEVELOPER=1 -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\include\effects -I..\..\src\effects -I..\..\src\opts $
+    -I..\..\src\core -I..\..\include\gpu -I..\..\src\gpu -I..\..\include\c $
+    -I..\..\include\config -I..\..\include\core -I..\..\include\pathops $
+    -I..\..\include\pipe -I..\..\gyp\config\win -I..\..\include\images $
+    -I..\..\include\utils -I..\..\src\utils -I..\..\include\utils\win
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\src\effects\effects.Sk1DPathEffect.obj: cxx $
+    ..\..\src\effects\Sk1DPathEffect.cpp
+build obj\src\effects\effects.Sk2DPathEffect.obj: cxx $
+    ..\..\src\effects\Sk2DPathEffect.cpp
+build obj\src\effects\effects.SkAlphaThresholdFilter.obj: cxx $
+    ..\..\src\effects\SkAlphaThresholdFilter.cpp
+build obj\src\effects\effects.SkArcToPathEffect.obj: cxx $
+    ..\..\src\effects\SkArcToPathEffect.cpp
+build obj\src\effects\effects.SkArithmeticMode.obj: cxx $
+    ..\..\src\effects\SkArithmeticMode.cpp
+build obj\src\effects\effects.SkAvoidXfermode.obj: cxx $
+    ..\..\src\effects\SkAvoidXfermode.cpp
+build obj\src\effects\effects.SkBitmapSource.obj: cxx $
+    ..\..\src\effects\SkBitmapSource.cpp
+build obj\src\effects\effects.SkBlurDrawLooper.obj: cxx $
+    ..\..\src\effects\SkBlurDrawLooper.cpp
+build obj\src\effects\effects.SkBlurMask.obj: cxx $
+    ..\..\src\effects\SkBlurMask.cpp
+build obj\src\effects\effects.SkBlurImageFilter.obj: cxx $
+    ..\..\src\effects\SkBlurImageFilter.cpp
+build obj\src\effects\effects.SkBlurMaskFilter.obj: cxx $
+    ..\..\src\effects\SkBlurMaskFilter.cpp
+build obj\src\effects\effects.SkColorCubeFilter.obj: cxx $
+    ..\..\src\effects\SkColorCubeFilter.cpp
+build obj\src\effects\effects.SkColorFilters.obj: cxx $
+    ..\..\src\effects\SkColorFilters.cpp
+build obj\src\effects\effects.SkColorFilterImageFilter.obj: cxx $
+    ..\..\src\effects\SkColorFilterImageFilter.cpp
+build obj\src\effects\effects.SkColorMatrix.obj: cxx $
+    ..\..\src\effects\SkColorMatrix.cpp
+build obj\src\effects\effects.SkColorMatrixFilter.obj: cxx $
+    ..\..\src\effects\SkColorMatrixFilter.cpp
+build obj\src\effects\effects.SkComposeImageFilter.obj: cxx $
+    ..\..\src\effects\SkComposeImageFilter.cpp
+build obj\src\effects\effects.SkCornerPathEffect.obj: cxx $
+    ..\..\src\effects\SkCornerPathEffect.cpp
+build obj\src\effects\effects.SkDashPathEffect.obj: cxx $
+    ..\..\src\effects\SkDashPathEffect.cpp
+build obj\src\effects\effects.SkDiscretePathEffect.obj: cxx $
+    ..\..\src\effects\SkDiscretePathEffect.cpp
+build obj\src\effects\effects.SkDisplacementMapEffect.obj: cxx $
+    ..\..\src\effects\SkDisplacementMapEffect.cpp
+build obj\src\effects\effects.SkDropShadowImageFilter.obj: cxx $
+    ..\..\src\effects\SkDropShadowImageFilter.cpp
+build obj\src\effects\effects.SkEmbossMask.obj: cxx $
+    ..\..\src\effects\SkEmbossMask.cpp
+build obj\src\effects\effects.SkEmbossMaskFilter.obj: cxx $
+    ..\..\src\effects\SkEmbossMaskFilter.cpp
+build obj\src\effects\effects.SkGpuBlurUtils.obj: cxx $
+    ..\..\src\effects\SkGpuBlurUtils.cpp
+build obj\src\effects\effects.SkLayerDrawLooper.obj: cxx $
+    ..\..\src\effects\SkLayerDrawLooper.cpp
+build obj\src\effects\effects.SkLayerRasterizer.obj: cxx $
+    ..\..\src\effects\SkLayerRasterizer.cpp
+build obj\src\effects\effects.SkLerpXfermode.obj: cxx $
+    ..\..\src\effects\SkLerpXfermode.cpp
+build obj\src\effects\effects.SkLightingImageFilter.obj: cxx $
+    ..\..\src\effects\SkLightingImageFilter.cpp
+build obj\src\effects\effects.SkLumaColorFilter.obj: cxx $
+    ..\..\src\effects\SkLumaColorFilter.cpp
+build obj\src\effects\effects.SkMagnifierImageFilter.obj: cxx $
+    ..\..\src\effects\SkMagnifierImageFilter.cpp
+build obj\src\effects\effects.SkMatrixConvolutionImageFilter.obj: cxx $
+    ..\..\src\effects\SkMatrixConvolutionImageFilter.cpp
+build obj\src\effects\effects.SkMergeImageFilter.obj: cxx $
+    ..\..\src\effects\SkMergeImageFilter.cpp
+build obj\src\effects\effects.SkMorphologyImageFilter.obj: cxx $
+    ..\..\src\effects\SkMorphologyImageFilter.cpp
+build obj\src\effects\effects.SkOffsetImageFilter.obj: cxx $
+    ..\..\src\effects\SkOffsetImageFilter.cpp
+build obj\src\effects\effects.SkPaintFlagsDrawFilter.obj: cxx $
+    ..\..\src\effects\SkPaintFlagsDrawFilter.cpp
+build obj\src\effects\effects.SkPerlinNoiseShader.obj: cxx $
+    ..\..\src\effects\SkPerlinNoiseShader.cpp
+build obj\src\effects\effects.SkPictureImageFilter.obj: cxx $
+    ..\..\src\effects\SkPictureImageFilter.cpp
+build obj\src\effects\effects.SkPixelXorXfermode.obj: cxx $
+    ..\..\src\effects\SkPixelXorXfermode.cpp
+build obj\src\effects\effects.SkPorterDuff.obj: cxx $
+    ..\..\src\effects\SkPorterDuff.cpp
+build obj\src\effects\effects.SkRectShaderImageFilter.obj: cxx $
+    ..\..\src\effects\SkRectShaderImageFilter.cpp
+build obj\src\effects\effects.SkTableColorFilter.obj: cxx $
+    ..\..\src\effects\SkTableColorFilter.cpp
+build obj\src\effects\effects.SkTableMaskFilter.obj: cxx $
+    ..\..\src\effects\SkTableMaskFilter.cpp
+build obj\src\effects\effects.SkTestImageFilters.obj: cxx $
+    ..\..\src\effects\SkTestImageFilters.cpp
+build obj\src\effects\effects.SkTileImageFilter.obj: cxx $
+    ..\..\src\effects\SkTileImageFilter.cpp
+build obj\src\effects\effects.SkMatrixImageFilter.obj: cxx $
+    ..\..\src\effects\SkMatrixImageFilter.cpp
+build obj\src\effects\effects.SkTransparentShader.obj: cxx $
+    ..\..\src\effects\SkTransparentShader.cpp
+build obj\src\effects\effects.SkXfermodeImageFilter.obj: cxx $
+    ..\..\src\effects\SkXfermodeImageFilter.cpp
+build obj\src\effects\gradients\effects.SkClampRange.obj: cxx $
+    ..\..\src\effects\gradients\SkClampRange.cpp
+build obj\src\effects\gradients\effects.SkGradientBitmapCache.obj: cxx $
+    ..\..\src\effects\gradients\SkGradientBitmapCache.cpp
+build obj\src\effects\gradients\effects.SkGradientShader.obj: cxx $
+    ..\..\src\effects\gradients\SkGradientShader.cpp
+build obj\src\effects\gradients\effects.SkLinearGradient.obj: cxx $
+    ..\..\src\effects\gradients\SkLinearGradient.cpp
+build obj\src\effects\gradients\effects.SkRadialGradient.obj: cxx $
+    ..\..\src\effects\gradients\SkRadialGradient.cpp
+build obj\src\effects\gradients\effects.SkTwoPointRadialGradient.obj: cxx $
+    ..\..\src\effects\gradients\SkTwoPointRadialGradient.cpp
+build obj\src\effects\gradients\effects.SkTwoPointConicalGradient.obj: cxx $
+    ..\..\src\effects\gradients\SkTwoPointConicalGradient.cpp
+build obj\src\effects\gradients\effects.SkTwoPointConicalGradient_gpu.obj: $
+    cxx ..\..\src\effects\gradients\SkTwoPointConicalGradient_gpu.cpp
+build obj\src\effects\gradients\effects.SkSweepGradient.obj: cxx $
+    ..\..\src\effects\gradients\SkSweepGradient.cpp
+
+build skia_effects.lib: alink obj\src\effects\effects.Sk1DPathEffect.obj $
+    obj\src\effects\effects.Sk2DPathEffect.obj $
+    obj\src\effects\effects.SkAlphaThresholdFilter.obj $
+    obj\src\effects\effects.SkArcToPathEffect.obj $
+    obj\src\effects\effects.SkArithmeticMode.obj $
+    obj\src\effects\effects.SkAvoidXfermode.obj $
+    obj\src\effects\effects.SkBitmapSource.obj $
+    obj\src\effects\effects.SkBlurDrawLooper.obj $
+    obj\src\effects\effects.SkBlurMask.obj $
+    obj\src\effects\effects.SkBlurImageFilter.obj $
+    obj\src\effects\effects.SkBlurMaskFilter.obj $
+    obj\src\effects\effects.SkColorCubeFilter.obj $
+    obj\src\effects\effects.SkColorFilters.obj $
+    obj\src\effects\effects.SkColorFilterImageFilter.obj $
+    obj\src\effects\effects.SkColorMatrix.obj $
+    obj\src\effects\effects.SkColorMatrixFilter.obj $
+    obj\src\effects\effects.SkComposeImageFilter.obj $
+    obj\src\effects\effects.SkCornerPathEffect.obj $
+    obj\src\effects\effects.SkDashPathEffect.obj $
+    obj\src\effects\effects.SkDiscretePathEffect.obj $
+    obj\src\effects\effects.SkDisplacementMapEffect.obj $
+    obj\src\effects\effects.SkDropShadowImageFilter.obj $
+    obj\src\effects\effects.SkEmbossMask.obj $
+    obj\src\effects\effects.SkEmbossMaskFilter.obj $
+    obj\src\effects\effects.SkGpuBlurUtils.obj $
+    obj\src\effects\effects.SkLayerDrawLooper.obj $
+    obj\src\effects\effects.SkLayerRasterizer.obj $
+    obj\src\effects\effects.SkLerpXfermode.obj $
+    obj\src\effects\effects.SkLightingImageFilter.obj $
+    obj\src\effects\effects.SkLumaColorFilter.obj $
+    obj\src\effects\effects.SkMagnifierImageFilter.obj $
+    obj\src\effects\effects.SkMatrixConvolutionImageFilter.obj $
+    obj\src\effects\effects.SkMergeImageFilter.obj $
+    obj\src\effects\effects.SkMorphologyImageFilter.obj $
+    obj\src\effects\effects.SkOffsetImageFilter.obj $
+    obj\src\effects\effects.SkPaintFlagsDrawFilter.obj $
+    obj\src\effects\effects.SkPerlinNoiseShader.obj $
+    obj\src\effects\effects.SkPictureImageFilter.obj $
+    obj\src\effects\effects.SkPixelXorXfermode.obj $
+    obj\src\effects\effects.SkPorterDuff.obj $
+    obj\src\effects\effects.SkRectShaderImageFilter.obj $
+    obj\src\effects\effects.SkTableColorFilter.obj $
+    obj\src\effects\effects.SkTableMaskFilter.obj $
+    obj\src\effects\effects.SkTestImageFilters.obj $
+    obj\src\effects\effects.SkTileImageFilter.obj $
+    obj\src\effects\effects.SkMatrixImageFilter.obj $
+    obj\src\effects\effects.SkTransparentShader.obj $
+    obj\src\effects\effects.SkXfermodeImageFilter.obj $
+    obj\src\effects\gradients\effects.SkClampRange.obj $
+    obj\src\effects\gradients\effects.SkGradientBitmapCache.obj $
+    obj\src\effects\gradients\effects.SkGradientShader.obj $
+    obj\src\effects\gradients\effects.SkLinearGradient.obj $
+    obj\src\effects\gradients\effects.SkRadialGradient.obj $
+    obj\src\effects\gradients\effects.SkTwoPointRadialGradient.obj $
+    obj\src\effects\gradients\effects.SkTwoPointConicalGradient.obj $
+    obj\src\effects\gradients\effects.SkTwoPointConicalGradient_gpu.obj $
+    obj\src\effects\gradients\effects.SkSweepGradient.obj
+  libflags = /LTCG

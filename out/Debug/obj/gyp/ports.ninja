@@ -1,0 +1,73 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = ports.pdb
+pdbname_cc = ports.pdb
+pchprefix = ports
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DSK_DEVELOPER=1 -D_DEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\include\effects -I..\..\include\images $
+    -I..\..\include\ports -I..\..\include\utils -I..\..\include\utils\win $
+    -I..\..\src\core -I..\..\src\lazy -I..\..\src\ports -I..\..\src\sfnt $
+    -I..\..\src\utils -I..\..\gyp\config\win -I..\..\src\utils\win $
+    -I..\..\include\c -I..\..\include\config -I..\..\include\core $
+    -I..\..\include\pathops -I..\..\include\pipe
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Od /W3 /WX /ZI /GR- /MDd /we4189 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\src\ports\ports.SkDebug_win.obj: cxx ..\..\src\ports\SkDebug_win.cpp
+build obj\src\fonts\ports.SkFontMgr_indirect.obj: cxx $
+    ..\..\src\fonts\SkFontMgr_indirect.cpp
+build obj\src\fonts\ports.SkRemotableFontMgr.obj: cxx $
+    ..\..\src\fonts\SkRemotableFontMgr.cpp
+build obj\src\ports\ports.SkFontHost_win.obj: cxx $
+    ..\..\src\ports\SkFontHost_win.cpp
+build obj\src\ports\ports.SkFontMgr_default_dw.obj: cxx $
+    ..\..\src\ports\SkFontMgr_default_dw.cpp
+build obj\src\ports\ports.SkFontMgr_win_dw.obj: cxx $
+    ..\..\src\ports\SkFontMgr_win_dw.cpp
+build obj\src\ports\ports.SkRemotableFontMgr_win_dw.obj: cxx $
+    ..\..\src\ports\SkRemotableFontMgr_win_dw.cpp
+build obj\src\ports\ports.SkScalerContext_win_dw.obj: cxx $
+    ..\..\src\ports\SkScalerContext_win_dw.cpp
+build obj\src\ports\ports.SkTypeface_win_dw.obj: cxx $
+    ..\..\src\ports\SkTypeface_win_dw.cpp
+build obj\src\ports\ports.SkGlobalInitialization_default.obj: cxx $
+    ..\..\src\ports\SkGlobalInitialization_default.cpp
+build obj\src\ports\ports.SkMemory_malloc.obj: cxx $
+    ..\..\src\ports\SkMemory_malloc.cpp
+build obj\src\ports\ports.SkOSFile_stdio.obj: cxx $
+    ..\..\src\ports\SkOSFile_stdio.cpp
+build obj\src\ports\ports.SkOSFile_win.obj: cxx $
+    ..\..\src\ports\SkOSFile_win.cpp
+build obj\src\ports\ports.SkDiscardableMemory_none.obj: cxx $
+    ..\..\src\ports\SkDiscardableMemory_none.cpp
+build obj\src\ports\ports.SkTime_win.obj: cxx ..\..\src\ports\SkTime_win.cpp
+build obj\src\ports\ports.SkTLS_win.obj: cxx ..\..\src\ports\SkTLS_win.cpp
+
+build skia_ports.lib: alink obj\src\ports\ports.SkDebug_win.obj $
+    obj\src\fonts\ports.SkFontMgr_indirect.obj $
+    obj\src\fonts\ports.SkRemotableFontMgr.obj $
+    obj\src\ports\ports.SkFontHost_win.obj $
+    obj\src\ports\ports.SkFontMgr_default_dw.obj $
+    obj\src\ports\ports.SkFontMgr_win_dw.obj $
+    obj\src\ports\ports.SkRemotableFontMgr_win_dw.obj $
+    obj\src\ports\ports.SkScalerContext_win_dw.obj $
+    obj\src\ports\ports.SkTypeface_win_dw.obj $
+    obj\src\ports\ports.SkGlobalInitialization_default.obj $
+    obj\src\ports\ports.SkMemory_malloc.obj $
+    obj\src\ports\ports.SkOSFile_stdio.obj $
+    obj\src\ports\ports.SkOSFile_win.obj $
+    obj\src\ports\ports.SkDiscardableMemory_none.obj $
+    obj\src\ports\ports.SkTime_win.obj obj\src\ports\ports.SkTLS_win.obj
+  libflags = 

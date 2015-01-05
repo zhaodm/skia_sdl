@@ -1,0 +1,284 @@
+cl_x86 = "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64_x86\cl.exe"
+cl_x64 = "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\amd64\cl.exe"
+cc = UNSET
+cxx = UNSET
+ld = link.exe
+idl = midl.exe
+ar = lib.exe
+rc = rc.exe
+asm = ml.exe
+mt = mt.exe
+
+pool link_pool
+  depth = 9001
+
+rule cc
+  command = ninja -t msvc -e $arch -- $cc /nologo /showIncludes /FC @$out.rsp /c $in /Fo$out /Fd$pdbname_c 
+  description = CC $out
+  rspfile = $out.rsp
+  rspfile_content = $defines $includes $cflags $cflags_c
+  deps = msvc
+rule cxx
+  command = ninja -t msvc -e $arch -- $cxx /nologo /showIncludes /FC @$out.rsp /c $in /Fo$out /Fd$pdbname_cc 
+  description = CXX $out
+  rspfile = $out.rsp
+  rspfile_content = $defines $includes $cflags $cflags_cc
+  deps = msvc
+rule idl
+  command = C:\Python27\python.exe gyp-win-tool midl-wrapper $arch $outdir $tlb $h $dlldata $iid $proxy $in $
+      $midl_includes $idlflags
+  description = IDL $in
+rule rc
+  command = C:\Python27\python.exe gyp-win-tool rc-wrapper $arch $rc $defines $resource_includes $rcflags /fo$out $in
+  description = RC $in
+rule asm
+  command = C:\Python27\python.exe gyp-win-tool asm-wrapper $arch $asm $defines $includes $asmflags /c /Fo $out $in
+  description = ASM $out
+rule alink
+  command = C:\Python27\python.exe gyp-win-tool link-wrapper $arch False $ar /nologo /ignore:4221 /OUT:$out @$out.rsp
+  description = LIB $out
+  rspfile = $out.rsp
+  rspfile_content = $in_newline $libflags
+rule solink_embed
+  command = C:\Python27\python.exe gyp-win-tool link-with-manifests $arch True $binary "C:\Python27\python.exe $
+      gyp-win-tool link-wrapper $arch False $ld /nologo $implibflag /DLL /OUT:$binary @$binary.rsp" 2 $mt $rc $
+      "$intermediatemanifest" $manifests
+  description = LINK_EMBED(DLL) $binary
+  pool = link_pool
+  restat = 1
+  rspfile = $binary.rsp
+  rspfile_content = $libs $in_newline $ldflags
+rule solink_module_embed
+  command = C:\Python27\python.exe gyp-win-tool link-with-manifests $arch True $binary "C:\Python27\python.exe $
+      gyp-win-tool link-wrapper $arch False $ld /nologo $implibflag /DLL /OUT:$binary @$binary.rsp" 2 $mt $rc $
+      "$intermediatemanifest" $manifests
+  description = LINK_EMBED(DLL) $binary
+  pool = link_pool
+  restat = 1
+  rspfile = $binary.rsp
+  rspfile_content = $libs $in_newline $ldflags
+rule link_embed
+  command = C:\Python27\python.exe gyp-win-tool link-with-manifests $arch True $binary "C:\Python27\python.exe $
+      gyp-win-tool link-wrapper $arch False $ld /nologo /OUT:$binary @$binary.rsp" 1 $mt $rc "$intermediatemanifest" $
+      $manifests
+  description = LINK_EMBED $binary
+  pool = link_pool
+  rspfile = $binary.rsp
+  rspfile_content = $in_newline $libs $ldflags
+rule solink
+  command = C:\Python27\python.exe gyp-win-tool link-with-manifests $arch False $binary "C:\Python27\python.exe $
+      gyp-win-tool link-wrapper $arch False $ld /nologo $implibflag /DLL /OUT:$binary @$binary.rsp" 2 $mt $rc $
+      "$intermediatemanifest" $manifests
+  description = LINK(DLL) $binary
+  pool = link_pool
+  restat = 1
+  rspfile = $binary.rsp
+  rspfile_content = $libs $in_newline $ldflags
+rule solink_module
+  command = C:\Python27\python.exe gyp-win-tool link-with-manifests $arch False $binary "C:\Python27\python.exe $
+      gyp-win-tool link-wrapper $arch False $ld /nologo $implibflag /DLL /OUT:$binary @$binary.rsp" 2 $mt $rc $
+      "$intermediatemanifest" $manifests
+  description = LINK(DLL) $binary
+  pool = link_pool
+  restat = 1
+  rspfile = $binary.rsp
+  rspfile_content = $libs $in_newline $ldflags
+rule link
+  command = C:\Python27\python.exe gyp-win-tool link-with-manifests $arch False $binary "C:\Python27\python.exe $
+      gyp-win-tool link-wrapper $arch False $ld /nologo /OUT:$binary @$binary.rsp" 1 $mt $rc "$intermediatemanifest" $
+      $manifests
+  description = LINK $binary
+  pool = link_pool
+  rspfile = $binary.rsp
+  rspfile_content = $in_newline $libs $ldflags
+rule stamp
+  command = C:\Python27\python.exe gyp-win-tool stamp $out
+  description = STAMP $out
+rule copy
+  command = C:\Python27\python.exe gyp-win-tool recursive-mirror $in $out
+  description = COPY $in $out
+
+subninja obj\gyp\win_lcid.ninja
+subninja obj\gyp\libwebp_demux.ninja
+subninja obj\gyp\lua.ninja
+subninja obj\gyp\jsoncpp.ninja
+subninja obj\gyp\test_public_includes.ninja
+subninja obj\gyp\libwebp_dsp_neon.ninja
+subninja obj\gyp\libetc1.ninja
+subninja obj\gyp\libwebp_dec.ninja
+subninja obj\gyp\debugger_qt_mocs.ninja
+subninja obj\gyp\libwebp_utils.ninja
+subninja obj\gyp\libwebp_dsp.ninja
+subninja obj\gyp\libjpeg.ninja
+subninja obj\gyp\libwebp_enc.ninja
+subninja obj\gyp\core.ninja
+subninja obj\gyp\experimental.ninja
+subninja obj\gyp\proc_stats.ninja
+subninja obj\gyp\libwebp.ninja
+subninja obj\gyp\libSkKTX.ninja
+subninja obj\gyp\sfnt.ninja
+subninja obj\gyp\ports.ninja
+subninja obj\gyp\utils.ninja
+subninja obj\gyp\images.ninja
+subninja obj\gyp\effects.ninja
+subninja obj\gyp\skgpu.ninja
+subninja obj\gyp\opts_ssse3.ninja
+subninja obj\gyp\opts_neon.ninja
+subninja obj\gyp\opts_sse4.ninja
+subninja obj\gyp\opts.ninja
+subninja obj\gyp\skia_lib.ninja
+subninja obj\gyp\skgputest.ninja
+subninja obj\gyp\picture_utils.ninja
+subninja obj\gyp\skflate.ninja
+subninja obj\gyp\flags.ninja
+subninja obj\gyp\skdiff.ninja
+subninja obj\gyp\imgconv.ninja
+subninja obj\gyp\timer.ninja
+subninja obj\gyp\picture_renderer.ninja
+subninja obj\gyp\filter.ninja
+subninja obj\gyp\test_image_decoder.ninja
+subninja obj\gyp\xps.ninja
+subninja obj\gyp\pdfviewer_lib.ninja
+subninja obj\gyp\skpmaker.ninja
+subninja obj\gyp\pdf.ninja
+subninja obj\gyp\skhello.ninja
+subninja obj\gyp\xml.ninja
+subninja obj\gyp\lua_pictures.ninja
+subninja obj\gyp\flags_common.ninja
+subninja obj\gyp\skimagediff.ninja
+subninja obj\gyp\resources.ninja
+subninja obj\gyp\skpdiff.ninja
+subninja obj\gyp\gpuveto.ninja
+subninja obj\gyp\skpinfo.ninja
+subninja obj\gyp\chop_transparency.ninja
+subninja obj\gyp\dump_record.ninja
+subninja obj\gyp\sk_tool_utils.ninja
+subninja obj\gyp\crash_handler.ninja
+subninja obj\gyp\pathops_unittest.ninja
+subninja obj\gyp\dm.ninja
+subninja obj\gyp\gmtoskp.ninja
+subninja obj\gyp\bbh_shootout.ninja
+subninja obj\gyp\multipage_pdf_profiler.ninja
+subninja obj\gyp\debugger.ninja
+subninja obj\gyp\pinspect.ninja
+subninja obj\gyp\pathops_skpclip.ninja
+subninja obj\gyp\render_pictures.ninja
+subninja obj\gyp\gm_expectations.ninja
+subninja obj\gyp\nanobench.ninja
+subninja obj\gyp\pdfviewer.ninja
+subninja obj\gyp\render_pdfs.ninja
+subninja obj\gyp\views.ninja
+subninja obj\gyp\bench_pictures.ninja
+subninja obj\gyp\lua_app.ninja
+subninja obj\gyp\gm.ninja
+subninja obj\gyp\SkiaExamples.ninja
+subninja obj\gyp\animator.ninja
+subninja obj\gyp\tools.ninja
+subninja obj\gyp\views_animated.ninja
+subninja obj\gyp\SampleApp.ninja
+subninja obj\gyp\most.ninja
+subninja obj\gyp\everything.ninja
+subninja obj\alltargets.ninja
+
+# Short names for targets.
+build skflate: phony obj\gyp\skflate.lib
+build libwebp_dsp: phony obj\gyp\libwebp_dsp.lib
+build debugger: phony debugger.exe
+build opts_ssse3: phony skia_opts_ssse3.lib
+build skgputest: phony skia_skgputest.lib
+build utils: phony skia_utils.lib
+build resources: phony obj\gyp\resources.lib
+build test_public_includes: phony obj\gyp\test_public_includes.lib
+build proc_stats: phony obj\gyp\proc_stats.lib
+build gmtoskp: phony gmtoskp.exe
+build libwebp: phony obj\gyp\libwebp.actions_depends.stamp
+build skpmaker: phony skpmaker.exe
+build views_animated: phony obj\gyp\views_animated.lib
+build timer: phony obj\gyp\timer.lib
+build images: phony skia_images.lib
+build opts: phony skia_opts.lib
+build gm: phony gm.exe
+build imgconv: phony imgconv.exe
+build multipage_pdf_profiler: phony multipage_pdf_profiler.exe
+build alltargets: phony obj\alltargets.actions_depends.stamp
+build xml: phony skia_xml.lib
+build libetc1: phony obj\gyp\libetc1.lib
+build SkiaExamples: phony SkiaExamples.exe
+build crash_handler: phony obj\gyp\crash_handler.lib
+build skdiff: phony skdiff.exe
+build tools: phony obj\gyp\tools.actions_depends.stamp
+build views: phony skia_views.lib
+build opts_neon: phony skia_opts_neon.lib
+build lua_app: phony lua_app.exe
+build pathops_skpclip: phony pathops_skpclip.exe
+build lua: phony obj\gyp\lua.lib
+build SampleApp: phony SampleApp.exe
+build skimagediff: phony skimagediff.exe
+build pdfviewer_lib: phony obj\gyp\pdfviewer_lib.lib
+build chop_transparency: phony chop_transparency.exe
+build gm_expectations: phony obj\gyp\gm_expectations.lib
+build xps: phony skia_xps.lib
+build skpinfo: phony skpinfo.exe
+build lua_pictures: phony lua_pictures.exe
+build render_pictures: phony render_pictures.exe
+build skia_lib: phony obj\gyp\skia_lib.actions_depends.stamp
+build core: phony skia_core.lib
+build pathops_unittest: phony pathops_unittest.exe
+build dm: phony dm.exe
+build sk_tool_utils: phony obj\gyp\sk_tool_utils.lib
+build win_lcid: phony win_lcid.exe
+build bench_pictures: phony bench_pictures.exe
+build libwebp_dec: phony obj\gyp\libwebp_dec.lib
+build sfnt: phony skia_sfnt.lib
+build pinspect: phony pinspect.exe
+build libwebp_utils: phony obj\gyp\libwebp_utils.lib
+build test_image_decoder: phony test_image_decoder.exe
+build most: phony obj\gyp\most.actions_depends.stamp
+build libSkKTX: phony obj\gyp\libSkKTX.lib
+build skpdiff: phony skpdiff.exe
+build effects: phony skia_effects.lib
+build render_pdfs: phony render_pdfs.exe
+build picture_renderer: phony obj\gyp\picture_renderer.lib
+build skgpu: phony skia_skgpu.lib
+build picture_utils: phony obj\gyp\picture_utils.lib
+build pdfviewer: phony pdfviewer.exe
+build bbh_shootout: phony bbh_shootout.exe
+build nanobench: phony nanobench.exe
+build dump_record: phony dump_record.exe
+build libjpeg: phony obj\gyp\libjpeg.lib
+build opts_sse4: phony skia_opts_sse4.lib
+build flags_common: phony obj\gyp\flags_common.lib
+build jsoncpp: phony obj\gyp\jsoncpp.lib
+build libwebp_enc: phony obj\gyp\libwebp_enc.lib
+build filter: phony filter.exe
+build gpuveto: phony gpuveto.exe
+build flags: phony obj\gyp\flags.lib
+build libwebp_demux: phony obj\gyp\libwebp_demux.lib
+build debugger_qt_mocs: phony obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp
+build pdf: phony skia_pdf.lib
+build everything: phony obj\gyp\everything.actions_depends.stamp
+build animator: phony skia_animator.lib
+build ports: phony skia_ports.lib
+build experimental: phony obj\gyp\experimental.lib
+build skhello: phony skhello.exe
+
+# Empty targets (output for completeness).
+build libwebp_dsp_neon: phony
+
+build all: phony skia_images.lib chop_transparency.exe dump_record.exe skia_xml.lib $
+    obj\gyp\debugger_qt_mocs.actions_rules_copies.stamp obj\gyp\libwebp_utils.lib $
+    obj\alltargets.actions_depends.stamp obj\gyp\tools.actions_depends.stamp obj\gyp\libjpeg.lib skia_xps.lib $
+    obj\gyp\test_public_includes.lib skhello.exe skia_sfnt.lib obj\gyp\lua.lib obj\gyp\picture_renderer.lib $
+    bench_pictures.exe SampleApp.exe skia_effects.lib filter.exe gpuveto.exe obj\gyp\experimental.lib $
+    obj\gyp\libwebp.actions_depends.stamp skia_opts_sse4.lib obj\gyp\libSkKTX.lib obj\gyp\picture_utils.lib $
+    obj\gyp\jsoncpp.lib obj\gyp\proc_stats.lib bbh_shootout.exe obj\gyp\flags_common.lib skia_skgpu.lib $
+    obj\gyp\sk_tool_utils.lib skia_ports.lib skia_opts_ssse3.lib obj\gyp\views_animated.lib skpinfo.exe $
+    obj\gyp\libetc1.lib lua_app.exe obj\gyp\most.actions_depends.stamp skia_skgputest.lib pinspect.exe $
+    render_pictures.exe obj\gyp\skflate.lib obj\gyp\libwebp_dsp.lib pathops_skpclip.exe skpmaker.exe skia_views.lib $
+    obj\gyp\flags.lib obj\gyp\timer.lib render_pdfs.exe nanobench.exe test_image_decoder.exe obj\gyp\libwebp_dec.lib $
+    skia_opts.lib obj\gyp\pdfviewer_lib.lib obj\gyp\libwebp_enc.lib obj\gyp\everything.actions_depends.stamp $
+    skia_core.lib dm.exe skpdiff.exe obj\gyp\crash_handler.lib lua_pictures.exe $
+    obj\gyp\skia_lib.actions_depends.stamp skia_animator.lib debugger.exe skia_pdf.lib obj\gyp\resources.lib $
+    skdiff.exe pdfviewer.exe imgconv.exe pathops_unittest.exe skia_utils.lib gm.exe obj\gyp\gm_expectations.lib $
+    obj\gyp\libwebp_demux.lib
+default most

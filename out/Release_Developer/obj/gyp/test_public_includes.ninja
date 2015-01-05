@@ -1,0 +1,73 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+rule $
+    test_public_includes_target_generate_includes_cpp_c294b87a3571d1668757d59223fc65c5
+  command = C:\Python27\python.exe gyp-win-tool action-wrapper $arch $
+      test_public_includes_target_generate_includes_cpp_c294b87a3571d1668757d59223fc65c5.$unique_name.rsp $
+      ..\..\gyp
+  description = ACTION test_public_includes: $
+      generate_includes_cpp_c294b87a3571d1668757d59223fc65c5
+  restat = 1
+  rspfile = $
+      test_public_includes_target_generate_includes_cpp_c294b87a3571d1668757d59223fc65c5.$unique_name.rsp
+  rspfile_content = python "../tools/generate_includes_cpp.py" "--ignore" $
+      "../include/gpu/gl/GrGLConfig_chrome.h $
+      ../include/ports/SkTypeface_mac.h ../include/ports/SkTypeface_win.h $
+      ../include/utils/ios ../include/utils/mac ../include/utils/win $
+      ../include/utils/SkDebugUtils.h ../include/utils/SkJSONCPP.h $
+      ../include/views/animated ../include/views/SkOSWindow_Android.h $
+      ../include/views/SkOSWindow_iOS.h ../include/views/SkOSWindow_Mac.h $
+      ../include/views/SkOSWindow_NaCl.h ../include/views/SkOSWindow_SDL.h $
+      ../include/views/SkOSWindow_Unix.h ../include/views/SkOSWindow_Win.h $
+      ../include/views/SkWindow.h" $
+      "..\out\Release_Developer\obj\gyp\test_public_includes.gen/test_public_includes.cpp" $
+      "../include/animator" "../include/c" "../include/config" $
+      "../include/core" "../include/effects" "../include/gpu" $
+      "../include/images" "../include/pathops" "../include/pdf" $
+      "../include/pipe" "../include/ports" "../include/svg" $
+      "../include/utils" "../include/views" "../include/xml"
+
+build obj\gyp\test_public_includes.gen\test_public_includes.cpp: $
+    test_public_includes_target_generate_includes_cpp_c294b87a3571d1668757d59223fc65c5 $
+    ..\..\tools\generate_includes_cpp.py ..\..\include\animator $
+    ..\..\include\c ..\..\include\config ..\..\include\core $
+    ..\..\include\effects ..\..\include\gpu ..\..\include\images $
+    ..\..\include\pathops ..\..\include\pdf ..\..\include\pipe $
+    ..\..\include\ports ..\..\include\svg ..\..\include\utils $
+    ..\..\include\views ..\..\include\xml
+
+pdbname_c = test_public_includes.pdb
+pdbname_cc = test_public_includes.pdb
+pchprefix = test_public_includes
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DSK_DEVELOPER=1 -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\include\animator -I..\..\include\c $
+    -I..\..\include\config -I..\..\include\core -I..\..\include\effects $
+    -I..\..\include\gpu -I..\..\include\images -I..\..\include\pathops $
+    -I..\..\include\pdf -I..\..\include\pipe -I..\..\include\ports $
+    -I..\..\include\svg -I..\..\include\utils -I..\..\include\views $
+    -I..\..\include\xml
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build $
+    obj\gyp\obj\gyp\test_public_includes.gen\test_public_includes.test_public_includes.obj: $
+    cxx obj\gyp\test_public_includes.gen\test_public_includes.cpp || $
+    obj\gyp\test_public_includes.gen\test_public_includes.cpp
+
+build obj\gyp\test_public_includes.lib: alink $
+    obj\gyp\obj\gyp\test_public_includes.gen\test_public_includes.test_public_includes.obj $
+    || obj\gyp\test_public_includes.gen\test_public_includes.cpp
+  libflags = /LTCG

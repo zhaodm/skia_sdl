@@ -1,0 +1,387 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = skgpu.pdb
+pdbname_cc = skgpu.pdb
+pchprefix = skgpu
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DGR_CHROME_UTILS=1 -DSK_EGL=0 -DNDEBUG $
+    -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\include\gpu -I..\..\src\core -I..\..\src\gpu $
+    -I..\..\src\image -I..\..\include\c -I..\..\include\config $
+    -I..\..\include\core -I..\..\include\pathops -I..\..\include\pipe $
+    -I..\..\gyp\config\win -I..\..\include\utils -I..\..\src\utils $
+    -I..\..\include\utils\win -I..\..\third_party\etc1 -I..\..\third_party\ktx
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\src\gpu\skgpu.GrAAHairLinePathRenderer.obj: cxx $
+    ..\..\src\gpu\GrAAHairLinePathRenderer.cpp
+build obj\src\gpu\skgpu.GrAAConvexPathRenderer.obj: cxx $
+    ..\..\src\gpu\GrAAConvexPathRenderer.cpp
+build obj\src\gpu\skgpu.GrAADistanceFieldPathRenderer.obj: cxx $
+    ..\..\src\gpu\GrAADistanceFieldPathRenderer.cpp
+build obj\src\gpu\skgpu.GrAARectRenderer.obj: cxx $
+    ..\..\src\gpu\GrAARectRenderer.cpp
+build obj\src\gpu\skgpu.GrAddPathRenderers_default.obj: cxx $
+    ..\..\src\gpu\GrAddPathRenderers_default.cpp
+build obj\src\gpu\skgpu.GrAtlas.obj: cxx ..\..\src\gpu\GrAtlas.cpp
+build obj\src\gpu\skgpu.GrBitmapTextContext.obj: cxx $
+    ..\..\src\gpu\GrBitmapTextContext.cpp
+build obj\src\gpu\skgpu.GrBlend.obj: cxx ..\..\src\gpu\GrBlend.cpp
+build obj\src\gpu\skgpu.GrBufferAllocPool.obj: cxx $
+    ..\..\src\gpu\GrBufferAllocPool.cpp
+build obj\src\gpu\skgpu.GrCacheID.obj: cxx ..\..\src\gpu\GrCacheID.cpp
+build obj\src\gpu\skgpu.GrClipData.obj: cxx ..\..\src\gpu\GrClipData.cpp
+build obj\src\gpu\skgpu.GrClipMaskCache.obj: cxx $
+    ..\..\src\gpu\GrClipMaskCache.cpp
+build obj\src\gpu\skgpu.GrClipMaskManager.obj: cxx $
+    ..\..\src\gpu\GrClipMaskManager.cpp
+build obj\src\gpu\skgpu.GrContext.obj: cxx ..\..\src\gpu\GrContext.cpp
+build obj\src\gpu\skgpu.GrCoordTransform.obj: cxx $
+    ..\..\src\gpu\GrCoordTransform.cpp
+build obj\src\gpu\skgpu.GrDefaultGeoProcFactory.obj: cxx $
+    ..\..\src\gpu\GrDefaultGeoProcFactory.cpp
+build obj\src\gpu\skgpu.GrDefaultPathRenderer.obj: cxx $
+    ..\..\src\gpu\GrDefaultPathRenderer.cpp
+build obj\src\gpu\skgpu.GrDistanceFieldTextContext.obj: cxx $
+    ..\..\src\gpu\GrDistanceFieldTextContext.cpp
+build obj\src\gpu\skgpu.GrDrawState.obj: cxx ..\..\src\gpu\GrDrawState.cpp
+build obj\src\gpu\skgpu.GrDrawTarget.obj: cxx ..\..\src\gpu\GrDrawTarget.cpp
+build obj\src\gpu\skgpu.GrFlushToGpuDrawTarget.obj: cxx $
+    ..\..\src\gpu\GrFlushToGpuDrawTarget.cpp
+build obj\src\gpu\skgpu.GrFontScaler.obj: cxx ..\..\src\gpu\GrFontScaler.cpp
+build obj\src\gpu\skgpu.GrGeometryProcessor.obj: cxx $
+    ..\..\src\gpu\GrGeometryProcessor.cpp
+build obj\src\gpu\skgpu.GrGpu.obj: cxx ..\..\src\gpu\GrGpu.cpp
+build obj\src\gpu\skgpu.GrGpuResource.obj: cxx ..\..\src\gpu\GrGpuResource.cpp
+build obj\src\gpu\skgpu.GrGpuFactory.obj: cxx ..\..\src\gpu\GrGpuFactory.cpp
+build obj\src\gpu\skgpu.GrInvariantOutput.obj: cxx $
+    ..\..\src\gpu\GrInvariantOutput.cpp
+build obj\src\gpu\skgpu.GrInOrderDrawBuffer.obj: cxx $
+    ..\..\src\gpu\GrInOrderDrawBuffer.cpp
+build obj\src\gpu\skgpu.GrLayerCache.obj: cxx ..\..\src\gpu\GrLayerCache.cpp
+build obj\src\gpu\skgpu.GrLayerHoister.obj: cxx $
+    ..\..\src\gpu\GrLayerHoister.cpp
+build obj\src\gpu\skgpu.GrMemoryPool.obj: cxx ..\..\src\gpu\GrMemoryPool.cpp
+build obj\src\gpu\skgpu.GrOptDrawState.obj: cxx $
+    ..\..\src\gpu\GrOptDrawState.cpp
+build obj\src\gpu\skgpu.GrOvalRenderer.obj: cxx $
+    ..\..\src\gpu\GrOvalRenderer.cpp
+build obj\src\gpu\skgpu.GrPaint.obj: cxx ..\..\src\gpu\GrPaint.cpp
+build obj\src\gpu\skgpu.GrPath.obj: cxx ..\..\src\gpu\GrPath.cpp
+build obj\src\gpu\skgpu.GrPathRange.obj: cxx ..\..\src\gpu\GrPathRange.cpp
+build obj\src\gpu\skgpu.GrPathRendererChain.obj: cxx $
+    ..\..\src\gpu\GrPathRendererChain.cpp
+build obj\src\gpu\skgpu.GrPathRenderer.obj: cxx $
+    ..\..\src\gpu\GrPathRenderer.cpp
+build obj\src\gpu\skgpu.GrPathRendering.obj: cxx $
+    ..\..\src\gpu\GrPathRendering.cpp
+build obj\src\gpu\skgpu.GrPathUtils.obj: cxx ..\..\src\gpu\GrPathUtils.cpp
+build obj\src\gpu\skgpu.GrProgramElement.obj: cxx $
+    ..\..\src\gpu\GrProgramElement.cpp
+build obj\src\gpu\skgpu.GrProcessor.obj: cxx ..\..\src\gpu\GrProcessor.cpp
+build obj\src\gpu\skgpu.GrProcOptInfo.obj: cxx ..\..\src\gpu\GrProcOptInfo.cpp
+build obj\src\gpu\skgpu.GrGpuResourceRef.obj: cxx $
+    ..\..\src\gpu\GrGpuResourceRef.cpp
+build obj\src\gpu\skgpu.GrRecordReplaceDraw.obj: cxx $
+    ..\..\src\gpu\GrRecordReplaceDraw.cpp
+build obj\src\gpu\skgpu.GrRectanizer_pow2.obj: cxx $
+    ..\..\src\gpu\GrRectanizer_pow2.cpp
+build obj\src\gpu\skgpu.GrRectanizer_skyline.obj: cxx $
+    ..\..\src\gpu\GrRectanizer_skyline.cpp
+build obj\src\gpu\skgpu.GrRenderTarget.obj: cxx $
+    ..\..\src\gpu\GrRenderTarget.cpp
+build obj\src\gpu\skgpu.GrReducedClip.obj: cxx ..\..\src\gpu\GrReducedClip.cpp
+build obj\src\gpu\skgpu.GrResourceCache2.obj: cxx $
+    ..\..\src\gpu\GrResourceCache2.cpp
+build obj\src\gpu\skgpu.GrStencil.obj: cxx ..\..\src\gpu\GrStencil.cpp
+build obj\src\gpu\skgpu.GrStencilAndCoverPathRenderer.obj: cxx $
+    ..\..\src\gpu\GrStencilAndCoverPathRenderer.cpp
+build obj\src\gpu\skgpu.GrStencilAndCoverTextContext.obj: cxx $
+    ..\..\src\gpu\GrStencilAndCoverTextContext.cpp
+build obj\src\gpu\skgpu.GrStencilBuffer.obj: cxx $
+    ..\..\src\gpu\GrStencilBuffer.cpp
+build obj\src\gpu\skgpu.GrTraceMarker.obj: cxx ..\..\src\gpu\GrTraceMarker.cpp
+build obj\src\gpu\skgpu.GrSWMaskHelper.obj: cxx $
+    ..\..\src\gpu\GrSWMaskHelper.cpp
+build obj\src\gpu\skgpu.GrSoftwarePathRenderer.obj: cxx $
+    ..\..\src\gpu\GrSoftwarePathRenderer.cpp
+build obj\src\gpu\skgpu.GrSurface.obj: cxx ..\..\src\gpu\GrSurface.cpp
+build obj\src\gpu\skgpu.GrTextContext.obj: cxx ..\..\src\gpu\GrTextContext.cpp
+build obj\src\gpu\skgpu.GrFontCache.obj: cxx ..\..\src\gpu\GrFontCache.cpp
+build obj\src\gpu\skgpu.GrTexture.obj: cxx ..\..\src\gpu\GrTexture.cpp
+build obj\src\gpu\skgpu.GrTextureAccess.obj: cxx $
+    ..\..\src\gpu\GrTextureAccess.cpp
+build obj\src\gpu\effects\skgpu.GrConfigConversionEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrConfigConversionEffect.cpp
+build obj\src\gpu\effects\skgpu.GrCoverageSetOpXP.obj: cxx $
+    ..\..\src\gpu\effects\GrCoverageSetOpXP.cpp
+build obj\src\gpu\effects\skgpu.GrBezierEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrBezierEffect.cpp
+build obj\src\gpu\effects\skgpu.GrConvolutionEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrConvolutionEffect.cpp
+build obj\src\gpu\effects\skgpu.GrConvexPolyEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrConvexPolyEffect.cpp
+build obj\src\gpu\effects\skgpu.GrBicubicEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrBicubicEffect.cpp
+build obj\src\gpu\effects\skgpu.GrBitmapTextGeoProc.obj: cxx $
+    ..\..\src\gpu\effects\GrBitmapTextGeoProc.cpp
+build obj\src\gpu\effects\skgpu.GrDashingEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrDashingEffect.cpp
+build obj\src\gpu\effects\skgpu.GrDisableColorXP.obj: cxx $
+    ..\..\src\gpu\effects\GrDisableColorXP.cpp
+build obj\src\gpu\effects\skgpu.GrDistanceFieldTextureEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrDistanceFieldTextureEffect.cpp
+build obj\src\gpu\effects\skgpu.GrDitherEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrDitherEffect.cpp
+build obj\src\gpu\effects\skgpu.GrMatrixConvolutionEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrMatrixConvolutionEffect.cpp
+build obj\src\gpu\effects\skgpu.GrOvalEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrOvalEffect.cpp
+build obj\src\gpu\effects\skgpu.GrPorterDuffXferProcessor.obj: cxx $
+    ..\..\src\gpu\effects\GrPorterDuffXferProcessor.cpp
+build obj\src\gpu\effects\skgpu.GrRRectEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrRRectEffect.cpp
+build obj\src\gpu\effects\skgpu.GrSimpleTextureEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrSimpleTextureEffect.cpp
+build obj\src\gpu\effects\skgpu.GrSingleTextureEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrSingleTextureEffect.cpp
+build obj\src\gpu\effects\skgpu.GrTextureDomain.obj: cxx $
+    ..\..\src\gpu\effects\GrTextureDomain.cpp
+build obj\src\gpu\effects\skgpu.GrTextureStripAtlas.obj: cxx $
+    ..\..\src\gpu\effects\GrTextureStripAtlas.cpp
+build obj\src\gpu\effects\skgpu.GrYUVtoRGBEffect.obj: cxx $
+    ..\..\src\gpu\effects\GrYUVtoRGBEffect.cpp
+build obj\src\gpu\gl\skgpu.GrGLAssembleInterface.obj: cxx $
+    ..\..\src\gpu\gl\GrGLAssembleInterface.cpp
+build obj\src\gpu\gl\skgpu.GrGLBufferImpl.obj: cxx $
+    ..\..\src\gpu\gl\GrGLBufferImpl.cpp
+build obj\src\gpu\gl\skgpu.GrGLCaps.obj: cxx ..\..\src\gpu\gl\GrGLCaps.cpp
+build obj\src\gpu\gl\skgpu.GrGLContext.obj: cxx $
+    ..\..\src\gpu\gl\GrGLContext.cpp
+build obj\src\gpu\gl\skgpu.GrGLGpu.obj: cxx ..\..\src\gpu\gl\GrGLGpu.cpp
+build obj\src\gpu\gl\skgpu.GrGLGpuProgramCache.obj: cxx $
+    ..\..\src\gpu\gl\GrGLGpuProgramCache.cpp
+build obj\src\gpu\gl\skgpu.GrGLExtensions.obj: cxx $
+    ..\..\src\gpu\gl\GrGLExtensions.cpp
+build obj\src\gpu\gl\skgpu.GrGLIndexBuffer.obj: cxx $
+    ..\..\src\gpu\gl\GrGLIndexBuffer.cpp
+build obj\src\gpu\gl\skgpu.GrGLInterface.obj: cxx $
+    ..\..\src\gpu\gl\GrGLInterface.cpp
+build obj\src\gpu\gl\skgpu.GrGLNameAllocator.obj: cxx $
+    ..\..\src\gpu\gl\GrGLNameAllocator.cpp
+build obj\src\gpu\gl\skgpu.GrGLNoOpInterface.obj: cxx $
+    ..\..\src\gpu\gl\GrGLNoOpInterface.cpp
+build obj\src\gpu\gl\skgpu.GrGLPath.obj: cxx ..\..\src\gpu\gl\GrGLPath.cpp
+build obj\src\gpu\gl\skgpu.GrGLPathRange.obj: cxx $
+    ..\..\src\gpu\gl\GrGLPathRange.cpp
+build obj\src\gpu\gl\skgpu.GrGLPathRendering.obj: cxx $
+    ..\..\src\gpu\gl\GrGLPathRendering.cpp
+build obj\src\gpu\gl\skgpu.GrGLProgram.obj: cxx $
+    ..\..\src\gpu\gl\GrGLProgram.cpp
+build obj\src\gpu\gl\skgpu.GrGLProgramDesc.obj: cxx $
+    ..\..\src\gpu\gl\GrGLProgramDesc.cpp
+build obj\src\gpu\gl\skgpu.GrGLProgramDataManager.obj: cxx $
+    ..\..\src\gpu\gl\GrGLProgramDataManager.cpp
+build obj\src\gpu\gl\skgpu.GrGLRenderTarget.obj: cxx $
+    ..\..\src\gpu\gl\GrGLRenderTarget.cpp
+build obj\src\gpu\gl\skgpu.GrGLSL.obj: cxx ..\..\src\gpu\gl\GrGLSL.cpp
+build obj\src\gpu\gl\skgpu.GrGLStencilBuffer.obj: cxx $
+    ..\..\src\gpu\gl\GrGLStencilBuffer.cpp
+build obj\src\gpu\gl\skgpu.GrGLTexture.obj: cxx $
+    ..\..\src\gpu\gl\GrGLTexture.cpp
+build obj\src\gpu\gl\skgpu.GrGLUtil.obj: cxx ..\..\src\gpu\gl\GrGLUtil.cpp
+build obj\src\gpu\gl\skgpu.GrGLVertexArray.obj: cxx $
+    ..\..\src\gpu\gl\GrGLVertexArray.cpp
+build obj\src\gpu\gl\skgpu.GrGLVertexBuffer.obj: cxx $
+    ..\..\src\gpu\gl\GrGLVertexBuffer.cpp
+build obj\src\gpu\gl\builders\skgpu.GrGLLegacyNvprProgramBuilder.obj: cxx $
+    ..\..\src\gpu\gl\builders\GrGLLegacyNvprProgramBuilder.cpp
+build obj\src\gpu\gl\builders\skgpu.GrGLNvprProgramBuilder.obj: cxx $
+    ..\..\src\gpu\gl\builders\GrGLNvprProgramBuilder.cpp
+build obj\src\gpu\gl\builders\skgpu.GrGLProgramBuilder.obj: cxx $
+    ..\..\src\gpu\gl\builders\GrGLProgramBuilder.cpp
+build obj\src\gpu\gl\builders\skgpu.GrGLShaderBuilder.obj: cxx $
+    ..\..\src\gpu\gl\builders\GrGLShaderBuilder.cpp
+build obj\src\gpu\gl\builders\skgpu.GrGLShaderStringBuilder.obj: cxx $
+    ..\..\src\gpu\gl\builders\GrGLShaderStringBuilder.cpp
+build obj\src\gpu\gl\builders\skgpu.GrGLSLPrettyPrint.obj: cxx $
+    ..\..\src\gpu\gl\builders\GrGLSLPrettyPrint.cpp
+build obj\src\gpu\gl\builders\skgpu.GrGLVertexShaderBuilder.obj: cxx $
+    ..\..\src\gpu\gl\builders\GrGLVertexShaderBuilder.cpp
+build obj\src\gpu\gl\builders\skgpu.GrGLFragmentShaderBuilder.obj: cxx $
+    ..\..\src\gpu\gl\builders\GrGLFragmentShaderBuilder.cpp
+build obj\src\gpu\gl\builders\skgpu.GrGLGeometryShaderBuilder.obj: cxx $
+    ..\..\src\gpu\gl\builders\GrGLGeometryShaderBuilder.cpp
+build obj\src\gpu\skgpu.SkGpuDevice.obj: cxx ..\..\src\gpu\SkGpuDevice.cpp
+build obj\src\gpu\skgpu.SkGr.obj: cxx ..\..\src\gpu\SkGr.cpp
+build obj\src\gpu\skgpu.SkGrPixelRef.obj: cxx ..\..\src\gpu\SkGrPixelRef.cpp
+build obj\src\gpu\skgpu.SkGrTexturePixelRef.obj: cxx $
+    ..\..\src\gpu\SkGrTexturePixelRef.cpp
+build obj\src\image\skgpu.SkImage_Gpu.obj: cxx ..\..\src\image\SkImage_Gpu.cpp
+build obj\src\image\skgpu.SkSurface_Gpu.obj: cxx $
+    ..\..\src\image\SkSurface_Gpu.cpp
+build obj\src\gpu\gl\skgpu.SkGLContext.obj: cxx $
+    ..\..\src\gpu\gl\SkGLContext.cpp
+build obj\src\gpu\gl\skgpu.GrGLDefaultInterface_native.obj: cxx $
+    ..\..\src\gpu\gl\GrGLDefaultInterface_native.cpp
+build obj\src\gpu\gl\win\skgpu.GrGLCreateNativeInterface_win.obj: cxx $
+    ..\..\src\gpu\gl\win\GrGLCreateNativeInterface_win.cpp
+build obj\src\gpu\gl\win\skgpu.SkCreatePlatformGLContext_win.obj: cxx $
+    ..\..\src\gpu\gl\win\SkCreatePlatformGLContext_win.cpp
+build obj\src\gpu\gl\debug\skgpu.GrGLCreateDebugInterface.obj: cxx $
+    ..\..\src\gpu\gl\debug\GrGLCreateDebugInterface.cpp
+build obj\src\gpu\gl\debug\skgpu.GrBufferObj.obj: cxx $
+    ..\..\src\gpu\gl\debug\GrBufferObj.cpp
+build obj\src\gpu\gl\debug\skgpu.GrTextureObj.obj: cxx $
+    ..\..\src\gpu\gl\debug\GrTextureObj.cpp
+build obj\src\gpu\gl\debug\skgpu.GrTextureUnitObj.obj: cxx $
+    ..\..\src\gpu\gl\debug\GrTextureUnitObj.cpp
+build obj\src\gpu\gl\debug\skgpu.GrFrameBufferObj.obj: cxx $
+    ..\..\src\gpu\gl\debug\GrFrameBufferObj.cpp
+build obj\src\gpu\gl\debug\skgpu.GrShaderObj.obj: cxx $
+    ..\..\src\gpu\gl\debug\GrShaderObj.cpp
+build obj\src\gpu\gl\debug\skgpu.GrProgramObj.obj: cxx $
+    ..\..\src\gpu\gl\debug\GrProgramObj.cpp
+build obj\src\gpu\gl\debug\skgpu.GrDebugGL.obj: cxx $
+    ..\..\src\gpu\gl\debug\GrDebugGL.cpp
+build obj\src\gpu\gl\debug\skgpu.SkDebugGLContext.obj: cxx $
+    ..\..\src\gpu\gl\debug\SkDebugGLContext.cpp
+build obj\src\gpu\gl\skgpu.GrGLCreateNullInterface.obj: cxx $
+    ..\..\src\gpu\gl\GrGLCreateNullInterface.cpp
+build obj\src\gpu\gl\skgpu.SkNullGLContext.obj: cxx $
+    ..\..\src\gpu\gl\SkNullGLContext.cpp
+build obj\experimental\ChromeUtils\skgpu.SkBorder.obj: cxx $
+    ..\..\experimental\ChromeUtils\SkBorder.cpp
+
+build skia_skgpu.lib: alink obj\src\gpu\skgpu.GrAAHairLinePathRenderer.obj $
+    obj\src\gpu\skgpu.GrAAConvexPathRenderer.obj $
+    obj\src\gpu\skgpu.GrAADistanceFieldPathRenderer.obj $
+    obj\src\gpu\skgpu.GrAARectRenderer.obj $
+    obj\src\gpu\skgpu.GrAddPathRenderers_default.obj $
+    obj\src\gpu\skgpu.GrAtlas.obj obj\src\gpu\skgpu.GrBitmapTextContext.obj $
+    obj\src\gpu\skgpu.GrBlend.obj obj\src\gpu\skgpu.GrBufferAllocPool.obj $
+    obj\src\gpu\skgpu.GrCacheID.obj obj\src\gpu\skgpu.GrClipData.obj $
+    obj\src\gpu\skgpu.GrClipMaskCache.obj $
+    obj\src\gpu\skgpu.GrClipMaskManager.obj obj\src\gpu\skgpu.GrContext.obj $
+    obj\src\gpu\skgpu.GrCoordTransform.obj $
+    obj\src\gpu\skgpu.GrDefaultGeoProcFactory.obj $
+    obj\src\gpu\skgpu.GrDefaultPathRenderer.obj $
+    obj\src\gpu\skgpu.GrDistanceFieldTextContext.obj $
+    obj\src\gpu\skgpu.GrDrawState.obj obj\src\gpu\skgpu.GrDrawTarget.obj $
+    obj\src\gpu\skgpu.GrFlushToGpuDrawTarget.obj $
+    obj\src\gpu\skgpu.GrFontScaler.obj $
+    obj\src\gpu\skgpu.GrGeometryProcessor.obj obj\src\gpu\skgpu.GrGpu.obj $
+    obj\src\gpu\skgpu.GrGpuResource.obj obj\src\gpu\skgpu.GrGpuFactory.obj $
+    obj\src\gpu\skgpu.GrInvariantOutput.obj $
+    obj\src\gpu\skgpu.GrInOrderDrawBuffer.obj $
+    obj\src\gpu\skgpu.GrLayerCache.obj obj\src\gpu\skgpu.GrLayerHoister.obj $
+    obj\src\gpu\skgpu.GrMemoryPool.obj obj\src\gpu\skgpu.GrOptDrawState.obj $
+    obj\src\gpu\skgpu.GrOvalRenderer.obj obj\src\gpu\skgpu.GrPaint.obj $
+    obj\src\gpu\skgpu.GrPath.obj obj\src\gpu\skgpu.GrPathRange.obj $
+    obj\src\gpu\skgpu.GrPathRendererChain.obj $
+    obj\src\gpu\skgpu.GrPathRenderer.obj $
+    obj\src\gpu\skgpu.GrPathRendering.obj obj\src\gpu\skgpu.GrPathUtils.obj $
+    obj\src\gpu\skgpu.GrProgramElement.obj $
+    obj\src\gpu\skgpu.GrProcessor.obj obj\src\gpu\skgpu.GrProcOptInfo.obj $
+    obj\src\gpu\skgpu.GrGpuResourceRef.obj $
+    obj\src\gpu\skgpu.GrRecordReplaceDraw.obj $
+    obj\src\gpu\skgpu.GrRectanizer_pow2.obj $
+    obj\src\gpu\skgpu.GrRectanizer_skyline.obj $
+    obj\src\gpu\skgpu.GrRenderTarget.obj $
+    obj\src\gpu\skgpu.GrReducedClip.obj $
+    obj\src\gpu\skgpu.GrResourceCache2.obj obj\src\gpu\skgpu.GrStencil.obj $
+    obj\src\gpu\skgpu.GrStencilAndCoverPathRenderer.obj $
+    obj\src\gpu\skgpu.GrStencilAndCoverTextContext.obj $
+    obj\src\gpu\skgpu.GrStencilBuffer.obj $
+    obj\src\gpu\skgpu.GrTraceMarker.obj $
+    obj\src\gpu\skgpu.GrSWMaskHelper.obj $
+    obj\src\gpu\skgpu.GrSoftwarePathRenderer.obj $
+    obj\src\gpu\skgpu.GrSurface.obj obj\src\gpu\skgpu.GrTextContext.obj $
+    obj\src\gpu\skgpu.GrFontCache.obj obj\src\gpu\skgpu.GrTexture.obj $
+    obj\src\gpu\skgpu.GrTextureAccess.obj $
+    obj\src\gpu\effects\skgpu.GrConfigConversionEffect.obj $
+    obj\src\gpu\effects\skgpu.GrCoverageSetOpXP.obj $
+    obj\src\gpu\effects\skgpu.GrBezierEffect.obj $
+    obj\src\gpu\effects\skgpu.GrConvolutionEffect.obj $
+    obj\src\gpu\effects\skgpu.GrConvexPolyEffect.obj $
+    obj\src\gpu\effects\skgpu.GrBicubicEffect.obj $
+    obj\src\gpu\effects\skgpu.GrBitmapTextGeoProc.obj $
+    obj\src\gpu\effects\skgpu.GrDashingEffect.obj $
+    obj\src\gpu\effects\skgpu.GrDisableColorXP.obj $
+    obj\src\gpu\effects\skgpu.GrDistanceFieldTextureEffect.obj $
+    obj\src\gpu\effects\skgpu.GrDitherEffect.obj $
+    obj\src\gpu\effects\skgpu.GrMatrixConvolutionEffect.obj $
+    obj\src\gpu\effects\skgpu.GrOvalEffect.obj $
+    obj\src\gpu\effects\skgpu.GrPorterDuffXferProcessor.obj $
+    obj\src\gpu\effects\skgpu.GrRRectEffect.obj $
+    obj\src\gpu\effects\skgpu.GrSimpleTextureEffect.obj $
+    obj\src\gpu\effects\skgpu.GrSingleTextureEffect.obj $
+    obj\src\gpu\effects\skgpu.GrTextureDomain.obj $
+    obj\src\gpu\effects\skgpu.GrTextureStripAtlas.obj $
+    obj\src\gpu\effects\skgpu.GrYUVtoRGBEffect.obj $
+    obj\src\gpu\gl\skgpu.GrGLAssembleInterface.obj $
+    obj\src\gpu\gl\skgpu.GrGLBufferImpl.obj $
+    obj\src\gpu\gl\skgpu.GrGLCaps.obj obj\src\gpu\gl\skgpu.GrGLContext.obj $
+    obj\src\gpu\gl\skgpu.GrGLGpu.obj $
+    obj\src\gpu\gl\skgpu.GrGLGpuProgramCache.obj $
+    obj\src\gpu\gl\skgpu.GrGLExtensions.obj $
+    obj\src\gpu\gl\skgpu.GrGLIndexBuffer.obj $
+    obj\src\gpu\gl\skgpu.GrGLInterface.obj $
+    obj\src\gpu\gl\skgpu.GrGLNameAllocator.obj $
+    obj\src\gpu\gl\skgpu.GrGLNoOpInterface.obj $
+    obj\src\gpu\gl\skgpu.GrGLPath.obj $
+    obj\src\gpu\gl\skgpu.GrGLPathRange.obj $
+    obj\src\gpu\gl\skgpu.GrGLPathRendering.obj $
+    obj\src\gpu\gl\skgpu.GrGLProgram.obj $
+    obj\src\gpu\gl\skgpu.GrGLProgramDesc.obj $
+    obj\src\gpu\gl\skgpu.GrGLProgramDataManager.obj $
+    obj\src\gpu\gl\skgpu.GrGLRenderTarget.obj $
+    obj\src\gpu\gl\skgpu.GrGLSL.obj $
+    obj\src\gpu\gl\skgpu.GrGLStencilBuffer.obj $
+    obj\src\gpu\gl\skgpu.GrGLTexture.obj obj\src\gpu\gl\skgpu.GrGLUtil.obj $
+    obj\src\gpu\gl\skgpu.GrGLVertexArray.obj $
+    obj\src\gpu\gl\skgpu.GrGLVertexBuffer.obj $
+    obj\src\gpu\gl\builders\skgpu.GrGLLegacyNvprProgramBuilder.obj $
+    obj\src\gpu\gl\builders\skgpu.GrGLNvprProgramBuilder.obj $
+    obj\src\gpu\gl\builders\skgpu.GrGLProgramBuilder.obj $
+    obj\src\gpu\gl\builders\skgpu.GrGLShaderBuilder.obj $
+    obj\src\gpu\gl\builders\skgpu.GrGLShaderStringBuilder.obj $
+    obj\src\gpu\gl\builders\skgpu.GrGLSLPrettyPrint.obj $
+    obj\src\gpu\gl\builders\skgpu.GrGLVertexShaderBuilder.obj $
+    obj\src\gpu\gl\builders\skgpu.GrGLFragmentShaderBuilder.obj $
+    obj\src\gpu\gl\builders\skgpu.GrGLGeometryShaderBuilder.obj $
+    obj\src\gpu\skgpu.SkGpuDevice.obj obj\src\gpu\skgpu.SkGr.obj $
+    obj\src\gpu\skgpu.SkGrPixelRef.obj $
+    obj\src\gpu\skgpu.SkGrTexturePixelRef.obj $
+    obj\src\image\skgpu.SkImage_Gpu.obj $
+    obj\src\image\skgpu.SkSurface_Gpu.obj $
+    obj\src\gpu\gl\skgpu.SkGLContext.obj $
+    obj\src\gpu\gl\skgpu.GrGLDefaultInterface_native.obj $
+    obj\src\gpu\gl\win\skgpu.GrGLCreateNativeInterface_win.obj $
+    obj\src\gpu\gl\win\skgpu.SkCreatePlatformGLContext_win.obj $
+    obj\src\gpu\gl\debug\skgpu.GrGLCreateDebugInterface.obj $
+    obj\src\gpu\gl\debug\skgpu.GrBufferObj.obj $
+    obj\src\gpu\gl\debug\skgpu.GrTextureObj.obj $
+    obj\src\gpu\gl\debug\skgpu.GrTextureUnitObj.obj $
+    obj\src\gpu\gl\debug\skgpu.GrFrameBufferObj.obj $
+    obj\src\gpu\gl\debug\skgpu.GrShaderObj.obj $
+    obj\src\gpu\gl\debug\skgpu.GrProgramObj.obj $
+    obj\src\gpu\gl\debug\skgpu.GrDebugGL.obj $
+    obj\src\gpu\gl\debug\skgpu.SkDebugGLContext.obj $
+    obj\src\gpu\gl\skgpu.GrGLCreateNullInterface.obj $
+    obj\src\gpu\gl\skgpu.SkNullGLContext.obj $
+    obj\experimental\ChromeUtils\skgpu.SkBorder.obj
+  libflags = /LTCG

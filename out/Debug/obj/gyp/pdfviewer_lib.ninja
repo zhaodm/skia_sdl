@@ -1,0 +1,84 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = pdfviewer_lib.pdb
+pdbname_cc = pdfviewer_lib.pdb
+pchprefix = pdfviewer_lib
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DSK_DEVELOPER=1 -D_DEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\experimental\PdfViewer $
+    -I..\..\experimental\PdfViewer\inc -I..\..\experimental\PdfViewer\src $
+    -I..\..\experimental\PdfViewer\pdfparser $
+    -I..\..\experimental\PdfViewer\pdfparser\native $
+    -I..\..\experimental\PdfViewer\pdfparser\native\pdfapi -I..\..\src\core $
+    -I..\..\include\c -I..\..\include\config -I..\..\include\core $
+    -I..\..\include\pathops -I..\..\include\pipe -I..\..\gyp\config\win $
+    -I..\..\include\effects -I..\..\include\images -I..\..\include\ports $
+    -I..\..\src\sfnt -I..\..\include\utils -I..\..\src\utils $
+    -I..\..\include\utils\win -I..\..\include\gpu
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Od /W3 /WX /ZI /GR- /MDd /we4189 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\experimental\PdfViewer\src\pdfviewer_lib.SkPdfContext.obj: cxx $
+    ..\..\experimental\PdfViewer\src\SkPdfContext.cpp
+build obj\experimental\PdfViewer\src\pdfviewer_lib.SkPdfRenderer.obj: cxx $
+    ..\..\experimental\PdfViewer\src\SkPdfRenderer.cpp
+build obj\experimental\PdfViewer\src\pdfviewer_lib.SkPdfDiffEncoder.obj: $
+    cxx ..\..\experimental\PdfViewer\src\SkPdfDiffEncoder.cpp
+build obj\experimental\PdfViewer\pdfviewer_lib.SkPdfGraphicsState.obj: cxx $
+    ..\..\experimental\PdfViewer\SkPdfGraphicsState.cpp
+build obj\experimental\PdfViewer\pdfviewer_lib.SkPdfFont.obj: cxx $
+    ..\..\experimental\PdfViewer\SkPdfFont.cpp
+build obj\experimental\PdfViewer\pdfviewer_lib.SkPdfReporter.obj: cxx $
+    ..\..\experimental\PdfViewer\SkPdfReporter.cpp
+build obj\experimental\PdfViewer\pdfviewer_lib.SkPdfUtils.obj: cxx $
+    ..\..\experimental\PdfViewer\SkPdfUtils.cpp
+build obj\experimental\PdfViewer\pdfviewer_lib.SkTrackDevice.obj: cxx $
+    ..\..\experimental\PdfViewer\SkTrackDevice.cpp
+build obj\experimental\PdfViewer\pdfviewer_lib.SkTracker.obj: cxx $
+    ..\..\experimental\PdfViewer\SkTracker.cpp
+build $
+    obj\experimental\PdfViewer\pdfparser\native\pdfviewer_lib.SkPdfNativeObject.obj: $
+    cxx ..\..\experimental\PdfViewer\pdfparser\native\SkPdfNativeObject.cpp
+build $
+    obj\experimental\PdfViewer\pdfparser\native\pdfviewer_lib.SkPdfNativeTokenizer.obj: $
+    cxx ..\..\experimental\PdfViewer\pdfparser\native\SkPdfNativeTokenizer.cpp
+build $
+    obj\experimental\PdfViewer\pdfparser\native\pdfviewer_lib.SkPdfNativeDoc.obj: $
+    cxx ..\..\experimental\PdfViewer\pdfparser\native\SkPdfNativeDoc.cpp
+build $
+    obj\experimental\PdfViewer\pdfparser\native\pdfapi\pdfviewer_lib.SkPdfMapper_autogen.obj: $
+    cxx $
+    ..\..\experimental\PdfViewer\pdfparser\native\pdfapi\SkPdfMapper_autogen.cpp
+build $
+    obj\experimental\PdfViewer\pdfparser\native\pdfapi\pdfviewer_lib.SkPdfHeaders_autogen.obj: $
+    cxx $
+    ..\..\experimental\PdfViewer\pdfparser\native\pdfapi\SkPdfHeaders_autogen.cpp
+
+build obj\gyp\pdfviewer_lib.lib: alink $
+    obj\experimental\PdfViewer\src\pdfviewer_lib.SkPdfContext.obj $
+    obj\experimental\PdfViewer\src\pdfviewer_lib.SkPdfRenderer.obj $
+    obj\experimental\PdfViewer\src\pdfviewer_lib.SkPdfDiffEncoder.obj $
+    obj\experimental\PdfViewer\pdfviewer_lib.SkPdfGraphicsState.obj $
+    obj\experimental\PdfViewer\pdfviewer_lib.SkPdfFont.obj $
+    obj\experimental\PdfViewer\pdfviewer_lib.SkPdfReporter.obj $
+    obj\experimental\PdfViewer\pdfviewer_lib.SkPdfUtils.obj $
+    obj\experimental\PdfViewer\pdfviewer_lib.SkTrackDevice.obj $
+    obj\experimental\PdfViewer\pdfviewer_lib.SkTracker.obj $
+    obj\experimental\PdfViewer\pdfparser\native\pdfviewer_lib.SkPdfNativeObject.obj $
+    obj\experimental\PdfViewer\pdfparser\native\pdfviewer_lib.SkPdfNativeTokenizer.obj $
+    obj\experimental\PdfViewer\pdfparser\native\pdfviewer_lib.SkPdfNativeDoc.obj $
+    obj\experimental\PdfViewer\pdfparser\native\pdfapi\pdfviewer_lib.SkPdfMapper_autogen.obj $
+    obj\experimental\PdfViewer\pdfparser\native\pdfapi\pdfviewer_lib.SkPdfHeaders_autogen.obj $
+    || obj\gyp\skia_lib.actions_depends.stamp
+  libflags = 

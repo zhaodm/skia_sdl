@@ -1,0 +1,77 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = libwebp_enc.pdb
+pdbname_cc = libwebp_enc.pdb
+pchprefix = libwebp_enc
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\third_party\externals\libwebp
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /Zi /GR- /MD /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.alpha.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\alpha.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.analysis.obj: $
+    cc ..\..\third_party\externals\libwebp\src\enc\analysis.c
+build $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.backward_references.obj: $
+    cc ..\..\third_party\externals\libwebp\src\enc\backward_references.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.config.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\config.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.cost.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\cost.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.filter.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\filter.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.frame.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\frame.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.histogram.obj: $
+    cc ..\..\third_party\externals\libwebp\src\enc\histogram.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.iterator.obj: $
+    cc ..\..\third_party\externals\libwebp\src\enc\iterator.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.layer.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\layer.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.picture.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\picture.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.quant.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\quant.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.syntax.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\syntax.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.token.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\token.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.tree.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\tree.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.vp8l.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\vp8l.c
+build obj\third_party\externals\libwebp\src\enc\libwebp_enc.webpenc.obj: cc $
+    ..\..\third_party\externals\libwebp\src\enc\webpenc.c
+
+build obj\gyp\libwebp_enc.lib: alink $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.alpha.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.analysis.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.backward_references.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.config.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.cost.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.filter.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.frame.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.histogram.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.iterator.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.layer.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.picture.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.quant.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.syntax.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.token.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.tree.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.vp8l.obj $
+    obj\third_party\externals\libwebp\src\enc\libwebp_enc.webpenc.obj
+  libflags = /LTCG

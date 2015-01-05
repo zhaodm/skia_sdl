@@ -1,0 +1,59 @@
+arch = environment.x86
+cc = $cl_x86
+cxx = $cl_x86
+cc_host = $cl_x86
+cxx_host = $cl_x86
+pdbname_c = pdf.pdb
+pdbname_cc = pdf.pdb
+pchprefix = pdf
+defines = -DSK_INTERNAL -DSK_GAMMA_SRGB -DSK_GAMMA_APPLY_TO_A8 $
+    -DSK_SCALAR_TO_FLOAT_EXCLUDED -DSK_ALLOW_STATIC_GLOBAL_INITIALIZERS=1 $
+    -DSK_SUPPORT_GPU=1 -DSK_SUPPORT_OPENCL=0 $
+    -DSK_FORCE_DISTANCE_FIELD_TEXT=0 -DSK_SCALAR_IS_FLOAT $
+    -DSK_BUILD_FOR_WIN32 -D_CRT_SECURE_NO_WARNINGS $
+    -DGR_GL_FUNCTION_TYPE=__stdcall -DNDEBUG -DNDEBUG
+asmflags = 
+rcflags = /I..\..\gyp
+includes = -I..\..\include\pdf -I..\..\src\core -I..\..\src\pdf $
+    -I..\..\src\utils -I..\..\include\c -I..\..\include\config $
+    -I..\..\include\core -I..\..\include\pathops -I..\..\include\pipe $
+    -I..\..\gyp\config\win -I..\..\include\effects -I..\..\include\images $
+    -I..\..\include\ports -I..\..\src\sfnt -I..\..\include\utils $
+    -I..\..\include\utils\win -I..\..\include\gpu
+midl_includes = 
+cflags = /wd4275 /wd4345 /wd4355 /Ox /Ot /GL /W3 /WX /Zi /GR- /MD /we4189 $
+    /arch:SSE2 /FS
+cflags_c = 
+cflags_cc = /TP
+
+build obj\src\doc\pdf.SkDocument_PDF.obj: cxx ..\..\src\doc\SkDocument_PDF.cpp
+build obj\src\pdf\pdf.SkPDFCatalog.obj: cxx ..\..\src\pdf\SkPDFCatalog.cpp
+build obj\src\pdf\pdf.SkPDFDevice.obj: cxx ..\..\src\pdf\SkPDFDevice.cpp
+build obj\src\pdf\pdf.SkPDFDeviceFlattener.obj: cxx $
+    ..\..\src\pdf\SkPDFDeviceFlattener.cpp
+build obj\src\pdf\pdf.SkPDFDocument.obj: cxx ..\..\src\pdf\SkPDFDocument.cpp
+build obj\src\pdf\pdf.SkPDFFont.obj: cxx ..\..\src\pdf\SkPDFFont.cpp
+build obj\src\pdf\pdf.SkPDFFormXObject.obj: cxx $
+    ..\..\src\pdf\SkPDFFormXObject.cpp
+build obj\src\pdf\pdf.SkPDFGraphicState.obj: cxx $
+    ..\..\src\pdf\SkPDFGraphicState.cpp
+build obj\src\pdf\pdf.SkPDFImage.obj: cxx ..\..\src\pdf\SkPDFImage.cpp
+build obj\src\pdf\pdf.SkPDFPage.obj: cxx ..\..\src\pdf\SkPDFPage.cpp
+build obj\src\pdf\pdf.SkPDFResourceDict.obj: cxx $
+    ..\..\src\pdf\SkPDFResourceDict.cpp
+build obj\src\pdf\pdf.SkPDFShader.obj: cxx ..\..\src\pdf\SkPDFShader.cpp
+build obj\src\pdf\pdf.SkPDFStream.obj: cxx ..\..\src\pdf\SkPDFStream.cpp
+build obj\src\pdf\pdf.SkPDFTypes.obj: cxx ..\..\src\pdf\SkPDFTypes.cpp
+build obj\src\pdf\pdf.SkPDFUtils.obj: cxx ..\..\src\pdf\SkPDFUtils.cpp
+
+build skia_pdf.lib: alink obj\src\doc\pdf.SkDocument_PDF.obj $
+    obj\src\pdf\pdf.SkPDFCatalog.obj obj\src\pdf\pdf.SkPDFDevice.obj $
+    obj\src\pdf\pdf.SkPDFDeviceFlattener.obj $
+    obj\src\pdf\pdf.SkPDFDocument.obj obj\src\pdf\pdf.SkPDFFont.obj $
+    obj\src\pdf\pdf.SkPDFFormXObject.obj $
+    obj\src\pdf\pdf.SkPDFGraphicState.obj obj\src\pdf\pdf.SkPDFImage.obj $
+    obj\src\pdf\pdf.SkPDFPage.obj obj\src\pdf\pdf.SkPDFResourceDict.obj $
+    obj\src\pdf\pdf.SkPDFShader.obj obj\src\pdf\pdf.SkPDFStream.obj $
+    obj\src\pdf\pdf.SkPDFTypes.obj obj\src\pdf\pdf.SkPDFUtils.obj || $
+    obj\gyp\skia_lib.actions_depends.stamp
+  libflags = /LTCG
